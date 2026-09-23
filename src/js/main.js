@@ -8,12 +8,16 @@ import { initAtmosphere } from './atmosphere.js';
 import { initQuickView } from './quickView.js';
 import { initSearchModal } from './searchModal.js';
 import { initAudioAmbiance } from './audioAmbiance.js';
+import { initCinematicHero } from './cinematicHero.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Canvas Mist & Ambient Particles
   initMistCanvas();
 
-  // 2. Initialize Core Interactive Modules
+  // 2. Initialize Cinematic Scroll-Driven Hero (Horizontal -> 9:16 Vertical Reels)
+  initCinematicHero();
+
+  // 3. Initialize Core Interactive Modules
   initAtmosphere();
   initQuickView();
   initSearchModal();
