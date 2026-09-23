@@ -1,0 +1,1396 @@
+/* ==========================================================================
+   DeLiora Essence by Patidar — Section Styles (01 to 11 + Footer)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. HERO SECTION (Desktop 100vh, Mobile 9:16)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--header-height) + 2rem) 1.5rem 4rem;
+  background: radial-gradient(circle at 50% 38%, #4a151f 0%, #25090e 55%, #120306 100%);
+}
+
+.hero-ambient-spotlight {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 90vw);
+  height: min(900px, 90vw);
+  background: radial-gradient(circle, rgba(184, 146, 74, 0.16) 0%, rgba(217, 160, 164, 0.08) 40%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  animation: pulseSpotlight 10s ease-in-out infinite alternate;
+}
+
+@keyframes pulseSpotlight {
+  0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-brand-byline {
+  font-family: var(--font-display);
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.hero-brand-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 8vw, 6.2rem);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  font-weight: 300;
+  line-height: 1;
+  color: #FFFFFF;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  margin-bottom: 0.2rem;
+}
+
+.hero-brand-sub {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 2vw, 1.6rem);
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-ivory-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.hero-patidar-sign {
+  font-family: var(--font-script);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  color: var(--color-gold);
+  letter-spacing: normal;
+  margin-bottom: 1.8rem;
+}
+
+.hero-visual-frame {
+  position: relative;
+  margin: 1rem auto 2.4rem;
+  max-width: 780px;
+  width: 100%;
+}
+
+.hero-product-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: var(--border-radius-subtle);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(184, 146, 74, 0.15);
+  border: 1px solid rgba(184, 146, 74, 0.2);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-visual-frame:hover .hero-product-img {
+  transform: scale(1.02);
+}
+
+.hero-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.8vw, 3.4rem);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--color-ivory);
+  margin-bottom: 1rem;
+}
+
+.hero-supporting-copy {
+  max-width: 620px;
+  margin: 0 auto 2.2rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  color: var(--color-ivory-muted);
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 1.4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-scroll-prompt {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.hero-scroll-prompt:hover {
+  opacity: 1;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(180deg, var(--color-gold) 0%, transparent 100%);
+  animation: scrollDownIndicator 2.2s infinite ease-in-out;
+}
+
+@keyframes scrollDownIndicator {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* --------------------------------------------------------------------------
+   02. LUXURY INTRODUCTION (Cream / Ivory Atmosphere)
+   -------------------------------------------------------------------------- */
+.intro-section {
+  position: relative;
+  padding: clamp(6rem, 14vh, 12rem) 1.5rem;
+  background: #F5F0E8;
+  color: #241A17;
+  transition: background var(--transition-slow);
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.intro-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(36, 26, 23, 0.12);
+  border: 1px solid rgba(184, 146, 74, 0.25);
+}
+
+.intro-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-image-wrapper:hover .intro-image {
+  transform: scale(1.04);
+}
+
+.intro-quote-badge {
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.intro-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-wide);
+  color: #1A0D11;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.intro-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  color: #4A332C;
+  line-height: 1.5;
+  margin-bottom: 2.2rem;
+  border-left: 2px solid var(--color-gold);
+  padding-left: 1.8rem;
+}
+
+.intro-body-copy {
+  color: #5E4E46;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   03. THE COLLECTION (Five Expressions, Five Universes)
+   -------------------------------------------------------------------------- */
+.collection-section {
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  position: relative;
+  transition: background var(--transition-slow);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 5rem;
+}
+
+.section-header .section-title {
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-header .section-subtitle {
+  font-size: 1.1rem;
+  letter-spacing: var(--tracking-wide);
+  color: var(--theme-text-muted);
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.fragrance-card {
+  position: relative;
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-surface-border);
+  padding: 2.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  border-radius: var(--border-radius-subtle);
+}
+
+.fragrance-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 20%, var(--card-glow, rgba(184, 146, 74, 0.15)) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.fragrance-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--card-accent, var(--color-gold));
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.fragrance-card:hover::before {
+  opacity: 1;
+}
+
+.card-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-family-tag {
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--card-accent, var(--color-gold));
+}
+
+.card-price-tag {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--theme-text);
+}
+
+.card-image-box {
+  position: relative;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.card-bottle-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
+}
+
+.fragrance-card:hover .card-bottle-img {
+  transform: scale(1.06) translateY(-4px);
+}
+
+.card-details {
+  text-align: center;
+}
+
+.card-perfume-name {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  color: #FFFFFF;
+}
+
+.card-perfume-sub {
+  font-size: 0.8rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--card-accent, var(--color-gold));
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.card-notes-preview {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--theme-text-muted);
+  margin-bottom: 1.8rem;
+  min-height: 48px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.card-actions .btn {
+  padding: 0.85rem 1.4rem;
+  font-size: 0.75rem;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   04. INTERACTIVE FRAGRANCE EXPERIENCE ("CHOOSE YOUR MOOD")
+   -------------------------------------------------------------------------- */
+.mood-section {
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  background: rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+.mood-selector-nav {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.6rem, 1.5vw, 1.4rem);
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.mood-tab-btn {
+  padding: 0.9rem 1.8rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-ivory-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.mood-tab-btn:hover {
+  border-color: var(--color-gold);
+  color: #FFFFFF;
+}
+
+.mood-tab-btn.is-active {
+  background: var(--mood-accent, var(--color-gold));
+  color: #120306;
+  border-color: var(--mood-accent, var(--color-gold));
+  box-shadow: 0 0 25px rgba(184, 146, 74, 0.35);
+  font-weight: 600;
+}
+
+.mood-display-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  transition: opacity 0.4s ease;
+}
+
+.mood-active-meta {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.mood-atmosphere-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 0.6rem;
+}
+
+.mood-atmosphere-desc {
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+.mood-perfumes-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   05. FLEUR EDITORIAL CAMPAIGN
+   -------------------------------------------------------------------------- */
+.fleur-campaign-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at 70% 40%, #521927 0%, #290b13 60%, #110307 100%);
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  overflow: hidden;
+}
+
+.fleur-ambient-glow {
+  position: absolute;
+  top: 30%;
+  right: 15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(217, 160, 164, 0.22) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.fleur-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.fleur-headline {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.5vw, 5.8rem);
+  letter-spacing: var(--tracking-widest);
+  line-height: 0.95;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.fleur-subheadline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-blush);
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+
+.fleur-story-copy {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  line-height: 1.6;
+  color: #F8E3E6;
+  margin-bottom: 2rem;
+  border-left: 1px solid var(--color-blush);
+  padding-left: 1.5rem;
+}
+
+.fleur-botanicals-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.fleur-botanical-chip {
+  padding: 0.5rem 1rem;
+  background: rgba(217, 160, 164, 0.12);
+  border: 1px solid rgba(217, 160, 164, 0.28);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wider);
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.fleur-visual-duo {
+  position: relative;
+}
+
+.fleur-primary-img {
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(217, 160, 164, 0.2);
+  border: 1px solid rgba(217, 160, 164, 0.3);
+}
+
+.fleur-inset-img {
+  position: absolute;
+  bottom: -2.5rem;
+  left: -2.5rem;
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border: 1px solid var(--color-blush);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .fleur-inset-img { display: block; }
+}
+
+/* --------------------------------------------------------------------------
+   06. ART-DIRECTED OLFACTORY PYRAMID (The Ingredients & Notes)
+   -------------------------------------------------------------------------- */
+.pyramid-section {
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  background: radial-gradient(circle at 50% 30%, rgba(35, 14, 20, 0.7) 0%, rgba(10, 3, 5, 0.95) 100%);
+  position: relative;
+}
+
+.pyramid-perfume-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.pyramid-nav-pill {
+  padding: 0.7rem 1.6rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-ivory-muted);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.pyramid-nav-pill:hover {
+  color: var(--color-gold);
+}
+
+.pyramid-nav-pill.is-active {
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
+}
+
+.pyramid-architecture {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.pyramid-level {
+  width: 100%;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.pyramid-level-tag {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.pyramid-level-timing {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--theme-text-dim);
+  text-transform: none;
+  letter-spacing: var(--tracking-normal);
+}
+
+.pyramid-notes-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.pyramid-note-pill {
+  padding: 0.9rem 1.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(184, 146, 74, 0.22);
+  text-align: center;
+  min-width: 180px;
+  transition: all 0.3s ease;
+}
+
+.pyramid-note-pill:hover {
+  border-color: var(--color-gold);
+  background: rgba(184, 146, 74, 0.08);
+  transform: translateY(-2px);
+}
+
+.note-name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--color-ivory);
+  margin-bottom: 2px;
+}
+
+.note-accord {
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.pyramid-connector {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(180deg, var(--color-gold) 0%, transparent 100%);
+  margin: 0 auto 2.5rem;
+  opacity: 0.45;
+}
+
+/* --------------------------------------------------------------------------
+   07. THE DELIORA EXPERIENCE (Lifestyle & Ritual)
+   -------------------------------------------------------------------------- */
+.experience-section {
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  background: #14070A;
+}
+
+.editorial-gallery-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.editorial-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.editorial-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 420px;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-item:hover img {
+  transform: scale(1.05);
+}
+
+.editorial-caption-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem 2rem 2rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 3, 5, 0.95) 100%);
+}
+
+.editorial-caption-tag {
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.editorial-caption-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   08. BRAND STORY (The House of DeLiora)
+   -------------------------------------------------------------------------- */
+.story-section {
+  padding: clamp(6rem, 14vh, 11rem) 1.5rem;
+  background: #F5F0E8;
+  color: #241A17;
+  text-align: center;
+}
+
+.story-crest-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.8rem;
+  opacity: 0.85;
+}
+
+.story-lead-copy {
+  max-width: 820px;
+  margin: 0 auto 3.5rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.6;
+  color: #38241D;
+  font-weight: 300;
+}
+
+.story-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.story-pillar-item {
+  padding: 2rem 1.5rem;
+  border-top: 1px solid rgba(184, 146, 74, 0.35);
+}
+
+.pillar-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: #1A0D11;
+  margin-bottom: 1rem;
+}
+
+.pillar-copy {
+  font-size: 0.92rem;
+  color: #5E4E46;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   09. LUXURY DETAIL SECTION (Macro Craftsmanship)
+   -------------------------------------------------------------------------- */
+.craftsmanship-section {
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  background: #100407;
+}
+
+.craftsmanship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.craft-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 2.5rem 2rem;
+  transition: all 0.4s ease;
+}
+
+.craft-card:hover {
+  background: rgba(184, 146, 74, 0.05);
+  border-color: var(--color-gold);
+  transform: translateY(-4px);
+}
+
+.craft-number {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-gold);
+  margin-bottom: 1.2rem;
+}
+
+.craft-title {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  color: #FFFFFF;
+  margin-bottom: 0.4rem;
+}
+
+.craft-sub {
+  font-size: 0.78rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.2rem;
+}
+
+.craft-desc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--color-ivory-muted);
+  margin-bottom: 1.4rem;
+}
+
+.craft-spec {
+  font-size: 0.75rem;
+  color: rgba(245, 240, 232, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. SHOP THE COLLECTION (Minimalist Boutique)
+   -------------------------------------------------------------------------- */
+.shop-section {
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  background: #17080B;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.shop-product-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 1.8rem;
+  transition: all 0.4s ease;
+}
+
+.shop-product-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.shop-img-box {
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+
+.shop-img-box img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+}
+
+.shop-product-card:hover .shop-img-box img {
+  transform: scale(1.05);
+}
+
+.shop-info-block {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shop-item-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: var(--tracking-wider);
+  color: #FFFFFF;
+  margin-bottom: 0.2rem;
+}
+
+.shop-item-family {
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.shop-item-price {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-ivory);
+  margin-bottom: 1.4rem;
+}
+
+.shop-size-pills {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.size-pill {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-ivory-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.size-pill.is-active,
+.size-pill:hover {
+  border-color: var(--color-gold);
+  color: #FFFFFF;
+  background: rgba(184, 146, 74, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   11. FINAL CINEMATIC SECTION
+   -------------------------------------------------------------------------- */
+.finale-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  background: #120306;
+  overflow: hidden;
+}
+
+.finale-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  filter: saturate(0.9) brightness(0.8);
+}
+
+.finale-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(43, 15, 18, 0.4) 0%, rgba(18, 3, 6, 0.92) 80%);
+}
+
+.finale-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 820px;
+}
+
+.finale-eyebrow {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.finale-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  letter-spacing: var(--tracking-widest);
+  line-height: 1;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.finale-sub {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-ivory-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.finale-script {
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  color: var(--color-gold);
+  margin-bottom: 1.6rem;
+}
+
+.finale-copy {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--color-ivory);
+  margin-bottom: 2.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. LUXURY FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: #090203;
+  border-top: 1px solid rgba(184, 146, 74, 0.18);
+  padding: 1.8rem 1.5rem 1.4rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-compact-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 1.4rem;
+}
+
+.footer-compact-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.footer-compact-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.15);
+}
+
+.footer-compact-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.footer-compact-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: var(--tracking-wider);
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.footer-compact-sub {
+  font-size: 0.65rem;
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.footer-compact-connect {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-compact-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: var(--color-ivory-muted);
+  letter-spacing: var(--tracking-wide);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-social-link:hover {
+  color: var(--color-gold);
+  transform: translateY(-1px);
+}
+
+.footer-social-divider {
+  color: rgba(245, 240, 232, 0.25);
+  font-size: 0.75rem;
+}
+
+.footer-compact-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.72rem;
+  color: rgba(245, 240, 232, 0.4);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (Tablets & Mobile Viewports)
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .intro-grid,
+  .fleur-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .intro-image {
+    height: 420px;
+  }
+  
+  .editorial-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .story-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: calc(var(--header-height) + 1rem);
+  }
+
+  .hero-visual-frame {
+    margin: 1rem 0;
+  }
+
+  .hero-product-img {
+    max-height: 340px;
+  }
+
+  .footer-compact-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .footer-compact-connect {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .footer-compact-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .modal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-image-col {
+    padding: 1.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Collection Cinema Film Section
+   -------------------------------------------------------------------------- */
+.film-section {
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  background: radial-gradient(circle at 50% 35%, #350e17 0%, #150508 70%, #0a0104 100%);
+  position: relative;
+  text-align: center;
+}
+
+.film-ambient-spotlight {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(800px, 90vw);
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(184, 146, 74, 0.15) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Dedicated Fragrance Universes (Each Fragrance Gets a Dedicated Section)
+   -------------------------------------------------------------------------- */
+.fragrance-universe-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  overflow: hidden;
+  transition: background var(--transition-slow);
+}
+
+.universe-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.universe-grid.reverse .universe-visual-col {
+  order: 2;
+}
+
+.universe-grid.reverse .universe-copy-col {
+  order: 1;
+}
+
+@media (max-width: 991px) {
+  .universe-grid,
+  .universe-grid.reverse {
+    grid-template-columns: 1fr;
+  }
+  .universe-grid.reverse .universe-visual-col {
+    order: 1;
+  }
+  .universe-grid.reverse .universe-copy-col {
+    order: 2;
+  }
+}
+
+.universe-visual-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-subtle);
+  border: 1px solid var(--universe-border, rgba(184, 146, 74, 0.3));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px var(--universe-glow, rgba(184, 146, 74, 0.15));
+}
+
+.universe-flacon-img {
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.universe-visual-frame:hover .universe-flacon-img {
+  transform: scale(1.04);
+}
+
+.universe-flacon-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  letter-spacing: var(--tracking-widest);
+  line-height: 1;
+  color: #FFFFFF;
+  margin-bottom: 0.3rem;
+}
+
+.universe-flacon-sub {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  letter-spacing: var(--tracking-wider);
+  color: var(--universe-accent, var(--color-gold));
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.universe-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--color-ivory);
+  margin-bottom: 1.5rem;
+  border-left: 2px solid var(--universe-accent, var(--color-gold));
+  padding-left: 1.4rem;
+}
+
+.universe-description {
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: var(--color-ivory-muted);
+  margin-bottom: 2rem;
+}
+
+.universe-notes-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2.2rem;
+  padding: 1.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius-subtle);
+}
+
+.universe-note-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.universe-note-tier {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--universe-accent, var(--color-gold));
+  text-transform: uppercase;
+  min-width: 60px;
+}
+
+.universe-note-items {
+  color: var(--color-ivory);
+}
+
+.universe-pricing-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.universe-price-amount {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: #FFFFFF;
+}
+
+.universe-price-note {
+  font-size: 0.78rem;
+  letter-spacing: var(--tracking-wide);
+  color: var(--universe-accent, var(--color-gold));
+  text-transform: uppercase;
+}

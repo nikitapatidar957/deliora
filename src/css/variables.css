@@ -1,0 +1,148 @@
+/* ==========================================================================
+   DeLiora Essence by Patidar — Luxury Design System & Color Tokens
+   ========================================================================== */
+
+:root {
+  /* Core Brand Colors (Master Prompt Specifications) */
+  --color-burgundy: #2B0F12;
+  --color-burgundy-deep: #1A070A;
+  --color-espresso: #241A17;
+  --color-ivory: #F5F0E8;
+  --color-ivory-light: #FAF8F5;
+  --color-ivory-muted: #E6DFD3;
+  --color-gold: #B8924A;
+  --color-gold-light: #D4AF67;
+  --color-gold-glow: rgba(184, 146, 74, 0.22);
+  --color-gold-subtle: rgba(184, 146, 74, 0.12);
+
+  /* Universe Accent Colors */
+  --color-aqua: #A9D9D5;
+  --color-aqua-deep: #0A1D22;
+  --color-aqua-glow: rgba(169, 217, 213, 0.22);
+
+  --color-blush: #D9A0A4;
+  --color-blush-deep: #2A0D15;
+  --color-blush-glow: rgba(217, 160, 164, 0.22);
+
+  --color-emerald: #123D32;
+  --color-emerald-deep: #0A1E18;
+  --color-emerald-light: #5EB396;
+  --color-emerald-glow: rgba(94, 179, 150, 0.22);
+
+  --color-amber: #D48C46;
+  --color-amber-deep: #1E130B;
+  --color-amber-glow: rgba(212, 140, 70, 0.22);
+
+  /* Dynamic Active Atmosphere Tokens (interpolated across sections via JS / CSS) */
+  --theme-bg: var(--color-burgundy);
+  --theme-bg-gradient: radial-gradient(circle at 50% 20%, #3e161c 0%, #200a0d 60%, #120406 100%);
+  --theme-surface: rgba(255, 255, 255, 0.03);
+  --theme-surface-border: rgba(255, 255, 255, 0.08);
+  --theme-text: var(--color-ivory);
+  --theme-text-muted: #C4B9AA;
+  --theme-text-dim: #8E8273;
+  --theme-accent: var(--color-gold);
+  --theme-accent-glow: var(--color-gold-glow);
+
+  /* Typography Scales */
+  --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-display: 'Cinzel', 'Trajan Pro', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Pinyon Script', cursive, Georgia, serif;
+
+  /* Font Sizes */
+  --fs-hero: clamp(3.2rem, 7vw, 7.5rem);
+  --fs-display: clamp(2.4rem, 5vw, 4.8rem);
+  --fs-h1: clamp(2rem, 3.5vw, 3.4rem);
+  --fs-h2: clamp(1.6rem, 2.5vw, 2.4rem);
+  --fs-h3: clamp(1.2rem, 1.8vw, 1.6rem);
+  --fs-body: clamp(0.95rem, 1.1vw, 1.08rem);
+  --fs-small: 0.82rem;
+  --fs-micro: 0.7rem;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.16em;
+  --tracking-widest: 0.28em;
+  --tracking-ultra: 0.4em;
+
+  /* Elevation & Shadows */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --shadow-luxury: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --shadow-bottle: 0 25px 70px rgba(0, 0, 0, 0.6), 0 10px 20px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 40px var(--theme-accent-glow);
+
+  /* Layout & Transitions */
+  --max-width: 1440px;
+  --max-width-narrow: 1100px;
+  --header-height: 90px;
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-medium: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.25s ease-out;
+  --border-radius-subtle: 2px;
+}
+
+/* Atmospheric Theme Variations applied dynamically to body or section wrapper */
+[data-atmosphere="burgundy"] {
+  --theme-bg: #2B0F12;
+  --theme-bg-gradient: radial-gradient(ellipse at 50% 30%, #46171d 0%, #1f080c 70%, #0d0205 100%);
+  --theme-text: #F5F0E8;
+  --theme-text-muted: #D1C2AF;
+  --theme-accent: #B8924A;
+  --theme-accent-glow: rgba(184, 146, 74, 0.25);
+  --theme-surface-border: rgba(184, 146, 74, 0.18);
+}
+
+[data-atmosphere="ivory"] {
+  --theme-bg: #F5F0E8;
+  --theme-bg-gradient: radial-gradient(ellipse at 50% 30%, #FFFFFF 0%, #F5F0E8 70%, #E9E1D2 100%);
+  --theme-text: #241A17;
+  --theme-text-muted: #64554D;
+  --theme-text-dim: #96867D;
+  --theme-accent: #B8924A;
+  --theme-accent-glow: rgba(184, 146, 74, 0.15);
+  --theme-surface-border: rgba(36, 26, 23, 0.1);
+  --theme-surface: rgba(36, 26, 23, 0.02);
+}
+
+[data-atmosphere="aqua"] {
+  --theme-bg: #0A1D22;
+  --theme-bg-gradient: radial-gradient(ellipse at 50% 30%, #164047 0%, #08171b 70%, #030a0c 100%);
+  --theme-text: #F0F9F8;
+  --theme-text-muted: #A3C6C3;
+  --theme-accent: #A9D9D5;
+  --theme-accent-glow: rgba(169, 217, 213, 0.26);
+  --theme-surface-border: rgba(169, 217, 213, 0.2);
+}
+
+[data-atmosphere="blush"] {
+  --theme-bg: #240C13;
+  --theme-bg-gradient: radial-gradient(ellipse at 50% 30%, #451522 0%, #1d070e 70%, #0d0205 100%);
+  --theme-text: #FDF4F5;
+  --theme-text-muted: #DDB3B7;
+  --theme-accent: #D9A0A4;
+  --theme-accent-glow: rgba(217, 160, 164, 0.28);
+  --theme-surface-border: rgba(217, 160, 164, 0.2);
+}
+
+[data-atmosphere="emerald"] {
+  --theme-bg: #0A1E18;
+  --theme-bg-gradient: radial-gradient(ellipse at 50% 30%, #153E32 0%, #081913 70%, #030b08 100%);
+  --theme-text: #F1FBF7;
+  --theme-text-muted: #A5CFC0;
+  --theme-accent: #5EB396;
+  --theme-accent-glow: rgba(94, 179, 150, 0.26);
+  --theme-surface-border: rgba(94, 179, 150, 0.2);
+}
+
+[data-atmosphere="amber"] {
+  --theme-bg: #1E130B;
+  --theme-bg-gradient: radial-gradient(ellipse at 50% 30%, #3F2616 0%, #190F08 70%, #0D0704 100%);
+  --theme-text: #FBF5EE;
+  --theme-text-muted: #D8BAA0;
+  --theme-accent: #D48C46;
+  --theme-accent-glow: rgba(212, 140, 70, 0.28);
+  --theme-surface-border: rgba(212, 140, 70, 0.22);
+}
