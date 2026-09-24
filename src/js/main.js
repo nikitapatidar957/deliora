@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Mobile Navigation Drawer
   setupMobileNav();
+
+  // 8. Fragrance Visual Frames Gallery Hover & Touch Toggle
+  setupGalleryHoverToggles();
 });
 
 function setupFilmPlayer() {
@@ -44,8 +47,6 @@ function setupFilmPlayer() {
   const video = document.getElementById('campaign-video');
   const playBtn = document.getElementById('film-play-toggle');
   const playIcon = document.getElementById('play-icon');
-  const audioBtn = document.getElementById('film-audio-btn');
-  const soundIndicator = document.getElementById('film-sound-indicator');
 
   if (!container || !video) return;
 
@@ -70,15 +71,6 @@ function setupFilmPlayer() {
   video.addEventListener('ended', () => {
     container.classList.remove('is-playing');
     if (playIcon) playIcon.textContent = '▶';
-  });
-
-  audioBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    video.muted = !video.muted;
-    if (soundIndicator) {
-      soundIndicator.textContent = video.muted ? 'Muted' : 'Sound Active';
-    }
-    audioBtn.textContent = video.muted ? 'Unmute Sound' : 'Mute Sound';
   });
 }
 
@@ -139,22 +131,81 @@ function setupScrollReveals() {
 function setupMobileNav() {
   const toggleBtn = document.getElementById('mobile-menu-btn');
   const drawer = document.getElementById('mobile-drawer');
+  const drawerPanel = drawer?.querySelector('.cart-drawer');
   const closeBtn = document.getElementById('mobile-close-btn');
   const links = drawer?.querySelectorAll('a');
 
   if (!toggleBtn || !drawer) return;
 
-  function openNav() {
+  function openNav(e) {
+    e?.preventDefault();
+    e?.stopPropagation();
     drawer.classList.add('is-active');
+    drawerPanel?.classList.add('is-active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeNav() {
     drawer.classList.remove('is-active');
+    drawerPanel?.classList.remove('is-active');
     document.body.style.overflow = '';
   }
 
   toggleBtn.addEventListener('click', openNav);
-  closeBtn?.addEventListener('click', closeNav);
+  closeBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeNav();
+  });
+
+  drawer.addEventListener('click', (e) => {
+    if (e.target === drawer) closeNav();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('is-active')) {
+      closeNav();
+    }
+  });
+
   links?.forEach(link => link.addEventListener('click', closeNav));
 }
+
+function setupGalleryHoverToggles() {
+  const visualFrames = document.querySelectorAll('.universe-visual-frame');
+  if (!visualFrames.length) return;
+
+  visualFrames.forEach((frame) => {
+    // Mobile / Touch toggle support
+    frame.addEventListener('click', (e) => {
+      // If clicking inside on a specific link or action, don't toggle frame
+      if (e.target.closest('a, button')) return;
+
+      const isAlreadyActive = frame.classList.contains('is-hovered');
+
+      // Close all other visual frames first
+      visualFrames.forEach(otherFrame => {
+        if (otherFrame !== frame) otherFrame.classList.remove('is-hovered');
+      });
+
+      // Toggle this frame
+      frame.classList.toggle('is-hovered', !isAlreadyActive);
+    });
+
+    // Keyboard accessibility support (Tab focus / Enter)
+    frame.addEventListener('focus', () => {
+      frame.classList.add('is-hovered');
+    });
+
+    frame.addEventListener('blur', () => {
+      frame.classList.remove('is-hovered');
+    });
+  });
+
+  // Close open galleries when tapping outside on touch devices
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.universe-visual-frame')) {
+      visualFrames.forEach(frame => frame.classList.remove('is-hovered'));
+    }
+  });
+}
+

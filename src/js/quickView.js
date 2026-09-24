@@ -69,11 +69,10 @@ export function openQuickView(fragranceId) {
 
         <div style="margin-bottom: 1.8rem;">
           <div style="font-size: 0.72rem; letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-gold); margin-bottom: 0.8rem;">
-            Select Flacon Volume
+            Flacon Volume
           </div>
           <div class="shop-size-pills" style="justify-content: flex-start;">
-            <button class="size-pill is-active modal-size-btn" data-size="50">50ml Extrait</button>
-            <button class="size-pill modal-size-btn" data-size="100">100ml Extrait</button>
+            <button class="size-pill is-active modal-size-btn" data-size="50">50ml Extrait de Parfum</button>
           </div>
         </div>
 
@@ -96,22 +95,12 @@ export function openQuickView(fragranceId) {
   `;
 
   // Attach event listeners inside modal
-  const sizeBtns = modalContainer.querySelectorAll('.modal-size-btn');
   const priceDisplay = modalContainer.querySelector('#modal-price-display');
   const closeBtn = modalContainer.querySelector('.modal-close-btn');
   const notesBtn = modalContainer.querySelector('.modal-explore-notes-btn');
 
   closeBtn?.addEventListener('click', closeQuickView);
   notesBtn?.addEventListener('click', closeQuickView);
-
-  sizeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      sizeBtns.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      selectedSize = btn.getAttribute('data-size');
-      priceDisplay.textContent = selectedSize === '50' ? item.priceFormatted50 : item.priceFormatted100;
-    });
-  });
 
   modalOverlay.classList.add('is-active');
   document.body.style.overflow = 'hidden';

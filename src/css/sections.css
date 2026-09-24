@@ -170,7 +170,7 @@
    -------------------------------------------------------------------------- */
 .intro-section {
   position: relative;
-  padding: clamp(6rem, 14vh, 12rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   background: #F5F0E8;
   color: #241A17;
   transition: background var(--transition-slow);
@@ -192,7 +192,7 @@
 
 .intro-image {
   width: 100%;
-  height: 600px;
+  height: clamp(460px, 58vh, 620px);
   object-fit: cover;
   transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -242,7 +242,7 @@
    03. THE COLLECTION (Five Expressions, Five Universes)
    -------------------------------------------------------------------------- */
 .collection-section {
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   position: relative;
   transition: background var(--transition-slow);
 }
@@ -395,7 +395,7 @@
    04. INTERACTIVE FRAGRANCE EXPERIENCE ("CHOOSE YOUR MOOD")
    -------------------------------------------------------------------------- */
 .mood-section {
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   background: rgba(0, 0, 0, 0.35);
   position: relative;
 }
@@ -468,11 +468,11 @@
    -------------------------------------------------------------------------- */
 .fleur-campaign-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
   background: radial-gradient(ellipse at 70% 40%, #521927 0%, #290b13 60%, #110307 100%);
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   overflow: hidden;
 }
 
@@ -575,7 +575,7 @@
    06. ART-DIRECTED OLFACTORY PYRAMID (The Ingredients & Notes)
    -------------------------------------------------------------------------- */
 .pyramid-section {
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   background: radial-gradient(circle at 50% 30%, rgba(35, 14, 20, 0.7) 0%, rgba(10, 3, 5, 0.95) 100%);
   position: relative;
 }
@@ -691,7 +691,7 @@
    07. THE DELIORA EXPERIENCE (Lifestyle & Ritual)
    -------------------------------------------------------------------------- */
 .experience-section {
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   background: #14070A;
 }
 
@@ -748,7 +748,7 @@
    08. BRAND STORY (The House of DeLiora)
    -------------------------------------------------------------------------- */
 .story-section {
-  padding: clamp(6rem, 14vh, 11rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   background: #F5F0E8;
   color: #241A17;
   text-align: center;
@@ -803,7 +803,7 @@
    09. LUXURY DETAIL SECTION (Macro Craftsmanship)
    -------------------------------------------------------------------------- */
 .craftsmanship-section {
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   background: #100407;
 }
 
@@ -867,7 +867,7 @@
    10. SHOP THE COLLECTION (Minimalist Boutique)
    -------------------------------------------------------------------------- */
 .shop-section {
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   background: #17080B;
 }
 
@@ -970,11 +970,11 @@
    -------------------------------------------------------------------------- */
 .finale-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   background: #120306;
   overflow: hidden;
 }
@@ -1095,6 +1095,7 @@
 }
 
 .footer-compact-sub {
+  font-family: var(--font-display);
   font-size: 0.65rem;
   letter-spacing: var(--tracking-ultra);
   color: var(--color-gold);
@@ -1163,7 +1164,7 @@
   }
   
   .intro-image {
-    height: 420px;
+    height: 480px;
   }
   
   .editorial-gallery-grid {
@@ -1229,7 +1230,7 @@
    Collection Cinema Film Section
    -------------------------------------------------------------------------- */
 .film-section {
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   background: radial-gradient(circle at 50% 35%, #350e17 0%, #150508 70%, #0a0104 100%);
   position: relative;
   text-align: center;
@@ -1252,10 +1253,10 @@
    -------------------------------------------------------------------------- */
 .fragrance-universe-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
-  padding: clamp(6rem, 12vh, 10rem) 1.5rem;
+  padding: clamp(5.4rem, 9.8vh, 8.5rem) 1.5rem;
   overflow: hidden;
   transition: background var(--transition-slow);
 }
@@ -1286,6 +1287,10 @@
   .universe-grid.reverse .universe-copy-col {
     order: 2;
   }
+  .universe-flacon-img {
+    max-height: 500px;
+    height: auto;
+  }
 }
 
 .universe-visual-frame {
@@ -1294,18 +1299,779 @@
   border-radius: var(--border-radius-subtle);
   border: 1px solid var(--universe-border, rgba(184, 146, 74, 0.3));
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px var(--universe-glow, rgba(184, 146, 74, 0.15));
+  cursor: pointer;
+  background: #080305;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
+.universe-visual-frame:hover,
+.universe-visual-frame.is-hovered {
+  box-shadow: 0 35px 95px rgba(0, 0, 0, 0.9), 0 0 65px var(--universe-glow, rgba(184, 146, 74, 0.28));
+  border-color: var(--universe-accent, var(--color-gold));
+}
+
+/* Original Main Flacon Image / Video (Shown normally before hover) */
 .universe-flacon-img {
   width: 100%;
-  max-height: 620px;
+  max-height: 630px;
+  height: clamp(460px, 59vh, 630px);
   object-fit: cover;
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Elegant Pill Hint at Bottom of Main Image */
+.gallery-hover-hint {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.38rem 1.05rem;
+  background: rgba(13, 2, 4, 0.76);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 20px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  pointer-events: none;
+  z-index: 4;
+  white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-hover-hint .hint-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 8px var(--color-gold);
+  animation: hintPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.25); box-shadow: 0 0 12px var(--color-gold); }
+}
+
+/* ==========================================================================
+   TRANSFORMATION: When user points mouse/arrow over the main perfume image
+   ========================================================================== */
+.universe-visual-frame:hover .universe-flacon-img,
+.universe-visual-frame.is-hovered .universe-flacon-img {
+  opacity: 0;
+  transform: scale(1.06);
+  pointer-events: none;
+}
+
+.universe-visual-frame:hover .gallery-hover-hint,
+.universe-visual-frame.is-hovered .gallery-hover-hint {
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px);
+}
+
+.universe-visual-frame:hover .gallery-wall-overlay,
+.universe-visual-frame.is-hovered .gallery-wall-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* The 3-Image Wall Gallery Container (Occupies the exact same area) */
+.gallery-wall-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(18, 6, 9, 0.95) 0%, rgba(5, 1, 2, 0.98) 100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.55s;
+  z-index: 5;
+  overflow: hidden;
+}
+
+/* Common Image Styling in Wall Galleries */
+.wall-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  will-change: transform;
+}
+
+.wall-item-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 45%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.wall-item-tag {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   UNIQUE ARRANGEMENT 1: MISTIQUE (Aqua)
+   Three images arranged vertically with different sizes
+   -------------------------------------------------------------------------- */
+.gallery-wall-mistique {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  background: radial-gradient(circle at 50% 28%, rgba(169, 217, 213, 0.16) 0%, rgba(9, 26, 30, 0.96) 65%, rgba(4, 14, 16, 0.99) 100%);
+  overflow: hidden;
+  z-index: 5;
+}
+
+.gallery-wall-mistique .mistique-wall-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Luxury Gilded Hanging Rail across top */
+.gallery-wall-mistique .mistique-hanging-rail {
+  position: absolute;
+  top: 14px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(169, 217, 213, 0.5) 15%, rgba(212, 175, 55, 0.85) 50%, rgba(169, 217, 213, 0.5) 85%, transparent 100%);
+  z-index: 1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.gallery-wall-mistique .rail-finial {
+  position: absolute;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e2cf92 0%, #a48231 100%);
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+}
+
+.gallery-wall-mistique .rail-finial.left { left: 0; }
+.gallery-wall-mistique .rail-finial.right { right: 0; }
+
+/* The 3 Free Picture Frames */
+.gallery-wall-mistique .mistique-free-frame {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              z-index 0.3s ease;
+  will-change: transform;
+}
+
+/* Hanging Pin & Suspension Cords */
+.gallery-wall-mistique .frame-cord {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.gallery-wall-mistique .frame-pin {
+  position: absolute;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f3dfa2 0%, #9e7d28 100%);
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.9), 0 2px 4px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.gallery-wall-mistique .frame-wire {
+  position: absolute;
+  top: 3px;
+  width: 50%;
+  height: 18px;
+  border-top: 1px solid rgba(212, 175, 55, 0.55);
+}
+
+.gallery-wall-mistique .wire-left {
+  right: 50%;
+  transform: rotate(-38deg);
+  transform-origin: top right;
+}
+
+.gallery-wall-mistique .wire-right {
+  left: 50%;
+  transform: rotate(38deg);
+  transform-origin: top left;
+}
+
+/* Physical Picture Frame Moulding (Fine Art Frame) */
+.gallery-wall-mistique .frame-moulding {
+  position: relative;
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #09171a;
+  border: 4px solid #14282c;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 1px rgba(169, 217, 213, 0.45),
+              0 18px 40px rgba(0, 0, 0, 0.88),
+              0 3px 10px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.45s ease,
+              box-shadow 0.45s ease;
+}
+
+.gallery-wall-mistique .frame-moulding .wall-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
-.universe-visual-frame:hover .universe-flacon-img {
-  transform: scale(1.04);
+/* Frame 1: Top-Left Frame */
+.gallery-wall-mistique .frame-left {
+  top: 5%;
+  left: 6%;
+  width: 43%;
+  height: 45%;
+  z-index: 2;
+}
+
+/* Frame 2: Staggered Right / Hero Frame */
+.gallery-wall-mistique .frame-hero {
+  top: 13%;
+  left: 51%;
+  width: 44%;
+  height: 48%;
+  z-index: 3;
+}
+
+.gallery-wall-mistique .frame-hero .frame-moulding {
+  border-color: #1a3338;
+  box-shadow: inset 0 0 0 1.5px rgba(169, 217, 213, 0.7),
+              0 22px 50px rgba(0, 0, 0, 0.92),
+              0 0 25px rgba(169, 217, 213, 0.2);
+}
+
+/* Frame 3: Lower Floating Picture Frame */
+.gallery-wall-mistique .frame-bottom {
+  top: 52%;
+  left: 20%;
+  width: 45%;
+  height: 43%;
+  z-index: 2;
+}
+
+/* Frame Hover Lift (Freely lifting off the exhibition wall) */
+.gallery-wall-mistique .mistique-free-frame:hover {
+  transform: translateY(-8px) scale(1.06);
+  z-index: 10 !important;
+}
+
+.gallery-wall-mistique .mistique-free-frame:hover .frame-moulding {
+  border-color: #1e4147;
+  box-shadow: inset 0 0 0 2px #a9d9d5,
+              0 28px 65px rgba(0, 0, 0, 0.95),
+              0 0 35px rgba(169, 217, 213, 0.4);
+}
+
+.gallery-wall-mistique .mistique-free-frame:hover .wall-gallery-img {
+  transform: scale(1.06);
+}
+
+.gallery-wall-mistique .mistique-free-frame:hover .wall-item-tag {
+  background: rgba(10, 30, 34, 0.92);
+  border-color: #a9d9d5;
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   UNIQUE ARRANGEMENT 2: BLANC (Ivory)
+   Three images arranged in an asymmetric/masonry composition
+   -------------------------------------------------------------------------- */
+.gallery-wall-blanc {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 12px;
+  padding: 16px;
+  height: 100%;
+  box-sizing: border-box;
+  background: radial-gradient(ellipse at 50% 50%, rgba(230, 222, 211, 0.1) 0%, rgba(18, 16, 14, 0.95) 75%);
+}
+
+.gallery-wall-blanc .wall-masonry-tall {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1.5px solid rgba(230, 222, 211, 0.45);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-wall-blanc .wall-masonry-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.gallery-wall-blanc .wall-masonry-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1.5px solid rgba(230, 222, 211, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-wall-blanc .wall-m-top {
+  flex: 1.1;
+}
+
+.gallery-wall-blanc .wall-m-bottom {
+  flex: 1.45;
+}
+
+.gallery-wall-blanc .wall-masonry-tall:hover,
+.gallery-wall-blanc .wall-masonry-item:hover {
+  transform: scale(1.03);
+  border-color: #ffffff;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(230, 222, 211, 0.3);
+  z-index: 4;
+}
+
+.gallery-wall-blanc .wall-masonry-tall:hover .wall-gallery-img,
+.gallery-wall-blanc .wall-masonry-item:hover .wall-gallery-img {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   UNIQUE ARRANGEMENT 3: FLEUR (Blush)
+   Royal Botanical Conservatory Salon (Grand Horizon Canvas & Twin Cathedral Arches)
+   -------------------------------------------------------------------------- */
+.gallery-wall-fleur {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  background: radial-gradient(circle at 50% 45%, rgba(217, 160, 164, 0.22) 0%, rgba(26, 7, 13, 0.97) 65%, rgba(10, 2, 5, 0.99) 100%);
+  overflow: hidden;
+  z-index: 5;
+}
+
+.gallery-wall-fleur .fleur-salon-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Grand Horizon Landscape Canvas (Frame 3) */
+.gallery-wall-fleur .fleur-horizon-frame {
+  position: relative;
+  width: 100%;
+  height: 48%;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #140408;
+  border: 1.5px solid rgba(217, 160, 164, 0.55);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.88), 0 0 25px rgba(217, 160, 164, 0.15);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+/* Filigree Corner Brackets for Landscape Canvas */
+.gallery-wall-fleur .fleur-corner-bracket {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(217, 160, 164, 0.85);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 4;
+  transition: border-color 0.35s ease;
+}
+
+.gallery-wall-fleur .fleur-corner-bracket.top-left {
+  top: 5px;
+  left: 5px;
+  border-width: 2px 0 0 2px;
+}
+
+.gallery-wall-fleur .fleur-corner-bracket.top-right {
+  top: 5px;
+  right: 5px;
+  border-width: 2px 2px 0 0;
+}
+
+.gallery-wall-fleur .fleur-corner-bracket.bottom-left {
+  bottom: 5px;
+  left: 5px;
+  border-width: 0 0 2px 2px;
+}
+
+.gallery-wall-fleur .fleur-corner-bracket.bottom-right {
+  bottom: 5px;
+  right: 5px;
+  border-width: 0 2px 2px 0;
+}
+
+.gallery-wall-fleur .fleur-horizon-frame:hover {
+  transform: scale(1.03);
+  border-color: #f0c2c6;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95), 0 0 35px rgba(217, 160, 164, 0.35);
+  z-index: 6;
+}
+
+.gallery-wall-fleur .fleur-horizon-frame:hover .fleur-corner-bracket {
+  border-color: #ffffff;
+}
+
+/* Botanical Salon Divider Ornament */
+.gallery-wall-fleur .fleur-salon-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 14px;
+  margin: 3px 0;
+  pointer-events: none;
+}
+
+.gallery-wall-fleur .fleur-salon-divider .divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(217, 160, 164, 0.45), transparent);
+}
+
+.gallery-wall-fleur .fleur-salon-divider .divider-gem {
+  color: #d9a0a4;
+  font-size: 0.7rem;
+  opacity: 0.9;
+  text-shadow: 0 0 8px rgba(217, 160, 164, 0.7);
+  line-height: 1;
+}
+
+/* Twin Conservatory Arches (Frames 1 & 2) */
+.gallery-wall-fleur .fleur-arches-row {
+  display: flex;
+  gap: 14px;
+  height: 48%;
+  width: 100%;
+}
+
+.gallery-wall-fleur .fleur-arch-frame {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 46px 46px 6px 6px;
+  background: #140408;
+  border: 1.5px solid rgba(217, 160, 164, 0.5);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.88), 0 0 20px rgba(217, 160, 164, 0.12);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.gallery-wall-fleur .fleur-arch-frame .arch-crown-moulding {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 26px;
+  border-bottom: 1px solid rgba(217, 160, 164, 0.35);
+  background: linear-gradient(180deg, rgba(217, 160, 164, 0.28) 0%, transparent 100%);
+  border-radius: 46px 46px 0 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.gallery-wall-fleur .fleur-arch-frame:hover {
+  transform: translateY(-8px) scale(1.05);
+  border-color: #f0c2c6;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(217, 160, 164, 0.4);
+  z-index: 6;
+}
+
+.gallery-wall-fleur .fleur-horizon-frame:hover .wall-gallery-img,
+.gallery-wall-fleur .fleur-arch-frame:hover .wall-gallery-img {
+  transform: scale(1.05);
+}
+
+.gallery-wall-fleur .fleur-horizon-frame:hover .wall-item-tag,
+.gallery-wall-fleur .fleur-arch-frame:hover .wall-item-tag {
+  background: rgba(28, 7, 13, 0.92);
+  border-color: #f0c2c6;
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   UNIQUE ARRANGEMENT 4: ALPHA (Amber)
+   Three images arranged diagonally or in an overlapping composition
+   -------------------------------------------------------------------------- */
+.gallery-wall-alpha {
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  background: radial-gradient(ellipse at 50% 50%, rgba(212, 140, 70, 0.12) 0%, rgba(18, 10, 6, 0.96) 75%);
+}
+
+.gallery-wall-alpha .wall-diag-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-wall-alpha .wall-diag-card {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1.5px solid rgba(212, 140, 70, 0.55);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 140, 70, 0.18);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              z-index 0.3s ease,
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+.gallery-wall-alpha .card-1 {
+  width: 58%;
+  height: 44%;
+  top: 5%;
+  left: 6%;
+  z-index: 1;
+  transform: rotate(-3deg);
+}
+
+.gallery-wall-alpha .card-2 {
+  width: 62%;
+  height: 48%;
+  top: 26%;
+  left: 22%;
+  z-index: 3;
+  transform: rotate(1.5deg);
+  border-color: rgba(212, 140, 70, 0.85);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.95), 0 0 35px rgba(212, 140, 70, 0.3);
+}
+
+.gallery-wall-alpha .card-3 {
+  width: 58%;
+  height: 44%;
+  top: 50%;
+  left: 36%;
+  z-index: 2;
+  transform: rotate(-2deg);
+}
+
+.gallery-wall-alpha .wall-diag-card:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  z-index: 10 !important;
+  border-color: #f0a765;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 45px rgba(212, 140, 70, 0.45);
+}
+
+.gallery-wall-alpha .wall-diag-card:hover .wall-gallery-img {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   UNIQUE ARRANGEMENT 5: VELVET (Emerald)
+   Triptych Floating Pillars with Arched Crowns & Center Elevation
+   -------------------------------------------------------------------------- */
+.gallery-wall-velvet {
+  padding: 16px;
+  height: 100%;
+  box-sizing: border-box;
+  background: radial-gradient(ellipse at 50% 50%, rgba(94, 179, 150, 0.12) 0%, rgba(7, 20, 16, 0.96) 75%);
+}
+
+.gallery-wall-velvet .wall-pillars-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  width: 100%;
+}
+
+.gallery-wall-velvet .wall-pillar-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px 40px 6px 6px;
+  border: 1.5px solid rgba(94, 179, 150, 0.45);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+.gallery-wall-velvet .pillar-left {
+  flex: 0.95;
+  height: 84%;
+  transform: translateY(6px);
+}
+
+.gallery-wall-velvet .pillar-center {
+  flex: 1.15;
+  height: 98%;
+  border-color: rgba(94, 179, 150, 0.8);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.9), 0 0 35px rgba(94, 179, 150, 0.25);
+  z-index: 2;
+}
+
+.gallery-wall-velvet .pillar-right {
+  flex: 0.95;
+  height: 84%;
+  transform: translateY(14px);
+}
+
+.gallery-wall-velvet .pillar-arch-moulding {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  border-bottom: 1px solid rgba(94, 179, 150, 0.35);
+  background: linear-gradient(180deg, rgba(94, 179, 150, 0.22) 0%, transparent 100%);
+  border-radius: 40px 40px 0 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.gallery-wall-velvet .wall-pillar-item:hover {
+  transform: translateY(-8px) scale(1.05) !important;
+  border-color: #5eb396;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.95), 0 0 45px rgba(94, 179, 150, 0.4);
+  z-index: 5;
+}
+
+.gallery-wall-velvet .wall-pillar-item:hover .wall-gallery-img {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Rules for Hover Galleries (Tablets & Mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .gallery-hover-hint {
+    bottom: 0.8rem;
+    font-size: 0.58rem;
+    padding: 0.28rem 0.75rem;
+  }
+
+  .gallery-wall-mistique {
+    padding: 0;
+  }
+
+  .gallery-wall-mistique .frame-left {
+    top: 5%;
+    left: 4%;
+    width: 44%;
+    height: 44%;
+  }
+
+  .gallery-wall-mistique .frame-hero {
+    top: 13%;
+    left: 51%;
+    width: 45%;
+    height: 47%;
+  }
+
+  .gallery-wall-mistique .frame-bottom {
+    top: 52%;
+    left: 18%;
+    width: 47%;
+    height: 42%;
+  }
+
+  .gallery-wall-mistique .frame-cord {
+    height: 18px;
+  }
+
+  .gallery-wall-mistique .frame-moulding {
+    height: calc(100% - 18px);
+    border-width: 3px;
+  }
+
+  .gallery-wall-blanc,
+  .gallery-wall-velvet {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .gallery-wall-blanc {
+    gap: 8px;
+  }
+
+  .gallery-wall-fleur {
+    padding: 0;
+  }
+
+  .gallery-wall-fleur .fleur-salon-stage {
+    padding: 10px 8px;
+  }
+
+  .gallery-wall-fleur .fleur-arches-row {
+    gap: 8px;
+  }
+
+  .gallery-wall-fleur .fleur-arch-frame {
+    border-radius: 34px 34px 4px 4px;
+  }
+
+  .gallery-wall-fleur .fleur-arch-frame .arch-crown-moulding {
+    height: 18px;
+    border-radius: 34px 34px 0 0;
+  }
+
+  .gallery-wall-velvet .wall-pillars-cluster {
+    gap: 8px;
+  }
+
+  .wall-item-tag {
+    font-size: 0.5rem;
+    padding: 0.15rem 0.4rem;
+    bottom: 4px;
+  }
 }
 
 .universe-flacon-title {

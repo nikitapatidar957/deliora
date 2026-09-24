@@ -11,10 +11,8 @@ export const FRAGRANCES = [
     family: 'Aquatic Woody Floral',
     tagline: 'The whisper of sea mist and sacred cedarwood.',
     description: 'An ethereal oceanic universe opening with invigorating cypress and maritime myrtle, deepening into creamy Indian sandalwood, and resting upon a lingering trail of luminous amber and Brazilian rosewood.',
-    price50: 4850,
-    price100: 7450,
-    priceFormatted50: '₹4,850',
-    priceFormatted100: '₹7,450',
+    price50: 1499,
+    priceFormatted50: '₹1,499',
     theme: {
       key: 'aqua',
       bg: '#0a1d22',
@@ -25,11 +23,12 @@ export const FRAGRANCES = [
       tagColor: '#5eb3ad'
     },
     images: {
-      hero: '/perfumes_images1/mistique.png',
+      hero: '/perfumes_images1/mistique_frame2.jpeg',
       poster: '/perfumes_images1/all_perfume_image.png',
       gallery: [
-        '/perfumes_images1/mistique.png',
-        '/perfumes_images1/all_perfume_image.png'
+        '/perfumes_images1/mistique_frame1.jpeg',
+        '/perfumes_images1/mistique_frame2.jpeg',
+        '/perfumes_images1/mistique_frame3.jpeg'
       ]
     },
     notes: {
@@ -58,10 +57,8 @@ export const FRAGRANCES = [
     family: 'Luminous Oriental Floral',
     tagline: 'The pure radiance of white alabaster and rare saffron.',
     description: 'A crystalline opening of Italian bergamot and sparkling pink pepper gives way to a decadent heart of Kashmiri saffron and blooming jasmine, settled on precious white oud and velvety Bourbon vanilla.',
-    price50: 5250,
-    price100: 7950,
-    priceFormatted50: '₹5,250',
-    priceFormatted100: '₹7,950',
+    price50: 1499,
+    priceFormatted50: '₹1,499',
     theme: {
       key: 'ivory',
       bg: '#171614',
@@ -108,10 +105,8 @@ export const FRAGRANCES = [
     family: 'Intoxicating White Floral',
     tagline: 'A delicate opening. A captivating heart. A trail that stays.',
     description: 'An unapologetic ode to sacred Indian florals. Sun-drenched jasmine buds unfurl into creamy, voluptuous tuberose, anchored by the enigmatic sweetness of red-blooming Rangoon creeper.',
-    price50: 4950,
-    price100: 7650,
-    priceFormatted50: '₹4,950',
-    priceFormatted100: '₹7,650',
+    price50: 1499,
+    priceFormatted50: '₹1,499',
     theme: {
       key: 'blush',
       bg: '#230b12',
@@ -150,10 +145,8 @@ export const FRAGRANCES = [
     family: 'Smoky Woody Spicy',
     tagline: 'The commanding presence of charred cedar and warm spices.',
     description: 'A striking clash of zesty grapefruit, crushed mint, and vibrant spices giving way to a heart of fresh ginger and nutmeg, resting on a smoldering foundation of ceremonial incense, Haitian vetiver, and dark patchouli.',
-    price50: 5450,
-    price100: 8250,
-    priceFormatted50: '₹5,450',
-    priceFormatted100: '₹8,250',
+    price50: 1499,
+    priceFormatted50: '₹1,499',
     theme: {
       key: 'amber',
       bg: '#1e140d',
@@ -199,10 +192,8 @@ export const FRAGRANCES = [
     family: 'Fruity Amber Gourmand',
     tagline: 'Deep emerald allure wrapped in wild berries and warm cashmere.',
     description: 'An intoxicating cascade of crushed dark berries, black currant, and sun-warmed citrus draped over powdery violet and white jasmine. The drydown unveils a luxurious cushion of cashmeran, oakmoss, amber, and Madagascar vanilla.',
-    price50: 5150,
-    price100: 7850,
-    priceFormatted50: '₹5,150',
-    priceFormatted100: '₹7,850',
+    price50: 1499,
+    priceFormatted50: '₹1,499',
     theme: {
       key: 'emerald',
       bg: '#0a1d17',
@@ -240,17 +231,10 @@ export const FRAGRANCES = [
 ];
 
 export const BOUTIQUE_INFO = {
-  name: 'House of DeLiora Flagship Atelier',
-  address: 'Plot No. 12, Heritage Boulevard, Vijay Nagar, Indore, Madhya Pradesh 452010, India',
-  hours: 'Monday – Sunday: 11:00 AM – 9:00 PM IST',
-  phone: '+91 (0) 731 492 8800',
-  conciergeEmail: 'concierge@delioraessence.com',
-  services: [
-    'Private Olfactory Consultation',
-    'Custom Flacon Monogramming & Engraving',
-    'Haute Parfumerie Bespoke Gifting',
-    'VIP Bottle Sampling Bar'
-  ],
+  name: 'DeLiora Essence by Patidar',
+  address: '3, Satam Park Colony, Mushakhedi Ring Road Square, Indore, Madhya Pradesh',
+  phone: '+91 7771033947',
+  email: 'DELIORAESSENCE2026@gmail.com',
   amazonStoreUrl: 'https://www.amazon.in/dp/B0DELIORA',
   flipkartStoreUrl: 'https://www.flipkart.com/deliora-essence'
 };

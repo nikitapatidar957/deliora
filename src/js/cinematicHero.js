@@ -160,8 +160,8 @@ export function initCinematicHero() {
 
     // Target 9:16 dimensions
     const targetH = isMobile
-      ? Math.min(window.innerHeight * 0.68, 480)
-      : Math.min(window.innerHeight * 0.74, 620);
+      ? Math.min(window.innerHeight * 0.67, 475)
+      : Math.min(window.innerHeight * 0.73, 610);
     const targetW = Math.round(targetH * (9 / 16));
 
     // Dynamic initial geometry: Place image and ambient aura JUST BELOW "DELIORA ESSENCE By Patidar"
@@ -170,17 +170,17 @@ export function initCinematicHero() {
       ? (headerRect.top + headerRect.height)
       : (window.innerHeight * 0.22);
 
-    const gapBelowHeader = isMobile ? 12 : 24;
+    const gapBelowHeader = isMobile ? 12 : 20;
     const topPadding = headerBottom + gapBelowHeader;
-    const bottomPadding = isMobile ? 32 : 55;
+    const bottomPadding = isMobile ? 28 : 42;
     const availableH = window.innerHeight - topPadding - bottomPadding;
 
     const initH = isMobile
-      ? Math.min(availableH, 320)
-      : Math.min(availableH, 560);
+      ? Math.min(availableH, 335)
+      : Math.min(availableH, 610);
     const initW = isMobile
-      ? Math.min(window.innerWidth * 0.94, 420)
-      : Math.min(window.innerWidth * 0.88, 1260);
+      ? Math.min(window.innerWidth * 0.94, 430)
+      : Math.min(window.innerWidth * 0.88, 1280);
 
     // Initial Center Y puts top of image exactly at headerBottom + gapBelowHeader
     const initCenterY = topPadding + (initH / 2);
