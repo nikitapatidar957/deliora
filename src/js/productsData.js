@@ -121,7 +121,7 @@ export const FRAGRANCES = [
       textSecondary: '#ddb3b7',
       tagColor: '#cf7e85'
     },
-    video: '/perfumes_images1/fleur.mp4',
+    video: '/perfumes_images1/fleur3.mp4',
     videoSecondary: '/perfumes_images1/fleur2.mp4',
     images: {
       hero: '/perfumes_images1/all_perfume_image.png',
