@@ -42,7 +42,7 @@
 }
 
 .brand-logo-img {
-  height: 44px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   transition: transform var(--transition-fast);
@@ -812,24 +812,6 @@
   transform: translateY(-2px);
 }
 
-.offline-boutique-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(184, 146, 74, 0.35);
-  padding: clamp(2rem, 4vw, 3.5rem);
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  margin-top: 3.5rem;
-}
-
-@media (max-width: 850px) {
-  .offline-boutique-card {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
 
 @media (max-width: 768px) {
   .site-header {
@@ -837,7 +819,7 @@
   }
 
   .brand-logo-img {
-    height: 36px;
+    height: 39px;
   }
 
   .nav-action-btn {

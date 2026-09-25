@@ -245,23 +245,17 @@ export function initCinematicHero() {
       }
     }
 
-    // Stage 2: Left & Right Reels Emerge (smooth rise starting at p >= 0.28)
+    // Stage 2: Left & Right Reels Emerge (Only on laptop/desktop screens; removed on mobile)
     if (reelLeft && reelRight) {
       if (isMobile) {
-        const mTargetW = Math.round(targetW * 0.84);
-        const mTargetH = Math.round(targetH * 0.84);
-        reelLeft.style.width = `${mTargetW}px`;
-        reelLeft.style.height = `${mTargetH}px`;
-        reelLeft.style.left = `calc(50% - ${Math.round(targetW * 0.74)}px)`;
-        reelLeft.style.top = `calc(50% - ${Math.round(mTargetH * 0.5)}px)`;
-        reelLeft.style.zIndex = '9';
-
-        reelRight.style.width = `${mTargetW}px`;
-        reelRight.style.height = `${mTargetH}px`;
-        reelRight.style.left = `calc(50% + ${Math.round(targetW * 0.74 - mTargetW)}px)`;
-        reelRight.style.top = `calc(50% - ${Math.round(mTargetH * 0.5)}px)`;
-        reelRight.style.zIndex = '9';
+        reelLeft.style.display = 'none';
+        reelRight.style.display = 'none';
+        if (videoLeft && !videoLeft.paused) videoLeft.pause();
+        if (videoRight && !videoRight.paused) videoRight.pause();
       } else {
+        reelLeft.style.display = 'block';
+        reelRight.style.display = 'block';
+
         reelLeft.style.width = `${targetW}px`;
         reelLeft.style.height = `${targetH}px`;
         reelLeft.style.left = `calc(50% - ${Math.round(targetW * 1.5 + gap)}px)`;
@@ -273,38 +267,34 @@ export function initCinematicHero() {
         reelRight.style.left = `calc(50% + ${Math.round(targetW * 0.5 + gap)}px)`;
         reelRight.style.top = `calc(50% - ${Math.round(targetH * 0.5)}px)`;
         reelRight.style.zIndex = '11';
-      }
 
-      if (p < 0.28) {
-        reelLeft.style.transform = isMobile ? 'translate3d(0, 110vh, 0) scale(0.85)' : 'translate3d(0, 110vh, 0)';
-        reelLeft.style.opacity = '0';
-        reelRight.style.transform = isMobile ? 'translate3d(0, 110vh, 0) scale(0.85)' : 'translate3d(0, 110vh, 0)';
-        reelRight.style.opacity = '0';
+        if (p < 0.28) {
+          reelLeft.style.transform = 'translate3d(0, 110vh, 0)';
+          reelLeft.style.opacity = '0';
+          reelRight.style.transform = 'translate3d(0, 110vh, 0)';
+          reelRight.style.opacity = '0';
 
-        if (videoLeft && !videoLeft.paused) videoLeft.pause();
-        if (videoRight && !videoRight.paused) videoRight.pause();
-      } else {
-        const riseT = Math.min(Math.max((p - 0.28) / 0.52, 0), 1);
-        const easedRise = easeOutCubic(riseT);
-        const yOffset = (1 - easedRise) * 110;
-        const opacity = Math.min(riseT * 1.35, 1) * (isMobile ? 0.85 : 0.94);
-
-        reelLeft.style.transform = isMobile
-          ? `translate3d(0, ${yOffset.toFixed(2)}vh, 0) scale(0.85)`
-          : `translate3d(0, ${yOffset.toFixed(2)}vh, 0)`;
-        reelLeft.style.opacity = opacity.toFixed(3);
-
-        reelRight.style.transform = isMobile
-          ? `translate3d(0, ${yOffset.toFixed(2)}vh, 0) scale(0.85)`
-          : `translate3d(0, ${yOffset.toFixed(2)}vh, 0)`;
-        reelRight.style.opacity = opacity.toFixed(3);
-
-        if (p >= 0.40) {
-          if (videoLeft && videoLeft.paused) videoLeft.play().catch(() => {});
-          if (videoRight && videoRight.paused) videoRight.play().catch(() => {});
-        } else {
           if (videoLeft && !videoLeft.paused) videoLeft.pause();
           if (videoRight && !videoRight.paused) videoRight.pause();
+        } else {
+          const riseT = Math.min(Math.max((p - 0.28) / 0.52, 0), 1);
+          const easedRise = easeOutCubic(riseT);
+          const yOffset = (1 - easedRise) * 110;
+          const opacity = Math.min(riseT * 1.35, 1) * 0.94;
+
+          reelLeft.style.transform = `translate3d(0, ${yOffset.toFixed(2)}vh, 0)`;
+          reelLeft.style.opacity = opacity.toFixed(3);
+
+          reelRight.style.transform = `translate3d(0, ${yOffset.toFixed(2)}vh, 0)`;
+          reelRight.style.opacity = opacity.toFixed(3);
+
+          if (p >= 0.40) {
+            if (videoLeft && videoLeft.paused) videoLeft.play().catch(() => {});
+            if (videoRight && videoRight.paused) videoRight.play().catch(() => {});
+          } else {
+            if (videoLeft && !videoLeft.paused) videoLeft.pause();
+            if (videoRight && !videoRight.paused) videoRight.pause();
+          }
         }
       }
     }

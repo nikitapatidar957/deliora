@@ -410,13 +410,10 @@
     height: var(--reel-target-h);
   }
 
-  /* Side reels slightly scaled down and tucked behind to create 3D layered depth */
-  .reel-left {
-    transform-origin: center center;
-  }
-
+  /* Hide left and right side videos on mobile screen sizes; show on laptop/desktop only */
+  .reel-left,
   .reel-right {
-    transform-origin: center center;
+    display: none !important;
   }
 
   .overlay-glass-card {

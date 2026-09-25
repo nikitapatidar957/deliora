@@ -35,19 +35,19 @@ export const FRAGRANCES = [
       top: [
         { name: 'Italian Cypress', accord: 'Fresh Coniferous' },
         { name: 'Myrtle', accord: 'Herbal Aromatic' },
-        { name: 'Rose Petals', accord: 'Delicate Floral' }
+        { name: 'Rose', accord: 'Delicate Floral' }
       ],
       heart: [
-        { name: 'Mysore Sandalwood', accord: 'Warm Milky Woody' },
-        { name: 'Atlas Cedar', accord: 'Dry Architectural Bark' }
+        { name: 'Sandalwood', accord: 'Warm Milky Woody' },
+        { name: 'Cedar', accord: 'Dry Architectural Bark' }
       ],
       base: [
-        { name: 'Golden Amber', accord: 'Resinous Warmth' },
+        { name: 'Amber', accord: 'Resinous Warmth' },
         { name: 'White Musk', accord: 'Skin Velvet' },
         { name: 'Brazilian Rosewood', accord: 'Rare Noble Timber' }
       ]
     },
-    craftStory: 'Inspired by early dawn over the Konkan coastline where sea mist grazes ancient coastal cypress groves.'
+    craftStory: 'Inspired by early dawn over the Konkan coastline where sea mist grazes coastal cypress and rosewood groves.'
   },
 
   {
@@ -56,7 +56,7 @@ export const FRAGRANCES = [
     subtitle: 'Extrait de Parfum',
     family: 'Luminous Oriental Floral',
     tagline: 'The pure radiance of white alabaster and rare saffron.',
-    description: 'A crystalline opening of Italian bergamot and sparkling pink pepper gives way to a decadent heart of Kashmiri saffron and blooming jasmine, settled on precious white oud and velvety Bourbon vanilla.',
+    description: 'A luminous opening of bergamot, lemon, and pink pepper gives way to an opulent heart of rose, blooming jasmine, and saffron, settled on precious white oud, sandalwood, amber, musk, and velvety vanilla.',
     price50: 1499,
     priceFormatted50: '₹1,499',
     theme: {
@@ -79,20 +79,21 @@ export const FRAGRANCES = [
     },
     notes: {
       top: [
-        { name: 'Calabrian Bergamot', accord: 'Sparkling Citrus' },
-        { name: 'Amalfi Lemon', accord: 'Zesty Radiance' },
+        { name: 'Bergamot', accord: 'Sparkling Citrus' },
+        { name: 'Lemon', accord: 'Bright Zesty' },
         { name: 'Pink Pepper', accord: 'Spiced Effervescence' }
       ],
       heart: [
-        { name: 'Damask Rose', accord: 'Velvety Crimson Petals' },
-        { name: 'Sambac Jasmine', accord: 'Nocturnal White Bloom' },
-        { name: 'Kashmiri Saffron', accord: 'Golden Leather Warmth' }
+        { name: 'Rose', accord: 'Velvety Petals' },
+        { name: 'Jasmine', accord: 'Opulent White Bloom' },
+        { name: 'Saffron', accord: 'Golden Leather Warmth' }
       ],
       base: [
-        { name: 'Precious White Oud', accord: 'Clean Resinous Timber' },
+        { name: 'White Oud (Soft Oud Accord)', accord: 'Smooth Noble Wood' },
         { name: 'Sandalwood', accord: 'Creamy Woodiness' },
-        { name: 'Amber & Musk', accord: 'Sensual Cocoon' },
-        { name: 'Bourbon Vanilla', accord: 'Gourmand Warmth' }
+        { name: 'Amber', accord: 'Warm Glow' },
+        { name: 'Musk', accord: 'Sensual Velvet' },
+        { name: 'Vanilla', accord: 'Gourmand Warmth' }
       ]
     },
     craftStory: 'Evoking the moonlit marble courtyards of Rajasthan, bathed in the soft glow of celestial white florals.'
@@ -104,7 +105,7 @@ export const FRAGRANCES = [
     subtitle: 'Extrait de Parfum',
     family: 'Intoxicating White Floral',
     tagline: 'A delicate opening. A captivating heart. A trail that stays.',
-    description: 'An unapologetic ode to sacred Indian florals. Sun-drenched jasmine buds unfurl into creamy, voluptuous tuberose, anchored by the enigmatic sweetness of red-blooming Rangoon creeper.',
+    description: 'An intoxicating ode to pure white florals. Fresh jasmine buds unfurl into creamy, voluptuous tuberose, anchored by the hypnotic, powdery floral trail of Rangoon creeper.',
     price50: 1499,
     priceFormatted50: '₹1,499',
     theme: {
@@ -129,7 +130,7 @@ export const FRAGRANCES = [
         { name: 'Jasmine Bud', accord: 'Fresh Green Petal Opening' }
       ],
       heart: [
-        { name: 'Madurai Tuberose', accord: 'Opulent Creamy Floral' }
+        { name: 'Tuberose', accord: 'Voluptuous Creamy Floral' }
       ],
       base: [
         { name: 'Rangoon Creeper', accord: 'Honeyed Powder Drydown' }
@@ -144,7 +145,7 @@ export const FRAGRANCES = [
     subtitle: 'Extrait de Parfum',
     family: 'Smoky Woody Spicy',
     tagline: 'The commanding presence of charred cedar and warm spices.',
-    description: 'A striking clash of zesty grapefruit, crushed mint, and vibrant spices giving way to a heart of fresh ginger and nutmeg, resting on a smoldering foundation of ceremonial incense, Haitian vetiver, and dark patchouli.',
+    description: 'A commanding surge of grapefruit, lemon, mint, pink pepper, and bergamot gives way to an invigorating heart of ginger, nutmeg, and jasmine, grounded in a smoldering aura of incense, cedar, sandalwood, patchouli, vetiver, labdanum, and white musk.',
     price50: 1499,
     priceFormatted50: '₹1,499',
     theme: {
@@ -165,21 +166,25 @@ export const FRAGRANCES = [
     },
     notes: {
       top: [
-        { name: 'Ruby Grapefruit', accord: 'Bitter Citrus Spark' },
-        { name: 'Crushed Peppermint', accord: 'Cool Electric Zing' },
-        { name: 'Pink Peppercorn', accord: 'Dry Piquant Warmth' },
-        { name: 'Calabrian Bergamot', accord: 'Luminous Elegance' }
+        { name: 'Grapefruit', accord: 'Crisp Citrus Spark' },
+        { name: 'Lemon', accord: 'Bright Zest' },
+        { name: 'Mint', accord: 'Cool Herbal Zing' },
+        { name: 'Pink Pepper', accord: 'Dry Piquant Warmth' },
+        { name: 'Bergamot', accord: 'Luminous Elegance' }
       ],
       heart: [
-        { name: 'Wild Cochin Ginger', accord: 'Fiery Fresh Spice' },
-        { name: 'Indonesian Nutmeg', accord: 'Warm Sweet Spice' },
-        { name: 'Nocturnal Jasmine', accord: 'Dark Floral Bridge' }
+        { name: 'Ginger', accord: 'Fiery Fresh Spice' },
+        { name: 'Nutmeg', accord: 'Warm Sweet Spice' },
+        { name: 'Jasmine', accord: 'Subtle White Floral Bridge' }
       ],
       base: [
-        { name: 'Temple Incense', accord: 'Smoky Mystical Veil' },
-        { name: 'Atlas Cedar & Sandalwood', accord: 'Architecture & Depth' },
-        { name: 'Dark Patchouli & Vetiver', accord: 'Earthy Grounding Trail' },
-        { name: 'Cistus Labdanum & White Musk', accord: 'Animalic Amber Warmth' }
+        { name: 'Incense', accord: 'Smoky Mystical Veil' },
+        { name: 'Cedar', accord: 'Architectural Timber' },
+        { name: 'Sandalwood', accord: 'Creamy Depth' },
+        { name: 'Patchouli', accord: 'Earthy Grounding Trail' },
+        { name: 'Vetiver', accord: 'Smoky Roots' },
+        { name: 'Labdanum', accord: 'Amber Leather' },
+        { name: 'White Musk', accord: 'Second Skin Velvet' }
       ]
     },
     craftStory: 'A salute to royal charisma — blending the ancient spice caravans of Malabar with modern sartorial tailoring.'
@@ -191,7 +196,7 @@ export const FRAGRANCES = [
     subtitle: 'Extrait de Parfum',
     family: 'Fruity Amber Gourmand',
     tagline: 'Deep emerald allure wrapped in wild berries and warm cashmere.',
-    description: 'An intoxicating cascade of crushed dark berries, black currant, and sun-warmed citrus draped over powdery violet and white jasmine. The drydown unveils a luxurious cushion of cashmeran, oakmoss, amber, and Madagascar vanilla.',
+    description: 'An intoxicating cascade of strawberry, raspberry, blackberry, cherry, black currant, mandarin orange, and lemon draped over powdery violet and blooming jasmine, resting upon a velvety cushion of musk, vanilla, cashmeran, oakmoss, amber, and patchouli.',
     price50: 1499,
     priceFormatted50: '₹1,499',
     theme: {
@@ -212,18 +217,25 @@ export const FRAGRANCES = [
     },
     notes: {
       top: [
-        { name: 'Wild Strawberry & Blackberry', accord: 'Lush Forest Nectar' },
-        { name: 'Cassis Black Currant', accord: 'Tart Sophistication' },
-        { name: 'Mandarin & Lemon Peel', accord: 'Sunburst Citrus' }
+        { name: 'Strawberry', accord: 'Lush Forest Sweetness' },
+        { name: 'Raspberry', accord: 'Tart Vibrant Berry' },
+        { name: 'Blackberry', accord: 'Rich Juicy Dark' },
+        { name: 'Cherry', accord: 'Deep Sweet Nectar' },
+        { name: 'Black Currant', accord: 'Crisp Cassis' },
+        { name: 'Mandarin Orange', accord: 'Golden Citrus Sparkle' },
+        { name: 'Lemon', accord: 'Zesty Freshness' }
       ],
       heart: [
-        { name: 'Powdery Parma Violet', accord: 'Velvety Aristocratic Floral' },
-        { name: 'Night Jasmine', accord: 'Sensual Liqueur' }
+        { name: 'Violet', accord: 'Powdery Aristocratic Floral' },
+        { name: 'Jasmine', accord: 'Nocturnal White Bloom' }
       ],
       base: [
-        { name: 'Cashmeran & Amber', accord: 'Opulent Tactile Warmth' },
-        { name: 'Bourbon Vanilla & Oakmoss', accord: 'Deep Earthy Sweetness' },
-        { name: 'Indonesian Patchouli', accord: 'Hypnotic Dark Trail' }
+        { name: 'Musk', accord: 'Intimate Skin Velvet' },
+        { name: 'Vanilla', accord: 'Bourbon Sweet Warmth' },
+        { name: 'Cashmeran', accord: 'Tactile Cashmere Wool' },
+        { name: 'Oakmoss', accord: 'Earthy Forest Floor' },
+        { name: 'Amber', accord: 'Golden Opulent Glow' },
+        { name: 'Patchouli', accord: 'Hypnotic Dark Trail' }
       ]
     },
     craftStory: 'Crafted to simulate the decadent weight of bespoke green velvet against bare skin on a gala evening.'
