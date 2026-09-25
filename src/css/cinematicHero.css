@@ -13,7 +13,7 @@
    -------------------------------------------------------------------------- */
 .cinematic-hero-track {
   position: relative;
-  height: 310vh;
+  height: 250vh;
   background: #080204;
   margin-top: 0;
   z-index: 20;
@@ -314,53 +314,8 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* --------------------------------------------------------------------------
-   Scroll Prompt (Scroll to Transform)
-   -------------------------------------------------------------------------- */
 .cinematic-scroll-prompt {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  z-index: 15;
-  pointer-events: none;
-  transition: opacity 0.3s ease-out;
-}
-
-.prompt-text {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  color: var(--color-ivory-muted);
-}
-
-.prompt-mouse {
-  width: 20px;
-  height: 32px;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  padding-top: 6px;
-}
-
-.prompt-wheel {
-  width: 3px;
-  height: 6px;
-  background: var(--color-gold);
-  border-radius: 2px;
-  animation: promptWheel 1.8s infinite ease-in-out;
-}
-
-@keyframes promptWheel {
-  0% { transform: translateY(0); opacity: 1; }
-  60% { transform: translateY(10px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 0; }
+  display: none !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -380,7 +335,7 @@
 
 @media (max-width: 768px) {
   .cinematic-hero-track {
-    height: 240vh;
+    height: 200vh;
   }
 
   .cinematic-hero-header {

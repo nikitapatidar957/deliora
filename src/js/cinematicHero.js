@@ -38,7 +38,6 @@ export function initCinematicHero() {
   const badgeRight = document.getElementById('badge-right');
   const overlay = document.getElementById('center-luxury-overlay');
   const header = document.getElementById('cinematic-hero-header');
-  const scrollPrompt = document.getElementById('cinematic-scroll-prompt');
 
   if (!track || !reelCenter || !videoCenter) return;
 
@@ -181,23 +180,24 @@ export function initCinematicHero() {
       : Math.min(window.innerHeight * 0.73, 610);
     const targetW = Math.round(targetH * (9 / 16));
 
-    // Dynamic initial geometry: Place image and ambient aura JUST BELOW "DELIORA ESSENCE By Patidar"
+    // Dynamic initial geometry: Place image cleanly below "DELIORA ESSENCE By Patidar"
     const headerRect = header ? header.getBoundingClientRect() : null;
     const headerBottom = (headerRect && headerRect.height > 0)
       ? (headerRect.top + headerRect.height)
-      : (window.innerHeight * (isMobile ? 0.16 : 0.22));
+      : (window.innerHeight * (isMobile ? 0.14 : 0.20));
 
-    const gapBelowHeader = isMobile ? 8 : 20;
+    const gapBelowHeader = isMobile ? 8 : 16;
     const topPadding = headerBottom + gapBelowHeader;
-    const bottomPadding = isMobile ? 18 : 42;
-    const availableH = window.innerHeight - topPadding - bottomPadding;
+    const bottomPadding = isMobile ? 18 : 26;
+    const availableH = Math.max(window.innerHeight - topPadding - bottomPadding, 220);
 
     const initH = isMobile
-      ? Math.min(availableH, 270)
-      : Math.min(availableH, 610);
+      ? Math.min(availableH, Math.round(window.innerHeight * 0.58), 460)
+      : Math.min(availableH, Math.round(window.innerHeight * 0.74), 740);
+
     const initW = isMobile
-      ? Math.min(window.innerWidth * 0.92, 380)
-      : Math.min(window.innerWidth * 0.88, 1280);
+      ? Math.min(window.innerWidth * 0.94, 420)
+      : Math.min(window.innerWidth * 0.90, Math.round(initH * 1.5), 1360);
 
     // Initial Center Y puts top of image exactly at headerBottom + gapBelowHeader
     const initCenterY = topPadding + (initH / 2);
@@ -205,8 +205,8 @@ export function initCinematicHero() {
 
     const gap = isMobile ? 16 : 28;
 
-    // Stage 1: Morphing width, height & vertical translation (p: 0 -> 0.52)
-    const morphT = Math.min(p / 0.50, 1);
+    // Stage 1: Morphing width, height & vertical translation (p: 0 -> 0.44)
+    const morphT = Math.min(p / 0.44, 1);
     const easedMorph = easeInOutCubic(morphT);
 
     const w = initW + (targetW - initW) * easedMorph;
@@ -221,12 +221,12 @@ export function initCinematicHero() {
     reelCenter.style.transform = 'translate(-50%, -50%)';
     reelCenter.style.borderRadius = `${Math.round(radius)}px`;
 
-    // Crossfade horizontal image -> center video (0.1s faster start)
-    if (p < 0.24) {
+    // Crossfade horizontal image -> center video (instant responsiveness)
+    if (p < 0.18) {
       if (heroImg) heroImg.style.opacity = '1';
       videoCenter.style.opacity = '0';
-    } else if (p >= 0.24 && p <= 0.44) {
-      const fade = (p - 0.24) / 0.20;
+    } else if (p >= 0.18 && p <= 0.38) {
+      const fade = (p - 0.18) / 0.20;
       if (heroImg) heroImg.style.opacity = (1 - fade).toFixed(3);
       videoCenter.style.opacity = fade.toFixed(3);
     } else {
@@ -234,8 +234,8 @@ export function initCinematicHero() {
       videoCenter.style.opacity = '1';
     }
 
-    // Video Playback Control (starts 0.1s earlier so it's already running smoothly)
-    if (p >= 0.26) {
+    // Video Playback Control
+    if (p >= 0.20) {
       if (videoCenter.paused) {
         videoCenter.play().catch(() => {});
       }
@@ -314,12 +314,6 @@ export function initCinematicHero() {
       const headerFade = Math.max(0, 1 - p / 0.18);
       header.style.opacity = headerFade.toFixed(3);
       header.style.transform = `translateY(${-p * 45}px)`;
-    }
-
-    if (scrollPrompt) {
-      const promptFade = Math.max(0, 1 - p / 0.14);
-      scrollPrompt.style.opacity = promptFade.toFixed(3);
-      scrollPrompt.style.transform = `translateX(-50%) translateY(${-p * 30}px)`;
     }
 
     // Continue loop if not settled
