@@ -379,12 +379,28 @@
 
 @media (max-width: 768px) {
   .cinematic-hero-track {
-    height: 280vh;
+    height: 240vh;
+  }
+
+  .cinematic-hero-header {
+    top: calc(var(--header-height, 60px) + 0.35rem);
+    padding: 0 1rem;
+  }
+
+  .cinematic-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.85rem);
+    letter-spacing: 0.14em;
+  }
+
+  .cinematic-tagline {
+    font-size: clamp(0.68rem, 2.4vw, 0.82rem);
+    letter-spacing: 0.12em;
+    margin-top: 0.2rem;
   }
 
   :root {
-    --reel-target-h: min(68vh, 480px);
-    --reel-target-w: calc(min(68vh, 480px) * 9 / 16);
+    --reel-target-h: min(58vh, 380px);
+    --reel-target-w: calc(min(58vh, 380px) * 9 / 16);
   }
 
   /* Center reel dominates */
@@ -409,15 +425,15 @@
   }
 
   .overlay-glass-card {
-    padding: 1.5rem 1rem;
-    max-width: 250px;
+    padding: 1.2rem 0.9rem;
+    max-width: 230px;
   }
 
   .overlay-brand-logo {
-    height: 40px;
+    height: 34px;
   }
 
   .overlay-poetic-quote {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 }

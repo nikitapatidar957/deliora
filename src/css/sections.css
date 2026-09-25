@@ -2076,16 +2076,16 @@
 
 .universe-flacon-title {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
   letter-spacing: var(--tracking-widest);
-  line-height: 1;
+  line-height: 1.05;
   color: #FFFFFF;
   margin-bottom: 0.3rem;
 }
 
 .universe-flacon-sub {
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
   letter-spacing: var(--tracking-wider);
   color: var(--universe-accent, var(--color-gold));
   text-transform: uppercase;
@@ -2095,7 +2095,7 @@
 .universe-tagline {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.35rem;
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
   line-height: 1.6;
   color: var(--color-ivory);
   margin-bottom: 1.5rem;
@@ -2159,4 +2159,300 @@
   letter-spacing: var(--tracking-wide);
   color: var(--universe-accent, var(--color-gold));
   text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   DEDICATED MOBILE & PHONE RESPONSIVE OVERHAUL (Screens <= 768px & <= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .fragrance-universe-section,
+  .intro-section,
+  .collection-section,
+  .story-section,
+  .craftsmanship-section,
+  .shop-section,
+  .film-section,
+  .finale-section {
+    padding: 3rem 0 !important;
+    min-height: auto !important;
+  }
+
+  .universe-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.8rem !important;
+  }
+
+  .universe-grid.reverse .universe-visual-col {
+    order: 1 !important;
+  }
+
+  .universe-grid.reverse .universe-copy-col {
+    order: 2 !important;
+  }
+
+  .universe-visual-frame {
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  .universe-flacon-img {
+    height: clamp(280px, 44vh, 380px) !important;
+    max-height: 380px !important;
+    width: 100% !important;
+  }
+
+  .universe-flacon-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.3rem) !important;
+    letter-spacing: 0.14em !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .universe-flacon-sub {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .universe-tagline {
+    font-size: 1.02rem !important;
+    line-height: 1.5 !important;
+    padding-left: 0.9rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .universe-description {
+    font-size: 0.88rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .universe-notes-compact {
+    padding: 0.9rem !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1.4rem !important;
+  }
+
+  .universe-note-row {
+    gap: 0.6rem !important;
+    font-size: 0.8rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .universe-note-tier {
+    min-width: 48px !important;
+    font-size: 0.65rem !important;
+  }
+
+  .universe-note-items {
+    font-size: 0.8rem !important;
+  }
+
+  .universe-pricing-row {
+    gap: 1rem !important;
+    margin-bottom: 1.4rem !important;
+  }
+
+  .universe-price-amount {
+    font-size: 1.55rem !important;
+  }
+
+  .universe-price-note {
+    font-size: 0.72rem !important;
+  }
+
+  .marketplace-buttons-group {
+    display: flex !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+  }
+
+  .btn-marketplace {
+    flex: 1 1 calc(50% - 0.3rem) !important;
+    min-width: 130px !important;
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.68rem !important;
+    justify-content: center !important;
+    gap: 0.45rem !important;
+    text-align: center !important;
+  }
+
+  .btn-marketplace svg {
+    width: 15px !important;
+    height: 15px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.8rem !important;
+  }
+
+  .intro-image-wrapper {
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  .intro-image {
+    height: clamp(260px, 38vh, 340px) !important;
+    width: 100% !important;
+  }
+
+  .intro-title {
+    font-size: clamp(1.5rem, 5.5vw, 2rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .intro-quote {
+    font-size: clamp(1rem, 3.2vw, 1.2rem) !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.2rem !important;
+    padding-left: 0.8rem !important;
+  }
+
+  .intro-body-copy {
+    font-size: 0.88rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.4rem !important;
+  }
+
+  .story-lead-copy {
+    font-size: clamp(1rem, 3.2vw, 1.2rem) !important;
+    line-height: 1.6 !important;
+    margin: 0 auto 1.8rem !important;
+  }
+
+  .story-pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+
+  .story-pillar-item {
+    padding: 1.2rem 0 !important;
+  }
+
+  .pillar-title {
+    font-size: 0.88rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .pillar-copy {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .section-header {
+    margin-bottom: 2.2rem !important;
+  }
+
+  .section-header .section-title {
+    font-size: clamp(1.5rem, 5.2vw, 2rem) !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.8rem !important;
+  }
+
+  .online-storefronts-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+
+  .online-storefronts-grid > div {
+    padding: 1.5rem 1.2rem !important;
+  }
+
+  .online-storefronts-grid h3 {
+    font-size: 1.4rem !important;
+  }
+
+  .online-storefronts-grid p {
+    font-size: 0.85rem !important;
+    margin-bottom: 1.4rem !important;
+  }
+
+  .offline-boutique-card {
+    grid-template-columns: 1fr !important;
+    padding: 1.4rem 1.1rem !important;
+    gap: 1.5rem !important;
+    margin-top: 2rem !important;
+  }
+
+  .offline-boutique-card h3 {
+    font-size: 1.4rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .offline-boutique-card p {
+    font-size: 0.88rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .offline-boutique-col-right {
+    border-left: none !important;
+    border-top: 1px solid rgba(184, 146, 74, 0.2) !important;
+    padding-left: 0 !important;
+    padding-top: 1.4rem !important;
+  }
+
+  .offline-store-btns-group {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+  }
+
+  .offline-store-btns-group .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .footer-compact-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.4rem !important;
+  }
+
+  .footer-compact-connect {
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .footer-compact-bottom {
+    text-align: center !important;
+    font-size: 0.68rem !important;
+    line-height: 1.6 !important;
+    padding-top: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .universe-flacon-title {
+    font-size: 1.85rem !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  .universe-pricing-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.3rem !important;
+  }
+
+  .marketplace-buttons-group {
+    flex-direction: column !important;
+  }
+
+  .btn-marketplace {
+    width: 100% !important;
+  }
 }

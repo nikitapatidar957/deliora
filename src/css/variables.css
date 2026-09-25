@@ -146,3 +146,19 @@
   --theme-accent-glow: rgba(212, 140, 70, 0.28);
   --theme-surface-border: rgba(212, 140, 70, 0.22);
 }
+
+@media (max-width: 768px) {
+  :root {
+    --fs-hero: clamp(1.8rem, 6vw, 2.6rem);
+    --fs-display: clamp(1.6rem, 5vw, 2.2rem);
+    --fs-h1: clamp(1.4rem, 4.5vw, 1.85rem);
+    --fs-h2: clamp(1.2rem, 3.5vw, 1.5rem);
+    --fs-h3: clamp(1rem, 2.5vw, 1.2rem);
+    --fs-body: 0.88rem;
+    --fs-small: 0.78rem;
+    --fs-micro: 0.65rem;
+    --tracking-widest: 0.16em;
+    --tracking-ultra: 0.22em;
+    --header-height: 64px;
+  }
+}

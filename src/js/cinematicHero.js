@@ -160,7 +160,7 @@ export function initCinematicHero() {
 
     // Target 9:16 dimensions
     const targetH = isMobile
-      ? Math.min(window.innerHeight * 0.67, 475)
+      ? Math.min(window.innerHeight * 0.58, 380)
       : Math.min(window.innerHeight * 0.73, 610);
     const targetW = Math.round(targetH * (9 / 16));
 
@@ -168,18 +168,18 @@ export function initCinematicHero() {
     const headerRect = header ? header.getBoundingClientRect() : null;
     const headerBottom = (headerRect && headerRect.height > 0)
       ? (headerRect.top + headerRect.height)
-      : (window.innerHeight * 0.22);
+      : (window.innerHeight * (isMobile ? 0.16 : 0.22));
 
-    const gapBelowHeader = isMobile ? 12 : 20;
+    const gapBelowHeader = isMobile ? 8 : 20;
     const topPadding = headerBottom + gapBelowHeader;
-    const bottomPadding = isMobile ? 28 : 42;
+    const bottomPadding = isMobile ? 18 : 42;
     const availableH = window.innerHeight - topPadding - bottomPadding;
 
     const initH = isMobile
-      ? Math.min(availableH, 335)
+      ? Math.min(availableH, 270)
       : Math.min(availableH, 610);
     const initW = isMobile
-      ? Math.min(window.innerWidth * 0.94, 430)
+      ? Math.min(window.innerWidth * 0.92, 380)
       : Math.min(window.innerWidth * 0.88, 1280);
 
     // Initial Center Y puts top of image exactly at headerBottom + gapBelowHeader

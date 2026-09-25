@@ -830,3 +830,58 @@
     gap: 2rem;
   }
 }
+
+@media (max-width: 768px) {
+  .site-header {
+    height: 60px;
+  }
+
+  .brand-logo-img {
+    height: 36px;
+  }
+
+  .nav-action-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  .mobile-menu-toggle {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.4rem;
+    font-size: 0.72rem;
+  }
+
+  .modal-card {
+    grid-template-columns: 1fr;
+    max-height: 92vh;
+  }
+
+  .modal-image-col {
+    padding: 1.2rem;
+  }
+
+  .modal-main-img {
+    max-height: 260px;
+  }
+
+  .modal-content-col {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .cart-drawer {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .search-modal-overlay {
+    padding: 2.5rem 1rem;
+  }
+
+  .search-input {
+    font-size: 1.4rem;
+  }
+}
