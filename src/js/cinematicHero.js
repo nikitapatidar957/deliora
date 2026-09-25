@@ -11,12 +11,18 @@
  * - 100% Scrubbable & Reversible Animation Timeline (60fps GPU)
  */
 
+import fleurClip from '../../perfumes_images1/fleur_clip1.mp4';
+import mistiqueClip from '../../perfumes_images1/mistique_clip2.mp4';
+import blancClip from '../../perfumes_images1/blanc_clip3.mp4';
+import velvetClip from '../../perfumes_images1/velvet_clip4.mp4';
+import alphaClip from '../../perfumes_images1/alpha_clip5.mp4';
+
 const PERFUME_CLIPS = [
-  { index: 1, id: 'fleur', name: 'Fleur', subtitle: 'Blush Floral', src: '/perfumes_images1/fleur_clip1.mp4' },
-  { index: 2, id: 'mistique', name: 'Mistique', subtitle: 'Aqua Oceanic', src: '/perfumes_images1/mistique_clip2.mp4' },
-  { index: 3, id: 'blanc', name: 'Blanc', subtitle: 'Alabaster White', src: '/perfumes_images1/blanc_clip3.mp4' },
-  { index: 4, id: 'velvet', name: 'Velvet', subtitle: 'Emerald Berries', src: '/perfumes_images1/velvet_clip4.mp4' },
-  { index: 5, id: 'alpha', name: 'Alpha', subtitle: 'Smoky Amber', src: '/perfumes_images1/alpha_clip5.mp4' }
+  { index: 1, id: 'fleur', name: 'Fleur', subtitle: 'Blush Floral', src: fleurClip },
+  { index: 2, id: 'mistique', name: 'Mistique', subtitle: 'Aqua Oceanic', src: mistiqueClip },
+  { index: 3, id: 'blanc', name: 'Blanc', subtitle: 'Alabaster White', src: blancClip },
+  { index: 4, id: 'velvet', name: 'Velvet', subtitle: 'Emerald Berries', src: velvetClip },
+  { index: 5, id: 'alpha', name: 'Alpha', subtitle: 'Smoky Amber', src: alphaClip }
 ];
 
 export function initCinematicHero() {
@@ -43,8 +49,13 @@ export function initCinematicHero() {
   let rightIndex = 4; // Starts at Clip 5 (index 4)
 
   function setupSideReels() {
-    // Initial assignment (only perfume name, no 'Clip' word)
     if (videoLeft) {
+      videoLeft.muted = true;
+      videoLeft.defaultMuted = true;
+      videoLeft.playsInline = true;
+      videoLeft.setAttribute('muted', '');
+      videoLeft.setAttribute('playsinline', '');
+      videoLeft.setAttribute('webkit-playsinline', 'true');
       videoLeft.loop = false;
       videoLeft.src = PERFUME_CLIPS[leftIndex].src;
       videoLeft.load();
@@ -52,6 +63,12 @@ export function initCinematicHero() {
     }
 
     if (videoRight) {
+      videoRight.muted = true;
+      videoRight.defaultMuted = true;
+      videoRight.playsInline = true;
+      videoRight.setAttribute('muted', '');
+      videoRight.setAttribute('playsinline', '');
+      videoRight.setAttribute('webkit-playsinline', 'true');
       videoRight.loop = false;
       videoRight.src = PERFUME_CLIPS[rightIndex].src;
       videoRight.load();
@@ -228,22 +245,40 @@ export function initCinematicHero() {
       }
     }
 
-    // Stage 2: Left & Right Reels Emerge (0.1s faster rise starting at p >= 0.28)
-    if (!isMobile && reelLeft && reelRight) {
-      reelLeft.style.width = `${targetW}px`;
-      reelLeft.style.height = `${targetH}px`;
-      reelLeft.style.left = `calc(50% - ${Math.round(targetW * 1.5 + gap)}px)`;
-      reelLeft.style.top = `calc(50% - ${Math.round(targetH * 0.5)}px)`;
+    // Stage 2: Left & Right Reels Emerge (smooth rise starting at p >= 0.28)
+    if (reelLeft && reelRight) {
+      if (isMobile) {
+        const mTargetW = Math.round(targetW * 0.84);
+        const mTargetH = Math.round(targetH * 0.84);
+        reelLeft.style.width = `${mTargetW}px`;
+        reelLeft.style.height = `${mTargetH}px`;
+        reelLeft.style.left = `calc(50% - ${Math.round(targetW * 0.74)}px)`;
+        reelLeft.style.top = `calc(50% - ${Math.round(mTargetH * 0.5)}px)`;
+        reelLeft.style.zIndex = '9';
 
-      reelRight.style.width = `${targetW}px`;
-      reelRight.style.height = `${targetH}px`;
-      reelRight.style.left = `calc(50% + ${Math.round(targetW * 0.5 + gap)}px)`;
-      reelRight.style.top = `calc(50% - ${Math.round(targetH * 0.5)}px)`;
+        reelRight.style.width = `${mTargetW}px`;
+        reelRight.style.height = `${mTargetH}px`;
+        reelRight.style.left = `calc(50% + ${Math.round(targetW * 0.74 - mTargetW)}px)`;
+        reelRight.style.top = `calc(50% - ${Math.round(mTargetH * 0.5)}px)`;
+        reelRight.style.zIndex = '9';
+      } else {
+        reelLeft.style.width = `${targetW}px`;
+        reelLeft.style.height = `${targetH}px`;
+        reelLeft.style.left = `calc(50% - ${Math.round(targetW * 1.5 + gap)}px)`;
+        reelLeft.style.top = `calc(50% - ${Math.round(targetH * 0.5)}px)`;
+        reelLeft.style.zIndex = '11';
+
+        reelRight.style.width = `${targetW}px`;
+        reelRight.style.height = `${targetH}px`;
+        reelRight.style.left = `calc(50% + ${Math.round(targetW * 0.5 + gap)}px)`;
+        reelRight.style.top = `calc(50% - ${Math.round(targetH * 0.5)}px)`;
+        reelRight.style.zIndex = '11';
+      }
 
       if (p < 0.28) {
-        reelLeft.style.transform = 'translate3d(0, 110vh, 0)';
+        reelLeft.style.transform = isMobile ? 'translate3d(0, 110vh, 0) scale(0.85)' : 'translate3d(0, 110vh, 0)';
         reelLeft.style.opacity = '0';
-        reelRight.style.transform = 'translate3d(0, 110vh, 0)';
+        reelRight.style.transform = isMobile ? 'translate3d(0, 110vh, 0) scale(0.85)' : 'translate3d(0, 110vh, 0)';
         reelRight.style.opacity = '0';
 
         if (videoLeft && !videoLeft.paused) videoLeft.pause();
@@ -252,15 +287,19 @@ export function initCinematicHero() {
         const riseT = Math.min(Math.max((p - 0.28) / 0.52, 0), 1);
         const easedRise = easeOutCubic(riseT);
         const yOffset = (1 - easedRise) * 110;
-        const opacity = Math.min(riseT * 1.35, 1) * 0.94;
+        const opacity = Math.min(riseT * 1.35, 1) * (isMobile ? 0.85 : 0.94);
 
-        reelLeft.style.transform = `translate3d(0, ${yOffset.toFixed(2)}vh, 0)`;
+        reelLeft.style.transform = isMobile
+          ? `translate3d(0, ${yOffset.toFixed(2)}vh, 0) scale(0.85)`
+          : `translate3d(0, ${yOffset.toFixed(2)}vh, 0)`;
         reelLeft.style.opacity = opacity.toFixed(3);
 
-        reelRight.style.transform = `translate3d(0, ${yOffset.toFixed(2)}vh, 0)`;
+        reelRight.style.transform = isMobile
+          ? `translate3d(0, ${yOffset.toFixed(2)}vh, 0) scale(0.85)`
+          : `translate3d(0, ${yOffset.toFixed(2)}vh, 0)`;
         reelRight.style.opacity = opacity.toFixed(3);
 
-        if (p >= 0.48) {
+        if (p >= 0.40) {
           if (videoLeft && videoLeft.paused) videoLeft.play().catch(() => {});
           if (videoRight && videoRight.paused) videoRight.play().catch(() => {});
         } else {

@@ -99,6 +99,7 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
+  overflow: hidden;
 }
 
 /* Common Reel Container Styles */
@@ -409,19 +410,13 @@
     height: var(--reel-target-h);
   }
 
-  /* Side reels slightly scaled down and tucked behind to avoid horizontal overflow */
+  /* Side reels slightly scaled down and tucked behind to create 3D layered depth */
   .reel-left {
-    left: calc(50% - var(--reel-target-w) / 2 - 45px);
-    transform: translate3d(0, 110vh, -40px) scale(0.82) !important;
-    opacity: 0;
-    pointer-events: none;
+    transform-origin: center center;
   }
 
   .reel-right {
-    left: calc(50% - var(--reel-target-w) / 2 + 45px);
-    transform: translate3d(0, 110vh, -40px) scale(0.82) !important;
-    opacity: 0;
-    pointer-events: none;
+    transform-origin: center center;
   }
 
   .overlay-glass-card {

@@ -15,9 +15,12 @@
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&family=Pinyon+Script&display=swap"
     rel="stylesheet" />
 
+  <!-- Preload Critical Hero Image for instant display -->
+  <link rel="preload" as="image" href="/assets/all_perfume_image2-vB8FMETS.png" fetchpriority="high" />
+
   <!-- Stylesheets -->
-  <script type="module" crossorigin src="/assets/index-5iFqXk6I.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CMdc1LwA.css">
+  <script type="module" crossorigin src="/assets/index-BE8Tzley.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-5oTGwmmX.css">
 </head>
 
 <body data-atmosphere="burgundy">
@@ -35,7 +38,7 @@
 
         <!-- Brand Signature with Official Logo -->
         <a href="#cinematic-hero" class="brand-mark" aria-label="DeLiora Essence">
-          <img src="/assets/logo-B37ioJ6-.png" alt="DeLiora Essence Logo" class="brand-logo-img" />
+          <img src="/assets/logo-KdzC3B51.png" alt="DeLiora Essence Logo" class="brand-logo-img" />
         </a>
 
         <!-- Desktop Navigation Links -->
@@ -125,7 +128,7 @@
     <div class="cart-drawer" style="background: #17070B; width: 100%; max-width: 420px;">
       <div class="cart-drawer-header">
         <div style="display: flex; align-items: center; gap: 0.8rem;">
-          <img src="/assets/logo-B37ioJ6-.png" alt="DeLiora Logo" style="height: 38px; width: auto;" />
+          <img src="/assets/logo-KdzC3B51.png" alt="DeLiora Logo" style="height: 38px; width: auto;" />
         </div>
         <button class="cart-close-btn" id="mobile-close-btn">&times;</button>
       </div>
@@ -176,10 +179,10 @@
         <!-- The 3-Reel Stage -->
         <div class="cinematic-stage" id="cinematic-stage">
 
-          <!-- LEFT REEL (Random clip, emerges from below) -->
+          <!-- LEFT REEL (Ascending Infinite Loop) -->
           <div class="reel-box reel-left" id="reel-left">
             <div class="reel-inner">
-              <video class="reel-video" id="video-left" playsinline loop muted preload="auto">
+              <video class="reel-video" id="video-left" playsinline webkit-playsinline loop muted autoplay preload="auto">
                 <source src="/assets/fleur_clip1-D-QJYuY4.mp4" type="video/mp4" />
               </video>
               <div class="reel-ambient-glare"></div>
@@ -195,11 +198,11 @@
             <div class="reel-inner">
 
               <!-- Initial Horizontal Hero Image -->
-              <img src="/assets/all_perfume_image2-CyJ3b7uK.png" alt="DeLiora Essence Grand Campaign Scene"
-                class="hero-horizontal-img" id="hero-horizontal-img" />
+              <img src="/assets/all_perfume_image2-vB8FMETS.png" alt="DeLiora Essence Grand Campaign Scene"
+                class="hero-horizontal-img" id="hero-horizontal-img" fetchpriority="high" decoding="sync" />
 
               <!-- Fixed Center Video (plays after morph) -->
-              <video class="reel-video reel-video-center" id="video-center" playsinline loop muted preload="auto">
+              <video class="reel-video reel-video-center" id="video-center" playsinline webkit-playsinline loop muted preload="auto">
                 <source src="/assets/center_clip-Bdoop56L.mp4" type="video/mp4" />
               </video>
 
@@ -208,7 +211,7 @@
               <!-- Transparent Luxury End-Frame Overlay (final ~1s of center clip) -->
               <div class="center-luxury-overlay" id="center-luxury-overlay">
                 <div class="overlay-glass-card">
-                  <img src="/assets/logo-B37ioJ6-.png" alt="DeLiora Crest Logo" class="overlay-brand-logo" />
+                  <img src="/assets/logo-KdzC3B51.png" alt="DeLiora Crest Logo" class="overlay-brand-logo" />
                   <div class="overlay-brand-title">DELIORA</div>
                   <div class="overlay-perfume-line">Extrait de Parfum</div>
                   <div class="overlay-divider-line"></div>
@@ -219,10 +222,10 @@
             </div>
           </div>
 
-          <!-- RIGHT REEL (Random clip, emerges from below) -->
+          <!-- RIGHT REEL (Descending Infinite Loop) -->
           <div class="reel-box reel-right" id="reel-right">
             <div class="reel-inner">
-              <video class="reel-video" id="video-right" playsinline loop muted preload="auto">
+              <video class="reel-video" id="video-right" playsinline webkit-playsinline loop muted autoplay preload="auto">
                 <source src="/assets/alpha_clip5-C1ozB87w.mp4" type="video/mp4" />
               </video>
               <div class="reel-ambient-glare"></div>
@@ -252,7 +255,7 @@
         <div class="intro-grid">
 
           <div class="intro-image-wrapper reveal-item">
-            <img src="/assets/blanc2-CYer374N.png" alt="DeLiora Extrait Flacon and Packaging Presentation"
+            <img src="/assets/blanc2-CAXp0soK.png" alt="DeLiora Extrait Flacon and Packaging Presentation"
               class="intro-image" loading="lazy" />
           </div>
 
@@ -328,7 +331,7 @@
               style="--universe-border: rgba(169, 217, 213, 0.35); --universe-glow: rgba(169, 217, 213, 0.2);"
               tabindex="0" role="region" aria-label="Mistique Visual & Gallery Wall">
               <!-- Main Flacon Image (Exact original image) -->
-              <img src="/assets/mistique-BhKAl8Pn.png" alt="DeLiora Mistique Flacon" class="universe-flacon-img"
+              <img src="/assets/mistique-BKpYqgdZ.png" alt="DeLiora Mistique Flacon" class="universe-flacon-img"
                 loading="lazy" />
 
               <div class="gallery-hover-hint">
@@ -353,7 +356,7 @@
                       <span class="frame-wire wire-right"></span>
                     </div>
                     <div class="frame-moulding">
-                      <img src="/assets/mistique_frame1-BSbta78I.jpeg" alt="Mistique Presentation & Box" class="wall-gallery-img" loading="eager" decoding="async" />
+                      <img src="/assets/mistique_frame1-CjT-BrCX.jpeg" alt="Mistique Presentation & Box" class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
                   </div>
@@ -366,7 +369,7 @@
                       <span class="frame-wire wire-right"></span>
                     </div>
                     <div class="frame-moulding">
-                      <img src="/assets/mistique_frame2-GlnVNW_s.jpeg" alt="Mistique Solitaire Extrait" class="wall-gallery-img" loading="eager" decoding="async" />
+                      <img src="/assets/mistique_frame2-CgTV99I5.jpeg" alt="Mistique Solitaire Extrait" class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
                   </div>
@@ -379,7 +382,7 @@
                       <span class="frame-wire wire-right"></span>
                     </div>
                     <div class="frame-moulding">
-                      <img src="/assets/mistique_frame3-B2jAOk2z.jpeg" alt="Mistique Sun & Shadowplay" class="wall-gallery-img" loading="eager" decoding="async" />
+                      <img src="/assets/mistique_frame3-BP7oxJ3C.jpeg" alt="Mistique Sun & Shadowplay" class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
                   </div>
@@ -463,7 +466,7 @@
               style="--universe-border: rgba(230, 222, 211, 0.35); --universe-glow: rgba(230, 222, 211, 0.2);"
               tabindex="0" role="region" aria-label="Blanc Visual & Gallery Wall">
               <!-- Main Flacon Image (Exact original image) -->
-              <img src="/assets/blanc1-B3tV7hSw.png" alt="DeLiora Blanc Flacon" class="universe-flacon-img"
+              <img src="/assets/blanc1-CD190TcC.png" alt="DeLiora Blanc Flacon" class="universe-flacon-img"
                 loading="lazy" />
 
               <div class="gallery-hover-hint">
@@ -474,16 +477,16 @@
               <!-- Section 2 Wall Gallery Overlay: Asymmetric / Masonry Composition -->
               <div class="gallery-wall-overlay gallery-wall-blanc">
                 <div class="wall-masonry-tall">
-                  <img src="/assets/blanc_frame1-BA50wMrf.jpeg" alt="Blanc Presentation & Flacon" class="wall-gallery-img" loading="lazy" />
+                  <img src="/assets/blanc_frame1-DvKti8Oj.jpeg" alt="Blanc Presentation & Flacon" class="wall-gallery-img" loading="lazy" />
                   <div class="wall-item-glare"></div>
                 </div>
                 <div class="wall-masonry-stack">
                   <div class="wall-masonry-item wall-m-top">
-                    <img src="/assets/blanc_frame2-kF--7Tze.jpeg" alt="Blanc Extrait Portrait" class="wall-gallery-img" loading="lazy" />
+                    <img src="/assets/blanc_frame2-DJxie_jP.jpeg" alt="Blanc Extrait Portrait" class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-masonry-item wall-m-bottom">
-                    <img src="/assets/blanc_frame3-Cyia76y_.jpeg" alt="Blanc Saffron Bloom" class="wall-gallery-img" loading="lazy" />
+                    <img src="/assets/blanc_frame3-Dcbgyw7f.jpeg" alt="Blanc Saffron Bloom" class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                 </div>
@@ -567,7 +570,7 @@
               tabindex="0" role="region" aria-label="Fleur Visual & Gallery Wall">
               <!-- Main Video (Exact original video) -->
               <video class="universe-flacon-img" autoplay loop muted playsinline
-                poster="/assets/all_perfume_image-ww88hQ8x.png">
+                poster="/assets/all_perfume_image-CVGxFq-3.png">
                 <source src="/assets/fleur3-CR7AQmJw.mp4" type="video/mp4" />
                 <source src="/assets/fleur2-BOL9CGfG.mp4" type="video/mp4" />
               </video>
@@ -586,7 +589,7 @@
                     <div class="fleur-corner-bracket top-right"></div>
                     <div class="fleur-corner-bracket bottom-left"></div>
                     <div class="fleur-corner-bracket bottom-right"></div>
-                    <img src="/assets/fleur_frame3-BSdyjq__.jpg" alt="Fleur Exhibition Masterpiece" class="wall-gallery-img" loading="eager" decoding="async" />
+                    <img src="/assets/fleur_frame3-BBWQMFj-.jpg" alt="Fleur Exhibition Masterpiece" class="wall-gallery-img" loading="lazy" decoding="async" />
                     <div class="wall-item-glare"></div>
                   </div>
 
@@ -602,14 +605,14 @@
                     <!-- Left Conservatory Arch -->
                     <div class="fleur-arch-frame arch-left">
                       <div class="arch-crown-moulding"></div>
-                      <img src="/assets/fleur_frame1-Dziuo0U3.jpeg" alt="Fleur Flacon & Box" class="wall-gallery-img" loading="eager" decoding="async" />
+                      <img src="/assets/fleur_frame1-Ca7ags6y.jpeg" alt="Fleur Flacon & Box" class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
 
                     <!-- Right Conservatory Arch -->
                     <div class="fleur-arch-frame arch-right">
                       <div class="arch-crown-moulding"></div>
-                      <img src="/assets/fleur_frame2-C-wf8_Q7.jpeg" alt="Fleur Solitaire Portrait" class="wall-gallery-img" loading="eager" decoding="async" />
+                      <img src="/assets/fleur_frame2-aqjXDEan.jpeg" alt="Fleur Solitaire Portrait" class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
                   </div>
@@ -693,7 +696,7 @@
               style="--universe-border: rgba(212, 140, 70, 0.35); --universe-glow: rgba(212, 140, 70, 0.2);"
               tabindex="0" role="region" aria-label="Alpha Visual & Gallery Wall">
               <!-- Main Flacon Image (Exact original image) -->
-              <img src="/assets/alpha1-DDld78Ly.png" alt="DeLiora Alpha Flacon" class="universe-flacon-img"
+              <img src="/assets/alpha1-BbAB7lz4.png" alt="DeLiora Alpha Flacon" class="universe-flacon-img"
                 loading="lazy" />
 
               <div class="gallery-hover-hint">
@@ -705,15 +708,15 @@
               <div class="gallery-wall-overlay gallery-wall-alpha">
                 <div class="wall-diag-stage">
                   <div class="wall-diag-card card-1">
-                    <img src="/assets/alpha_frame1-DpZuI7WI.jpeg" alt="Alpha Flacon & Packaging" class="wall-gallery-img" loading="lazy" />
+                    <img src="/assets/alpha_frame1-C7L4VsKk.jpeg" alt="Alpha Flacon & Packaging" class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-diag-card card-2">
-                    <img src="/assets/alpha_frame2-CzRN4v7P.jpeg" alt="Alpha Solitaire Extrait" class="wall-gallery-img" loading="lazy" />
+                    <img src="/assets/alpha_frame2-DHssKJPV.jpeg" alt="Alpha Solitaire Extrait" class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-diag-card card-3">
-                    <img src="/assets/alpha_frame3-CZ7Z4rJA.JPG" alt="Alpha Dark Woods" class="wall-gallery-img" loading="lazy" />
+                    <img src="/assets/alpha_frame3-DRU1ySXQ.JPG" alt="Alpha Dark Woods" class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                 </div>
@@ -798,7 +801,7 @@
               style="--universe-border: rgba(94, 179, 150, 0.35); --universe-glow: rgba(94, 179, 150, 0.2);"
               tabindex="0" role="region" aria-label="Velvet Visual & Gallery Wall">
               <!-- Main Flacon Image (Exact original image) -->
-              <img src="/assets/velvet1-Rj1e13tN.png" alt="DeLiora Velvet Flacon" class="universe-flacon-img"
+              <img src="/assets/velvet1-BIrXntCO.png" alt="DeLiora Velvet Flacon" class="universe-flacon-img"
                 loading="lazy" />
 
               <div class="gallery-hover-hint">
@@ -811,17 +814,17 @@
                 <div class="wall-pillars-cluster">
                   <div class="wall-pillar-item pillar-left">
                     <div class="pillar-arch-moulding"></div>
-                    <img src="/assets/velvet_frame1-_3mRxswK.jpeg" alt="Velvet Flacon Presentation" class="wall-gallery-img" loading="lazy" />
+                    <img src="/assets/velvet_frame1-Dq5jOqh3.jpeg" alt="Velvet Flacon Presentation" class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-pillar-item pillar-center">
                     <div class="pillar-arch-moulding"></div>
-                    <img src="/assets/velvet_frame2-D-Z1bt4v.jpeg" alt="Velvet Solitaire Extrait" class="wall-gallery-img" loading="lazy" />
+                    <img src="/assets/velvet_frame2-B1HXZuX5.jpeg" alt="Velvet Solitaire Extrait" class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-pillar-item pillar-right">
                     <div class="pillar-arch-moulding"></div>
-                    <img src="/assets/velvet_frame3-DY5AEJi3.jpeg" alt="Velvet Cashmere Silk" class="wall-gallery-img" loading="lazy" />
+                    <img src="/assets/velvet_frame3-DfByNOqw.jpeg" alt="Velvet Cashmere Silk" class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                 </div>
@@ -1076,7 +1079,7 @@
 
         <!-- Brand Signature with Logo -->
         <div class="footer-compact-brand">
-          <img src="/assets/logo-B37ioJ6-.png" alt="DeLiora Brand Logo" class="footer-compact-logo" />
+          <img src="/assets/logo-KdzC3B51.png" alt="DeLiora Brand Logo" class="footer-compact-logo" />
           <div class="footer-compact-brand-text">
             <span class="footer-compact-title">DELIORA</span>
             <span class="footer-compact-sub">essence - by patidar</span>
