@@ -871,6 +871,110 @@
   background: #17080B;
 }
 
+.shop-section .section-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.shop-section .section-title {
+  color: #FFFFFF !important;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+/* Online Storefronts: Two horizontal boxes side-by-side on laptop/desktop */
+.online-storefronts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.8rem, 3vw, 2.5rem);
+  align-items: stretch;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+
+.storefront-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: clamp(2.2rem, 3.5vw, 2.8rem) clamp(1.8rem, 2.5vw, 2.4rem);
+  border-radius: var(--border-radius-subtle, 4px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.storefront-card:hover {
+  transform: translateY(-4px);
+}
+
+.storefront-card-amazon {
+  border: 1px solid rgba(255, 153, 0, 0.38);
+}
+
+.storefront-card-amazon:hover {
+  border-color: rgba(255, 153, 0, 0.75);
+  box-shadow: 0 20px 50px rgba(255, 153, 0, 0.12), 0 15px 45px rgba(0, 0, 0, 0.55);
+}
+
+.storefront-card-flipkart {
+  border: 1px solid rgba(40, 116, 240, 0.38);
+}
+
+.storefront-card-flipkart:hover {
+  border-color: rgba(40, 116, 240, 0.75);
+  box-shadow: 0 20px 50px rgba(40, 116, 240, 0.15), 0 15px 45px rgba(0, 0, 0, 0.55);
+}
+
+.storefront-card-body {
+  margin-bottom: 2rem;
+}
+
+.storefront-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.storefront-badge-brand {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.storefront-badge-brand.amazon-badge {
+  color: #FF9900;
+}
+
+.storefront-badge-brand.flipkart-badge {
+  color: #5596FF;
+}
+
+.storefront-badge-status {
+  font-size: 0.75rem;
+  color: #48bb78;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.storefront-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.5vw, 1.9rem);
+  color: #FFFFFF;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.storefront-desc {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--color-ivory-muted);
+}
+
 .shop-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
