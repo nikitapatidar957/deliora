@@ -1,0 +1,209 @@
+/* ==========================================================================
+   DeLiora Essence by Patidar — Base & Reset
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--color-burgundy);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background: var(--theme-bg-gradient);
+  color: var(--theme-text);
+  line-height: 1.65;
+  transition: background var(--transition-slow), color var(--transition-slow);
+}
+
+/* Background Film Grain Overlay for Editorial Depth */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 998;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Fragrance Mist Canvas Container */
+#mist-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.85;
+}
+
+/* Typography Primitives */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: var(--tracking-normal);
+  color: inherit;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  text-transform: none;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+p {
+  color: var(--theme-text-muted);
+  font-size: var(--fs-body);
+  font-weight: 300;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+button {
+  font-family: var(--font-sans);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: var(--fs-small);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Layout Containers */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 4vw, 4rem);
+  padding-right: clamp(1.5rem, 4vw, 4rem);
+}
+
+.container-narrow {
+  max-width: var(--max-width-narrow);
+}
+
+/* Editorial Eyebrow Header */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-ultra);
+  text-transform: uppercase;
+  color: var(--theme-accent);
+  margin-bottom: 1.2rem;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--theme-accent);
+  opacity: 0.5;
+}
+
+.eyebrow.no-flank::before,
+.eyebrow.no-flank::after {
+  display: none;
+}
+
+/* Golden hairline divider */
+.hairline {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--theme-surface-border) 20%, var(--theme-surface-border) 80%, transparent 100%);
+  margin: 3rem 0;
+}
+
+/* Reveal on Scroll Transitions */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--color-gold);
+  color: #1a080c;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+  }
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+  .eyebrow::before,
+  .eyebrow::after {
+    width: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14.5px;
+  }
+}

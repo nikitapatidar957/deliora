@@ -1,0 +1,439 @@
+/* ==========================================================================
+   DELIORA ESSENCE — CINEMATIC SCROLL-DRIVEN HERO
+   ========================================================================== */
+
+:root {
+  --reel-target-h: min(74vh, 620px);
+  --reel-target-w: calc(min(74vh, 620px) * 9 / 16);
+  --reel-gap: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Track (Pinned Viewport with 320vh of headroom)
+   -------------------------------------------------------------------------- */
+.cinematic-hero-track {
+  position: relative;
+  height: 310vh;
+  background: #080204;
+  margin-top: 0;
+  z-index: 20;
+}
+
+.cinematic-hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, #15060a 0%, #080204 80%, #040102 100%);
+  user-select: none;
+}
+
+/* Ambient Vignette & Cinema Glare */
+.cinematic-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 45%, rgba(184, 146, 74, 0.08) 0%, transparent 65%);
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Initial Editorial Title (Fades smoothly on scroll)
+   -------------------------------------------------------------------------- */
+.cinematic-hero-header {
+  position: absolute;
+  top: calc(var(--header-height, 70px) + 0.8rem);
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 15;
+  pointer-events: none;
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+  padding: 0 1.5rem;
+}
+
+.cinematic-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.cinematic-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.8vw, 3rem);
+  font-weight: 400;
+  letter-spacing: var(--tracking-widest);
+  color: #FFFFFF;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.cinematic-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+  font-weight: 400;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-top: 0.35rem;
+  opacity: 0.95;
+}
+
+/* --------------------------------------------------------------------------
+   Cinematic 3-Reel Stage
+   -------------------------------------------------------------------------- */
+.cinematic-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Common Reel Container Styles */
+.reel-box {
+  position: absolute;
+  top: 50%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+  background: #0d0305;
+  will-change: transform, width, height, opacity, border-radius;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.reel-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.reel-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+}
+
+.reel-ambient-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 40%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.reel-badge {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.35rem 0.9rem;
+  background: rgba(13, 2, 4, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  z-index: 4;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Center Reel (Fixed Hero, Morphs from Horizontal to Vertical 9:16)
+   -------------------------------------------------------------------------- */
+.reel-center {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 25px 75px rgba(0, 0, 0, 0.85), 0 0 45px rgba(184, 146, 74, 0.2);
+  overflow: visible;
+}
+
+/* Ambient Aura Effect Just Below Header around Image */
+.hero-ambient-aura {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.32) 0%, rgba(184, 146, 74, 0.12) 50%, transparent 75%);
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: -1;
+  border-radius: inherit;
+  transition: opacity 0.4s ease;
+}
+
+.hero-horizontal-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 2;
+  transition: opacity 0.3s ease-out;
+  pointer-events: none;
+}
+
+.reel-video-center {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Side Reels (Left & Right, Emerge from Below)
+   -------------------------------------------------------------------------- */
+.reel-left,
+.reel-right {
+  width: var(--reel-target-w);
+  height: var(--reel-target-h);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 11;
+  opacity: 0;
+  transform: translate3d(0, 110vh, 0);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.reel-left {
+  left: calc(50% - var(--reel-target-w) / 2 - var(--reel-target-w) - var(--reel-gap));
+  transform-origin: center center;
+}
+
+.reel-right {
+  left: calc(50% + var(--reel-target-w) / 2 + var(--reel-gap));
+  transform-origin: center center;
+}
+
+/* --------------------------------------------------------------------------
+   Center Reel: Transparent Luxury End-Frame Overlay
+   -------------------------------------------------------------------------- */
+.center-luxury-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(12px) scale(0.96);
+}
+
+.center-luxury-overlay.is-active,
+.center-luxury-overlay.is-fixed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.overlay-glass-card {
+  width: 100%;
+  max-width: 290px;
+  background: rgba(13, 2, 4, 0.52);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  border-radius: 14px;
+  padding: 2rem 1.4rem;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(184, 146, 74, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay-brand-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6)) brightness(1.2);
+}
+
+.overlay-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.overlay-perfume-line {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: var(--tracking-ultra);
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+}
+
+.overlay-divider-line {
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: 1.1rem 0;
+}
+
+.overlay-poetic-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--color-ivory);
+  opacity: 0.95;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Prompt (Scroll to Transform)
+   -------------------------------------------------------------------------- */
+.cinematic-scroll-prompt {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 15;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+}
+
+.prompt-text {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-ivory-muted);
+}
+
+.prompt-mouse {
+  width: 20px;
+  height: 32px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.prompt-wheel {
+  width: 3px;
+  height: 6px;
+  background: var(--color-gold);
+  border-radius: 2px;
+  animation: promptWheel 1.8s infinite ease-in-out;
+}
+
+@keyframes promptWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile & Tablet Responsiveness
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  :root {
+    --reel-target-h: min(65vh, 520px);
+    --reel-target-w: calc(min(65vh, 520px) * 9 / 16);
+    --reel-gap: 1.2rem;
+  }
+
+  .cinematic-hero-header {
+    top: 4.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cinematic-hero-track {
+    height: 240vh;
+  }
+
+  .cinematic-hero-header {
+    top: calc(var(--header-height, 60px) + 0.35rem);
+    padding: 0 1rem;
+  }
+
+  .cinematic-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.85rem);
+    letter-spacing: 0.14em;
+  }
+
+  .cinematic-tagline {
+    font-size: clamp(0.68rem, 2.4vw, 0.82rem);
+    letter-spacing: 0.12em;
+    margin-top: 0.2rem;
+  }
+
+  :root {
+    --reel-target-h: min(58vh, 380px);
+    --reel-target-w: calc(min(58vh, 380px) * 9 / 16);
+  }
+
+  /* Center reel dominates */
+  .reel-center {
+    width: var(--reel-target-w);
+    height: var(--reel-target-h);
+  }
+
+  /* Side reels slightly scaled down and tucked behind to avoid horizontal overflow */
+  .reel-left {
+    left: calc(50% - var(--reel-target-w) / 2 - 45px);
+    transform: translate3d(0, 110vh, -40px) scale(0.82) !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .reel-right {
+    left: calc(50% - var(--reel-target-w) / 2 + 45px);
+    transform: translate3d(0, 110vh, -40px) scale(0.82) !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .overlay-glass-card {
+    padding: 1.2rem 0.9rem;
+    max-width: 230px;
+  }
+
+  .overlay-brand-logo {
+    height: 34px;
+  }
+
+  .overlay-poetic-quote {
+    font-size: 0.8rem;
+  }
+}
