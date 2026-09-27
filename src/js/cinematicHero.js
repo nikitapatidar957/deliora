@@ -189,14 +189,14 @@ export function initCinematicHero() {
       ? (headerRect.top + headerRect.height)
       : (window.innerHeight * (isMobile ? 0.14 : 0.20));
 
-    const gapBelowHeader = isMobile ? 8 : 16;
+    const gapBelowHeader = isMobile ? 26 : 40;
     const topPadding = headerBottom + gapBelowHeader;
     const bottomPadding = isMobile ? 18 : 26;
     const availableH = Math.max(window.innerHeight - topPadding - bottomPadding, 220);
 
     const initH = isMobile
-      ? Math.min(availableH, Math.round(window.innerHeight * 0.58), 460)
-      : Math.min(availableH, Math.round(window.innerHeight * 0.74), 740);
+      ? Math.min(availableH, Math.round(window.innerHeight * 0.54), 430)
+      : Math.min(availableH, Math.round(window.innerHeight * 0.70), 700);
 
     // Initial width of hero image increased by 10%
     const initW = isMobile
