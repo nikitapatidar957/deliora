@@ -178,7 +178,7 @@
 
 .intro-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1.1fr 1fr;
   gap: clamp(3rem, 6vw, 6rem);
   align-items: center;
 }
@@ -1471,6 +1471,10 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+
+  .intro-image-wrapper {
+    order: -1;
+  }
   
   .intro-image {
     height: 480px;
@@ -2623,6 +2627,7 @@
   }
 
   .intro-image-wrapper {
+    order: -1 !important;
     max-width: 360px !important;
     margin: 0 auto !important;
     width: 100% !important;
