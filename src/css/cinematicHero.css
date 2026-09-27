@@ -356,7 +356,7 @@
 
   :root {
     --reel-target-h: min(58vh, 380px);
-    --reel-target-w: calc(min(58vh, 380px) * 9 / 16);
+    --reel-target-w: calc(min(58vh, 380px) * 9 / 16 * 1.10);
   }
 
   /* Center reel dominates */
@@ -373,7 +373,7 @@
 
   .overlay-glass-card {
     padding: 1.2rem 0.9rem;
-    max-width: 230px;
+    max-width: 250px;
   }
 
   .overlay-brand-logo {

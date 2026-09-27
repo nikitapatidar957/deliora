@@ -39,10 +39,11 @@
   align-items: center;
   gap: 0.9rem;
   text-decoration: none;
+  margin-left: 5%;
 }
 
 .brand-logo-img {
-  height: 48px;
+  height: 50px;
   width: auto;
   object-fit: contain;
   transition: transform var(--transition-fast);
@@ -819,9 +820,9 @@
   }
 
   .brand-logo-img {
-    height: 39px;
+    height: 50px;
   }
-
+ß
   .nav-action-btn {
     width: 38px;
     height: 38px;

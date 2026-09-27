@@ -96,7 +96,7 @@ export function initCinematicHero() {
     setTimeout(() => {
       videoEl.src = clip.src;
       videoEl.load();
-      videoEl.play().catch(() => {});
+      videoEl.play().catch(() => { });
       if (badgeEl) badgeEl.textContent = clip.name;
       setTimeout(() => {
         videoEl.style.opacity = '1';
@@ -120,11 +120,11 @@ export function initCinematicHero() {
       isLogoFixed = true;
       overlay?.classList.add('is-active', 'is-fixed');
       videoCenter.loop = true; // Continuous loop under the fixed glass card
-      videoCenter.play().catch(() => {});
+      videoCenter.play().catch(() => { });
     } else {
       // Replay second run
       videoCenter.currentTime = 0;
-      videoCenter.play().catch(() => {});
+      videoCenter.play().catch(() => { });
     }
   });
 
@@ -174,11 +174,13 @@ export function initCinematicHero() {
 
     const isMobile = window.innerWidth <= 768;
 
-    // Target 9:16 dimensions
+    // Target 9:16 dimensions (center video box increased by 10% on mobile)
     const targetH = isMobile
-      ? Math.min(window.innerHeight * 0.58, 380)
+      ? Math.min(window.innerHeight * 0.60, 480)
       : Math.min(window.innerHeight * 0.73, 610);
-    const targetW = Math.round(targetH * (9 / 16));
+    const targetW = isMobile
+      ? Math.round(targetH * (9 / 16) * 1.20)
+      : Math.round(targetH * (9 / 16));
 
     // Dynamic initial geometry: Place image cleanly below "DELIORA ESSENCE By Patidar"
     const headerRect = header ? header.getBoundingClientRect() : null;
@@ -195,9 +197,10 @@ export function initCinematicHero() {
       ? Math.min(availableH, Math.round(window.innerHeight * 0.58), 460)
       : Math.min(availableH, Math.round(window.innerHeight * 0.74), 740);
 
+    // Initial width of hero image increased by 10%
     const initW = isMobile
-      ? Math.min(window.innerWidth * 0.94, 420)
-      : Math.min(window.innerWidth * 0.90, Math.round(initH * 1.5), 1360);
+      ? Math.min(window.innerWidth * 0.98, 460)
+      : Math.min(window.innerWidth * 0.98, Math.round(initH * 1.65), 1500);
 
     // Initial Center Y puts top of image exactly at headerBottom + gapBelowHeader
     const initCenterY = topPadding + (initH / 2);
@@ -237,7 +240,7 @@ export function initCinematicHero() {
     // Video Playback Control
     if (p >= 0.20) {
       if (videoCenter.paused) {
-        videoCenter.play().catch(() => {});
+        videoCenter.play().catch(() => { });
       }
     } else {
       if (!videoCenter.paused) {
@@ -289,8 +292,8 @@ export function initCinematicHero() {
           reelRight.style.opacity = opacity.toFixed(3);
 
           if (p >= 0.40) {
-            if (videoLeft && videoLeft.paused) videoLeft.play().catch(() => {});
-            if (videoRight && videoRight.paused) videoRight.play().catch(() => {});
+            if (videoLeft && videoLeft.paused) videoLeft.play().catch(() => { });
+            if (videoRight && videoRight.paused) videoRight.play().catch(() => { });
           } else {
             if (videoLeft && !videoLeft.paused) videoLeft.pause();
             if (videoRight && !videoRight.paused) videoRight.pause();
