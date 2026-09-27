@@ -2446,12 +2446,53 @@
   color: #FFFFFF;
 }
 
+.universe-price-original {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: rgba(245, 240, 232, 0.45);
+  text-decoration: line-through;
+}
+
+.universe-discount-tag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #1a080c;
+  background: var(--color-gold);
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
 .universe-price-note {
   font-size: 0.78rem;
   letter-spacing: var(--tracking-wide);
   color: var(--universe-accent, var(--color-gold));
   text-transform: uppercase;
 }
+
+.amazon-question-box {
+  margin-top: 0.85rem;
+}
+
+.amazon-question-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: var(--tracking-wide);
+  color: rgba(245, 240, 232, 0.65);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.amazon-question-link:hover {
+  color: var(--color-gold);
+  transform: translateX(3px);
+}
+
 
 /* --------------------------------------------------------------------------
    DEDICATED MOBILE & PHONE RESPONSIVE OVERHAUL (Screens <= 768px & <= 480px)

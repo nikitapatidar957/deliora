@@ -76,19 +76,39 @@ export function openQuickView(fragranceId) {
           </div>
         </div>
 
-        <div style="display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2rem;">
+        <div style="display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2rem;">
           <div style="font-family: var(--font-serif); font-size: 1.8rem; color: #FFFFFF;" id="modal-price-display">
             ${item.priceFormatted50}
           </div>
-          <span style="font-size: 0.75rem; letter-spacing: var(--tracking-wide); color: var(--color-gold);">
+          <span style="font-family: var(--font-serif); font-size: 1.2rem; color: rgba(245, 240, 232, 0.45); text-decoration: line-through;">
+            ${item.originalPriceFormatted50 || '₹1,499'}
+          </span>
+          <span style="font-size: 0.7rem; font-weight: 600; color: #1a080c; background: var(--color-gold); padding: 0.15rem 0.45rem; border-radius: 2px; text-transform: uppercase;">
+            ${item.discountPercent || 40}% OFF
+          </span>
+          <span style="font-size: 0.75rem; letter-spacing: var(--tracking-wide); color: var(--color-gold); width: 100%; margin-top: 0.2rem;">
             Complimentary Hand-Crafted Velvet Box Included
           </span>
         </div>
 
-        <div style="display: flex; gap: 1rem;">
-          <a href="#notes-pyramid" class="btn btn-gold-solid modal-explore-notes-btn" style="flex: 1; text-align: center;">
-            <span>Explore Olfactory Notes</span>
-          </a>
+        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+          <div style="display: flex; gap: 0.8rem; width: 100%;">
+            <a href="${item.amazonUrl || 'https://www.amazon.in/dp/B0DELIORA'}" target="_blank" rel="noopener noreferrer" class="btn-marketplace btn-amazon" style="flex: 1; justify-content: center; text-decoration: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.42 15.02c-2.73 2.06-6.72 3.16-10.15 3.16-4.8 0-9.1-1.8-12.27-4.81-.25-.24-.03-.56.27-.38 3.42 2.01 7.6 3.22 11.96 3.22 3.03 0 6.57-.74 9.8-2.31.48-.24.87.35.39.72z"></path>
+              </svg>
+              <span>Buy on Amazon</span>
+            </a>
+            <a href="#notes-pyramid" class="btn btn-gold-solid modal-explore-notes-btn" style="flex: 1; text-align: center;">
+              <span>Explore Notes</span>
+            </a>
+          </div>
+          ${item.amazonQuestionsUrl ? `
+          <div style="text-align: center; margin-top: 0.2rem;">
+            <a href="${item.amazonQuestionsUrl}" target="_blank" rel="noopener noreferrer" class="amazon-question-link" style="font-size: 0.72rem;">
+              <span>💬 Product questions? Ask here on Amazon &rarr;</span>
+            </a>
+          </div>` : ''}
         </div>
       </div>
     </div>

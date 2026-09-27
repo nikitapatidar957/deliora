@@ -27,6 +27,12 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
+.site-header .container {
+  max-width: 100%;
+  padding-left: clamp(1.5rem, 4vw, 3.5rem);
+  padding-right: clamp(1.5rem, 4vw, 3.5rem);
+}
+
 .nav-inner {
   display: flex;
   align-items: center;
@@ -39,7 +45,7 @@
   align-items: center;
   gap: 0.9rem;
   text-decoration: none;
-  margin-left: 5%;
+  margin-left: 0;
 }
 
 .brand-logo-img {
@@ -87,6 +93,7 @@
   align-items: center;
   gap: clamp(1.5rem, 2.5vw, 3rem);
   list-style: none;
+  margin-left: auto;
 }
 
 .nav-link {
@@ -822,7 +829,7 @@
   .brand-logo-img {
     height: 50px;
   }
-ß
+
   .nav-action-btn {
     width: 38px;
     height: 38px;

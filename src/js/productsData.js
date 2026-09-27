@@ -3,6 +3,10 @@
  * Core Fragrance Catalog & Specifications (Updated with perfumes_images1 Assets)
  */
 
+export const DISCOUNT_PERCENT = Number(import.meta.env?.VITE_DISCOUNT_PERCENT) || 40;
+export const BASE_PERFUME_PRICE = 1499;
+export const DISCOUNTED_PERFUME_PRICE = Math.round(BASE_PERFUME_PRICE * (1 - DISCOUNT_PERCENT / 100));
+
 export const FRAGRANCES = [
   {
     id: 'mistique',
@@ -11,8 +15,13 @@ export const FRAGRANCES = [
     family: 'Aquatic Woody Floral',
     tagline: 'The whisper of sea mist and sacred cedarwood.',
     description: 'An ethereal oceanic universe opening with invigorating cypress and maritime myrtle, deepening into creamy Indian sandalwood, and resting upon a lingering trail of luminous amber and Brazilian rosewood.',
-    price50: 1499,
-    priceFormatted50: '₹1,499',
+    price50: DISCOUNTED_PERFUME_PRICE,
+    priceFormatted50: `₹${DISCOUNTED_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    originalPrice50: BASE_PERFUME_PRICE,
+    originalPriceFormatted50: `₹${BASE_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    discountPercent: DISCOUNT_PERCENT,
+    amazonUrl: 'https://amzn.in/d/0bNjknZJ',
+    amazonQuestionsUrl: 'https://amzn.in/d/01A2txHh',
     theme: {
       key: 'aqua',
       bg: '#0a1d22',
@@ -57,8 +66,13 @@ export const FRAGRANCES = [
     family: 'Luminous Oriental Floral',
     tagline: 'The pure radiance of white alabaster and rare saffron.',
     description: 'A luminous opening of bergamot, lemon, and pink pepper gives way to an opulent heart of rose, blooming jasmine, and saffron, settled on precious white oud, sandalwood, amber, musk, and velvety vanilla.',
-    price50: 1499,
-    priceFormatted50: '₹1,499',
+    price50: DISCOUNTED_PERFUME_PRICE,
+    priceFormatted50: `₹${DISCOUNTED_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    originalPrice50: BASE_PERFUME_PRICE,
+    originalPriceFormatted50: `₹${BASE_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    discountPercent: DISCOUNT_PERCENT,
+    amazonUrl: 'https://amzn.in/d/00sse0Tl',
+    amazonQuestionsUrl: 'https://amzn.in/d/0fCVIiQ4',
     theme: {
       key: 'ivory',
       bg: '#171614',
@@ -106,8 +120,13 @@ export const FRAGRANCES = [
     family: 'Intoxicating White Floral',
     tagline: 'A delicate opening. A captivating heart. A trail that stays.',
     description: 'An intoxicating ode to pure white florals. Fresh jasmine buds unfurl into creamy, voluptuous tuberose, anchored by the hypnotic, powdery floral trail of Rangoon creeper.',
-    price50: 1499,
-    priceFormatted50: '₹1,499',
+    price50: DISCOUNTED_PERFUME_PRICE,
+    priceFormatted50: `₹${DISCOUNTED_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    originalPrice50: BASE_PERFUME_PRICE,
+    originalPriceFormatted50: `₹${BASE_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    discountPercent: DISCOUNT_PERCENT,
+    amazonUrl: 'https://amzn.in/d/0iDDxwBJ',
+    amazonQuestionsUrl: 'https://amzn.in/d/04tHRArB',
     theme: {
       key: 'blush',
       bg: '#230b12',
@@ -146,8 +165,13 @@ export const FRAGRANCES = [
     family: 'Smoky Woody Spicy',
     tagline: 'The commanding presence of charred cedar and warm spices.',
     description: 'A commanding surge of grapefruit, lemon, mint, pink pepper, and bergamot gives way to an invigorating heart of ginger, nutmeg, and jasmine, grounded in a smoldering aura of incense, cedar, sandalwood, patchouli, vetiver, labdanum, and white musk.',
-    price50: 1499,
-    priceFormatted50: '₹1,499',
+    price50: DISCOUNTED_PERFUME_PRICE,
+    priceFormatted50: `₹${DISCOUNTED_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    originalPrice50: BASE_PERFUME_PRICE,
+    originalPriceFormatted50: `₹${BASE_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    discountPercent: DISCOUNT_PERCENT,
+    amazonUrl: 'https://amzn.in/d/05OjtDw3',
+    amazonQuestionsUrl: 'https://amzn.in/d/03KPRNXS',
     theme: {
       key: 'amber',
       bg: '#1e140d',
@@ -197,8 +221,13 @@ export const FRAGRANCES = [
     family: 'Fruity Amber Gourmand',
     tagline: 'Deep emerald allure wrapped in wild berries and warm cashmere.',
     description: 'An intoxicating cascade of strawberry, raspberry, blackberry, cherry, black currant, mandarin orange, and lemon draped over powdery violet and blooming jasmine, resting upon a velvety cushion of musk, vanilla, cashmeran, oakmoss, amber, and patchouli.',
-    price50: 1499,
-    priceFormatted50: '₹1,499',
+    price50: DISCOUNTED_PERFUME_PRICE,
+    priceFormatted50: `₹${DISCOUNTED_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    originalPrice50: BASE_PERFUME_PRICE,
+    originalPriceFormatted50: `₹${BASE_PERFUME_PRICE.toLocaleString('en-IN')}`,
+    discountPercent: DISCOUNT_PERCENT,
+    amazonUrl: 'https://amzn.in/d/0f7diE5J',
+    amazonQuestionsUrl: 'https://amzn.in/d/08EfMqV6',
     theme: {
       key: 'emerald',
       bg: '#0a1d17',

@@ -55,7 +55,7 @@ export function initCartDrawer() {
     if (existingIndex > -1) {
       cartItems[existingIndex].quantity += 1;
     } else {
-      const price = fragrance.price50 || 1499;
+      const price = fragrance.price50 || 899;
       cartItems.push({
         id: fragrance.id,
         name: fragrance.name,

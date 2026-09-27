@@ -38,6 +38,7 @@ export function initCinematicHero() {
   const badgeRight = document.getElementById('badge-right');
   const overlay = document.getElementById('center-luxury-overlay');
   const header = document.getElementById('cinematic-hero-header');
+  const posterBadge = document.getElementById('hero-poster-discount-badge');
 
   if (!track || !reelCenter || !videoCenter) return;
 
@@ -227,13 +228,17 @@ export function initCinematicHero() {
     // Crossfade horizontal image -> center video (instant responsiveness)
     if (p < 0.18) {
       if (heroImg) heroImg.style.opacity = '1';
+      if (posterBadge) posterBadge.style.opacity = '1';
       videoCenter.style.opacity = '0';
     } else if (p >= 0.18 && p <= 0.38) {
       const fade = (p - 0.18) / 0.20;
-      if (heroImg) heroImg.style.opacity = (1 - fade).toFixed(3);
+      const currentOpacity = (1 - fade).toFixed(3);
+      if (heroImg) heroImg.style.opacity = currentOpacity;
+      if (posterBadge) posterBadge.style.opacity = currentOpacity;
       videoCenter.style.opacity = fade.toFixed(3);
     } else {
       if (heroImg) heroImg.style.opacity = '0';
+      if (posterBadge) posterBadge.style.opacity = '0';
       videoCenter.style.opacity = '1';
     }
 
