@@ -1598,6 +1598,8 @@
   cursor: pointer;
   background: #080305;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .universe-visual-frame:hover,

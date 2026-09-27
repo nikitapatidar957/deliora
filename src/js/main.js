@@ -10,7 +10,7 @@ import { initSearchModal } from './searchModal.js';
 import { initAudioAmbiance } from './audioAmbiance.js';
 import { initCinematicHero } from './cinematicHero.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+function initAll() {
   // 1. Initialize Canvas Mist & Ambient Particles
   initMistCanvas();
 
@@ -40,7 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 8. Fragrance Visual Frames Gallery Hover & Touch Toggle
   setupGalleryHoverToggles();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
 
 function setupFilmPlayer() {
   const container = document.getElementById('film-player-box');
@@ -174,37 +180,156 @@ function setupGalleryHoverToggles() {
   const visualFrames = document.querySelectorAll('.universe-visual-frame');
   if (!visualFrames.length) return;
 
+  let activeFrame = null;
+  let revertTimer = null;
+
+  function activateFrame(frame) {
+    if (!frame) return;
+    if (revertTimer) {
+      clearTimeout(revertTimer);
+      revertTimer = null;
+    }
+    if (activeFrame === frame && frame.classList.contains('is-hovered')) {
+      return;
+    }
+    visualFrames.forEach((f) => {
+      if (f !== frame) f.classList.remove('is-hovered');
+    });
+    frame.classList.add('is-hovered');
+    activeFrame = frame;
+  }
+
+  function scheduleRevert(delay = 1200) {
+    if (revertTimer) clearTimeout(revertTimer);
+    revertTimer = setTimeout(() => {
+      if (activeFrame) {
+        activeFrame.classList.remove('is-hovered');
+        activeFrame = null;
+      }
+    }, delay);
+  }
+
+  function getFrameAtTouch(touch) {
+    if (!touch) return null;
+    const x = touch.clientX;
+    const y = touch.clientY;
+
+    // Fast element lookup under finger
+    const el = document.elementFromPoint(x, y);
+    if (el) {
+      const match = el.closest('.universe-visual-frame');
+      if (match) return match;
+    }
+
+    // Fallback bounding rect check
+    for (let i = 0; i < visualFrames.length; i++) {
+      const rect = visualFrames[i].getBoundingClientRect();
+      if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
+        return visualFrames[i];
+      }
+    }
+    return null;
+  }
+
+  // --------------------------------------------------------------------------
+  // Mobile / Touchscreen Support: Natural transformation on touch & scroll
+  // (Passive listeners guarantee zero interference with vertical page scrolling)
+  // --------------------------------------------------------------------------
+  const isTouchCapable = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (isTouchCapable) {
+    // 1. When user touches or presses finger over perfume image, transform immediately
+    window.addEventListener(
+      'touchstart',
+      (e) => {
+        if (!e.touches || !e.touches.length) return;
+        const touchedFrame = getFrameAtTouch(e.touches[0]);
+        if (touchedFrame) {
+          activateFrame(touchedFrame);
+        }
+      },
+      { passive: true }
+    );
+
+    // 2. When user moves their finger over perfume image while scrolling, transform naturally
+    window.addEventListener(
+      'touchmove',
+      (e) => {
+        if (!e.touches || !e.touches.length) return;
+        const currentTouch = e.touches[0];
+        const currentFrame = getFrameAtTouch(currentTouch);
+
+        if (currentFrame) {
+          activateFrame(currentFrame);
+        } else if (activeFrame) {
+          // Finger moved off the active image area during scrolling
+          scheduleRevert(600);
+        }
+      },
+      { passive: true }
+    );
+
+    // 3. Graceful viewing period after lifting finger
+    window.addEventListener(
+      'touchend',
+      () => {
+        if (activeFrame) {
+          scheduleRevert(1400);
+        }
+      },
+      { passive: true }
+    );
+
+    window.addEventListener(
+      'touchcancel',
+      () => {
+        if (activeFrame) {
+          scheduleRevert(400);
+        }
+      },
+      { passive: true }
+    );
+  }
+
+  // --------------------------------------------------------------------------
+  // Desktop Hover (Pure CSS :hover handles desktop natively) & Tap/Click fallback
+  // --------------------------------------------------------------------------
   visualFrames.forEach((frame) => {
-    // Mobile / Touch toggle support
+    // Click toggle on mobile/desktop without intercepting interactive child links/buttons
     frame.addEventListener('click', (e) => {
-      // If clicking inside on a specific link or action, don't toggle frame
       if (e.target.closest('a, button')) return;
 
       const isAlreadyActive = frame.classList.contains('is-hovered');
 
-      // Close all other visual frames first
-      visualFrames.forEach(otherFrame => {
+      visualFrames.forEach((otherFrame) => {
         if (otherFrame !== frame) otherFrame.classList.remove('is-hovered');
       });
 
-      // Toggle this frame
-      frame.classList.toggle('is-hovered', !isAlreadyActive);
+      if (isAlreadyActive) {
+        frame.classList.remove('is-hovered');
+        activeFrame = null;
+      } else {
+        frame.classList.add('is-hovered');
+        activeFrame = frame;
+      }
     });
 
     // Keyboard accessibility support (Tab focus / Enter)
     frame.addEventListener('focus', () => {
-      frame.classList.add('is-hovered');
+      activateFrame(frame);
     });
 
     frame.addEventListener('blur', () => {
       frame.classList.remove('is-hovered');
+      if (activeFrame === frame) activeFrame = null;
     });
   });
 
-  // Close open galleries when tapping outside on touch devices
+  // Close open galleries when tapping outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.universe-visual-frame')) {
-      visualFrames.forEach(frame => frame.classList.remove('is-hovered'));
+      visualFrames.forEach((frame) => frame.classList.remove('is-hovered'));
+      activeFrame = null;
     }
   });
 }

@@ -345,8 +345,34 @@ export function initCinematicHero() {
     if (!rafId) rafId = requestAnimationFrame(updateLayout);
   });
 
-  // Initial render on mount
-  targetProgress = calculateProgress();
-  currentProgress = targetProgress;
-  updateLayout();
+  // Initial render on mount with multi-stage paint confirmations
+  function forceInitialHeroState() {
+    targetProgress = calculateProgress();
+    currentProgress = targetProgress;
+    updateLayout();
+    if (currentProgress < 0.18) {
+      if (heroImg) {
+        heroImg.style.opacity = '1';
+        heroImg.style.display = 'block';
+      }
+      if (posterBadge) posterBadge.style.opacity = '1';
+      if (videoCenter) videoCenter.style.opacity = '0';
+    }
+  }
+
+  forceInitialHeroState();
+  requestAnimationFrame(forceInitialHeroState);
+  setTimeout(forceInitialHeroState, 60);
+  setTimeout(forceInitialHeroState, 240);
+
+  if (heroImg) {
+    if (!heroImg.complete) {
+      heroImg.addEventListener('load', forceInitialHeroState, { once: true });
+    }
+  }
+
+  window.addEventListener('load', forceInitialHeroState, { passive: true });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(forceInitialHeroState).catch(() => {});
+  }
 }
