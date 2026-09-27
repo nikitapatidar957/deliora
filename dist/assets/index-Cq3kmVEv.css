@@ -433,9 +433,10 @@ img {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: clamp(1.5rem, 2.5vw, 6rem);
+    gap: clamp(1.8rem, 3vw, 3.5rem);
     list-style: none;
-    margin-left: auto
+    margin-left: auto;
+    margin-right: clamp(2rem, 4.5vw, 4.5rem)
 }
 
 .nav-link {
@@ -4194,7 +4195,8 @@ img {
     letter-spacing: .22em;
     text-transform: uppercase;
     color: var(--color-gold);
-    font-weight: 600
+    font-weight: 600;
+    color: rgb(255, 111, 0);
 }
 
 .poster-discount-title {
