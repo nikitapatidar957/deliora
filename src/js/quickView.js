@@ -103,12 +103,6 @@ export function openQuickView(fragranceId) {
               <span>Explore Notes</span>
             </a>
           </div>
-          ${item.amazonQuestionsUrl ? `
-          <div style="text-align: center; margin-top: 0.2rem;">
-            <a href="${item.amazonQuestionsUrl}" target="_blank" rel="noopener noreferrer" class="amazon-question-link" style="font-size: 0.72rem;">
-              <span>💬 Product questions? Ask here on Amazon &rarr;</span>
-            </a>
-          </div>` : ''}
         </div>
       </div>
     </div>

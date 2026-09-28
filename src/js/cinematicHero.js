@@ -11,11 +11,11 @@
  * - 100% Scrubbable & Reversible Animation Timeline (60fps GPU)
  */
 
-import fleurClip from '../../perfumes_images1/fleur_clip1.mp4';
-import mistiqueClip from '../../perfumes_images1/mistique_clip2.mp4';
-import blancClip from '../../perfumes_images1/blanc_clip3.mp4';
-import velvetClip from '../../perfumes_images1/velvet_clip4.mp4';
-import alphaClip from '../../perfumes_images1/alpha_clip5.mp4';
+import fleurClip from '../../perfumes_images1/fleur_clip.mp4';
+import mistiqueClip from '../../perfumes_images1/mistique_clip.mp4';
+import blancClip from '../../perfumes_images1/blanc_clip.mp4';
+import velvetClip from '../../perfumes_images1/velvet_clip.mp4';
+import alphaClip from '../../perfumes_images1/alpha_clip.mp4';
 
 const PERFUME_CLIPS = [
   { index: 1, id: 'fleur', name: 'Fleur', subtitle: 'Blush Floral', src: fleurClip },
