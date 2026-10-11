@@ -1,4 +1,6 @@
 node_modules
+dist
 .DS_Store
 .venv
 perfumes_images1_backup
+

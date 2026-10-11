@@ -3,6 +3,7 @@
  * Main Application Orchestrator
  */
 
+
 import { initMistCanvas } from './mistCanvas.js';
 import { initAtmosphere } from './atmosphere.js';
 import { initQuickView } from './quickView.js';
@@ -85,6 +86,17 @@ function setupFragranceDropdown() {
   const dropdownParent = dropdownToggle?.closest('.nav-item-dropdown');
   const dropdownLinks = dropdownParent?.querySelectorAll('.nav-dropdown-link');
 
+  // If Bootstrap Dropdown is active, allow Bootstrap to manage toggle
+  if (window.bootstrap?.Dropdown) {
+    dropdownLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+        const bsDropdown = window.bootstrap.Dropdown.getInstance(dropdownToggle);
+        bsDropdown?.hide();
+      });
+    });
+    return;
+  }
+
   dropdownToggle?.addEventListener('click', (e) => {
     if (window.innerWidth <= 991 || 'ontouchstart' in window) {
       e.preventDefault();
@@ -137,43 +149,79 @@ function setupScrollReveals() {
 function setupMobileNav() {
   const toggleBtn = document.getElementById('mobile-menu-btn');
   const drawer = document.getElementById('mobile-drawer');
-  const drawerPanel = drawer?.querySelector('.cart-drawer');
   const closeBtn = document.getElementById('mobile-close-btn');
   const links = drawer?.querySelectorAll('a');
 
   if (!toggleBtn || !drawer) return;
 
-  function openNav(e) {
-    e?.preventDefault();
-    e?.stopPropagation();
-    drawer.classList.add('is-active');
-    drawerPanel?.classList.add('is-active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeNav() {
-    drawer.classList.remove('is-active');
-    drawerPanel?.classList.remove('is-active');
+  function closeDrawer() {
+    if (window.bootstrap?.Offcanvas) {
+      try {
+        const bsOffcanvas = window.bootstrap.Offcanvas.getInstance(drawer);
+        if (bsOffcanvas) {
+          bsOffcanvas.hide();
+          return;
+        }
+      } catch (e) {}
+    }
+    drawer.classList.remove('show', 'is-active');
     document.body.style.overflow = '';
+    const backdrop = document.querySelector('.offcanvas-backdrop');
+    backdrop?.remove();
   }
 
-  toggleBtn.addEventListener('click', openNav);
-  closeBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    closeNav();
-  });
+  function openDrawer() {
+    if (window.bootstrap?.Offcanvas) {
+      try {
+        const bsOffcanvas = window.bootstrap.Offcanvas.getOrCreateInstance(drawer);
+        bsOffcanvas.show();
+        return;
+      } catch (e) {}
+    }
+    drawer.classList.add('show', 'is-active');
+    document.body.style.overflow = 'hidden';
+    let backdrop = document.querySelector('.offcanvas-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.className = 'offcanvas-backdrop fade show';
+      document.body.appendChild(backdrop);
+      backdrop.addEventListener('click', closeDrawer);
+    }
+  }
 
-  drawer.addEventListener('click', (e) => {
-    if (e.target === drawer) closeNav();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && drawer.classList.contains('is-active')) {
-      closeNav();
+  toggleBtn.addEventListener('click', (e) => {
+    if (!window.bootstrap?.Offcanvas) {
+      e.preventDefault();
+      if (drawer.classList.contains('show') || drawer.classList.contains('is-active')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
     }
   });
 
-  links?.forEach(link => link.addEventListener('click', closeNav));
+  closeBtn?.addEventListener('click', (e) => {
+    if (!window.bootstrap?.Offcanvas) {
+      e.preventDefault();
+      closeDrawer();
+    }
+  });
+
+  links?.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+
+  drawer.addEventListener('click', (e) => {
+    if (e.target === drawer && !window.bootstrap?.Offcanvas) closeDrawer();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && (drawer.classList.contains('show') || drawer.classList.contains('is-active'))) {
+      closeDrawer();
+    }
+  });
 }
 
 function setupGalleryHoverToggles() {

@@ -16,15 +16,25 @@ export function initSearchModal() {
   if (!overlay || !searchInput) return;
 
   function openSearch() {
-    overlay.classList.add('is-active');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => searchInput.focus(), 100);
+    if (window.bootstrap?.Modal) {
+      const bsModal = window.bootstrap.Modal.getOrCreateInstance(overlay);
+      bsModal.show();
+    } else {
+      overlay.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+    setTimeout(() => searchInput.focus(), 150);
     renderResults(searchInput.value.trim());
   }
 
   function closeSearch() {
-    overlay.classList.remove('is-active');
-    document.body.style.overflow = '';
+    if (window.bootstrap?.Modal) {
+      const bsModal = window.bootstrap.Modal.getInstance(overlay);
+      bsModal?.hide();
+    } else {
+      overlay.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
   }
 
   openTrigger?.addEventListener('click', openSearch);
@@ -35,7 +45,7 @@ export function initSearchModal() {
   });
 
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('is-active')) {
+    if (e.key === 'Escape' && (overlay.classList.contains('is-active') || overlay.classList.contains('show'))) {
       closeSearch();
     }
   });

@@ -32,12 +32,12 @@ export const FRAGRANCES = [
       tagColor: '#5eb3ad'
     },
     images: {
-      hero: '/perfumes_images1/mistique_frame2.jpeg',
-      poster: '/perfumes_images1/all_perfume_image.png',
+      hero: './perfumes_images1/mistique_frame2.jpeg',
+      poster: './perfumes_images1/all_perfume_image.png',
       gallery: [
-        '/perfumes_images1/mistique_frame1.jpeg',
-        '/perfumes_images1/mistique_frame2.jpeg',
-        '/perfumes_images1/mistique_frame3.jpeg'
+        './perfumes_images1/mistique_frame1.jpeg',
+        './perfumes_images1/mistique_frame2.jpeg',
+        './perfumes_images1/mistique_frame3.jpeg'
       ]
     },
     notes: {
@@ -83,12 +83,12 @@ export const FRAGRANCES = [
       tagColor: '#bfae99'
     },
     images: {
-      hero: '/perfumes_images1/blanc1.png',
-      secondary: '/perfumes_images1/blanc2.png',
+      hero: './perfumes_images1/blanc1.png',
+      secondary: './perfumes_images1/blanc2.png',
       gallery: [
-        '/perfumes_images1/blanc1.png',
-        '/perfumes_images1/blanc2.png',
-        '/perfumes_images1/all_perfume_image.png'
+        './perfumes_images1/blanc1.png',
+        './perfumes_images1/blanc2.png',
+        './perfumes_images1/all_perfume_image.png'
       ]
     },
     notes: {
@@ -136,12 +136,12 @@ export const FRAGRANCES = [
       textSecondary: '#ddb3b7',
       tagColor: '#cf7e85'
     },
-    video: '/perfumes_images1/fleur3.mp4',
-    videoSecondary: '/perfumes_images1/fleur2.mp4',
+    video: './perfumes_images1/fleur3.mp4',
+    videoSecondary: './perfumes_images1/fleur2.mp4',
     images: {
-      hero: '/perfumes_images1/all_perfume_image.png',
+      hero: './perfumes_images1/all_perfume_image.png',
       gallery: [
-        '/perfumes_images1/all_perfume_image.png'
+        './perfumes_images1/all_perfume_image.png'
       ]
     },
     notes: {
@@ -182,10 +182,10 @@ export const FRAGRANCES = [
       tagColor: '#b87532'
     },
     images: {
-      hero: '/perfumes_images1/alpha1.png',
+      hero: './perfumes_images1/alpha1.png',
       gallery: [
-        '/perfumes_images1/alpha1.png',
-        '/perfumes_images1/all_perfume_image.png'
+        './perfumes_images1/alpha1.png',
+        './perfumes_images1/all_perfume_image.png'
       ]
     },
     notes: {
@@ -238,10 +238,10 @@ export const FRAGRANCES = [
       tagColor: '#3d9477'
     },
     images: {
-      hero: '/perfumes_images1/velvet1.png',
+      hero: './perfumes_images1/velvet1.png',
       gallery: [
-        '/perfumes_images1/velvet1.png',
-        '/perfumes_images1/all_perfume_image.png'
+        './perfumes_images1/velvet1.png',
+        './perfumes_images1/all_perfume_image.png'
       ]
     },
     notes: {

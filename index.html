@@ -16,14 +16,18 @@
     rel="stylesheet" />
 
   <!-- Preload Critical Hero Image for instant display -->
-  <link rel="preload" as="image" href="/perfumes_images1/all_perfume_image2.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="./perfumes_images1/all_perfume_image2.png" fetchpriority="high" />
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="/src/css/variables.css" />
-  <link rel="stylesheet" href="/src/css/base.css" />
-  <link rel="stylesheet" href="/src/css/components.css" />
-  <link rel="stylesheet" href="/src/css/sections.css" />
-  <link rel="stylesheet" href="/src/css/cinematicHero.css" />
+  <!-- Bootstrap 5.3.3 CSS (Local with CDN fallback) -->
+  <link rel="stylesheet" href="./src/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Custom DeLiora Luxury Stylesheets -->
+  <link rel="stylesheet" href="./src/css/variables.css" />
+  <link rel="stylesheet" href="./src/css/base.css" />
+  <link rel="stylesheet" href="./src/css/components.css" />
+  <link rel="stylesheet" href="./src/css/sections.css" />
+  <link rel="stylesheet" href="./src/css/cinematicHero.css" />
 </head>
 
 <body data-atmosphere="burgundy">
@@ -33,73 +37,67 @@
   <canvas id="mist-canvas" aria-hidden="true"></canvas>
 
   <!-- ======================================================================
-       NAVIGATION HEADER
+       NAVIGATION HEADER (Bootstrap Navbar with Luxury Haute-Couture Theme)
        ====================================================================== -->
-  <header class="site-header" id="main-header">
+  <header class="site-header navbar navbar-expand-lg" id="main-header">
     <div class="container">
-      <nav class="nav-inner" aria-label="Main Navigation">
+      <nav class="nav-inner w-100 d-flex align-items-center justify-content-between" aria-label="Main Navigation">
 
         <!-- Brand Signature with Official Logo -->
-        <a href="#cinematic-hero" class="brand-mark" aria-label="DeLiora Essence">
-          <img src="/perfumes_images1/logo.png" alt="DeLiora Essence Logo" class="brand-logo-img" />
+        <a href="#cinematic-hero" class="navbar-brand brand-mark me-0" aria-label="DeLiora Essence">
+          <img src="./perfumes_images1/logo.png" alt="DeLiora Essence Logo" class="brand-logo-img" />
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <ul class="nav-links">
-          <!-- 1. Collection (Temporarily Commented Out) -->
-          <!-- <li>
-            <a href="#collection-film" class="nav-link">Collection</a>
-          </li> -->
-
-          <!-- 2. Fragrances (Dropdown with 5 Options) -->
-          <li class="nav-item-dropdown">
-            <a href="#mistique" class="nav-link" id="fragrances-nav-btn" aria-haspopup="true">
+        <!-- Desktop Navigation Links (Bootstrap Navbar Nav) -->
+        <ul class="navbar-nav nav-links d-none d-lg-flex align-items-center">
+          <!-- Fragrances (Bootstrap Dropdown) -->
+          <li class="nav-item dropdown nav-item-dropdown">
+            <a href="#mistique" class="nav-link dropdown-toggle" id="fragrances-nav-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Fragrances <span style="font-size: 0.65rem; margin-left: 3px;">▾</span>
             </a>
-            <ul class="nav-dropdown-menu" aria-label="Fragrances Submenu">
+            <ul class="dropdown-menu nav-dropdown-menu" aria-labelledby="fragrances-nav-btn">
               <li>
-                <a href="#mistique" class="nav-dropdown-link">
+                <a href="#mistique" class="dropdown-item nav-dropdown-link">
                   <span>Mistique</span>
                 </a>
               </li>
               <li>
-                <a href="#blanc" class="nav-dropdown-link">
+                <a href="#blanc" class="dropdown-item nav-dropdown-link">
                   <span>Blanc</span>
                 </a>
               </li>
               <li>
-                <a href="#fleur" class="nav-dropdown-link">
+                <a href="#fleur" class="dropdown-item nav-dropdown-link">
                   <span>Fleur</span>
                 </a>
               </li>
               <li>
-                <a href="#alpha" class="nav-dropdown-link">
+                <a href="#alpha" class="dropdown-item nav-dropdown-link">
                   <span>Alpha</span>
                 </a>
               </li>
               <li>
-                <a href="#velvet" class="nav-dropdown-link">
+                <a href="#velvet" class="dropdown-item nav-dropdown-link">
                   <span>Velvet</span>
                 </a>
               </li>
             </ul>
           </li>
 
-          <!-- 3. The House -->
-          <li>
+          <!-- The House -->
+          <li class="nav-item">
             <a href="#story" class="nav-link">The House</a>
           </li>
 
-          <!-- 4. Shop -->
-          <li>
+          <!-- Shop -->
+          <li class="nav-item">
             <a href="#shop" class="nav-link">Shop</a>
           </li>
         </ul>
 
-        <!-- Navigation Action Buttons -->
-        <div class="nav-actions">
-          <!-- Mobile Hamburger Toggle -->
-          <button class="nav-action-btn mobile-menu-toggle" id="mobile-menu-btn" aria-label="Open Navigation Menu">
+        <!-- Navigation Action Buttons (Bootstrap Offcanvas Toggler for Mobile) -->
+        <div class="nav-actions d-flex align-items-center">
+          <button class="nav-action-btn mobile-menu-toggle d-lg-none" id="mobile-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobile-drawer" aria-controls="mobile-drawer" aria-label="Open Navigation Menu">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -112,37 +110,35 @@
     </div>
   </header>
 
-  <!-- Mobile Fullscreen Navigation Drawer -->
-  <div class="cart-drawer-overlay" id="mobile-drawer" style="z-index: 1200;">
-    <div class="cart-drawer" style="background: #17070B; width: 100%; max-width: 420px;">
-      <div class="cart-drawer-header">
-        <div style="display: flex; align-items: center; gap: 0.8rem;">
-          <img src="/perfumes_images1/logo.png" alt="DeLiora Logo" style="height: 38px; width: auto;" />
-        </div>
-        <button class="cart-close-btn" id="mobile-close-btn">&times;</button>
+  <!-- Mobile Fullscreen Navigation Drawer (Bootstrap 5 Offcanvas) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="mobile-drawer" aria-labelledby="mobileDrawerLabel">
+    <div class="offcanvas-header d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-2">
+        <img src="./perfumes_images1/logo.png" alt="DeLiora Logo" style="height: 38px; width: auto;" />
       </div>
+      <button type="button" class="cart-close-btn" id="mobile-close-btn" data-bs-dismiss="offcanvas" aria-label="Close">&times;</button>
+    </div>
+    <div class="offcanvas-body p-0 d-flex flex-column">
       <div style="padding: 2.2rem 1.8rem; display: flex; flex-direction: column; gap: 1.3rem;">
-        <!-- <a href="#collection-film" class="nav-link" style="font-size: 1.05rem;">Collection (Film)</a> -->
-
         <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.9rem;">
           <div
             style="font-family: var(--font-display); font-size: 0.68rem; letter-spacing: var(--tracking-wider); color: var(--color-gold); text-transform: uppercase; margin-bottom: 0.75rem;">
             The 5 Fragrances
           </div>
           <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-left: 0.5rem;">
-            <a href="#mistique" class="nav-link" style="font-size: 0.95rem;">Mistique</a>
-            <a href="#blanc" class="nav-link" style="font-size: 0.95rem;">Blanc</a>
-            <a href="#fleur" class="nav-link" style="font-size: 0.95rem;">Fleur</a>
-            <a href="#alpha" class="nav-link" style="font-size: 0.95rem;">Alpha</a>
-            <a href="#velvet" class="nav-link" style="font-size: 0.95rem;">Velvet</a>
+            <a href="#mistique" class="mobile-nav-link" data-bs-dismiss="offcanvas">Mistique</a>
+            <a href="#blanc" class="mobile-nav-link" data-bs-dismiss="offcanvas">Blanc</a>
+            <a href="#fleur" class="mobile-nav-link" data-bs-dismiss="offcanvas">Fleur</a>
+            <a href="#alpha" class="mobile-nav-link" data-bs-dismiss="offcanvas">Alpha</a>
+            <a href="#velvet" class="mobile-nav-link" data-bs-dismiss="offcanvas">Velvet</a>
           </div>
         </div>
 
-        <a href="#story" class="nav-link"
-          style="font-size: 1.05rem; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.9rem;">
+        <a href="#story" class="mobile-nav-link" data-bs-dismiss="offcanvas"
+          style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 0.9rem;">
           The House
         </a>
-        <a href="#shop" class="nav-link" style="font-size: 1.05rem;">Shop</a>
+        <a href="#shop" class="mobile-nav-link" data-bs-dismiss="offcanvas">Shop</a>
       </div>
     </div>
   </div>
@@ -173,7 +169,7 @@
             <div class="reel-inner">
               <video class="reel-video" id="video-left" playsinline webkit-playsinline loop muted autoplay
                 preload="auto">
-                <source src="/perfumes_images1/fleur_clip1.mp4" type="video/mp4" />
+                <source src="./perfumes_images1/fleur_clip1.mp4" type="video/mp4" />
               </video>
               <div class="reel-ambient-glare"></div>
               <div class="reel-badge" id="badge-left">Fleur</div>
@@ -188,7 +184,7 @@
             <div class="reel-inner">
 
               <!-- Initial Horizontal Hero Image -->
-              <img src="/perfumes_images1/all_perfume_image2.png" alt="DeLiora Essence Grand Campaign Scene"
+              <img src="./perfumes_images1/all_perfume_image2.png" alt="DeLiora Essence Grand Campaign Scene"
                 class="hero-horizontal-img" id="hero-horizontal-img" fetchpriority="high" decoding="async"
                 loading="eager" />
 
@@ -202,7 +198,7 @@
               <!-- Fixed Center Video (plays after morph) -->
               <video class="reel-video reel-video-center" id="video-center" playsinline webkit-playsinline loop muted
                 preload="auto">
-                <source src="/perfumes_images1/center_clip1.mp4" type="video/mp4" />
+                <source src="./perfumes_images1/center_clip1.mp4" type="video/mp4" />
               </video>
 
               <div class="reel-ambient-glare"></div>
@@ -210,7 +206,7 @@
               <!-- Transparent Luxury End-Frame Overlay (final ~1s of center clip) -->
               <div class="center-luxury-overlay" id="center-luxury-overlay">
                 <div class="overlay-glass-card">
-                  <img src="/perfumes_images1/logo.png" alt="DeLiora Crest Logo" class="overlay-brand-logo" />
+                  <img src="./perfumes_images1/logo.png" alt="DeLiora Crest Logo" class="overlay-brand-logo" />
                   <div class="overlay-brand-title">DELIORA</div>
                   <div class="overlay-perfume-line">Extrait de Parfum</div>
                   <div class="overlay-divider-line"></div>
@@ -226,7 +222,7 @@
             <div class="reel-inner">
               <video class="reel-video" id="video-right" playsinline webkit-playsinline loop muted autoplay
                 preload="auto">
-                <source src="/perfumes_images1/alpha_clip.mp4" type="video/mp4" />
+                <source src="./perfumes_images1/alpha_clip.mp4" type="video/mp4" />
               </video>
               <div class="reel-ambient-glare"></div>
               <div class="reel-badge" id="badge-right">Alpha</div>
@@ -240,13 +236,13 @@
 
 
     <!-- ======================================================================
-         02 — LUXURY INTRODUCTION
+         02 — LUXURY INTRODUCTION (Bootstrap Responsive Row & Grid)
          ====================================================================== -->
     <section class="intro-section" id="intro" data-atmosphere-target="ivory">
       <div class="container">
-        <div class="intro-grid">
+        <div class="row align-items-center intro-grid g-4 g-lg-5">
 
-          <div class="intro-text-col reveal-item">
+          <div class="col-12 col-lg-6 intro-text-col reveal-item order-2 order-lg-1">
             <div class="eyebrow no-flank">The Philosophy</div>
             <h2 class="intro-title">THE ART OF WEARING A SCENT</h2>
             <blockquote class="intro-quote">
@@ -263,9 +259,11 @@
             </a>
           </div>
 
-          <div class="intro-image-wrapper reveal-item">
-            <img src="/perfumes_images1/blanc2.png" alt="DeLiora Extrait Flacon and Packaging Presentation"
-              class="intro-image" loading="lazy" />
+          <div class="col-12 col-lg-6 intro-image-col reveal-item order-1 order-lg-2">
+            <div class="intro-image-wrapper">
+              <img src="./perfumes_images1/blanc2.png" alt="DeLiora Extrait Flacon and Packaging Presentation"
+                class="intro-image img-fluid" loading="lazy" />
+            </div>
           </div>
 
         </div>
@@ -286,10 +284,10 @@
         </div>
 
         <div class="film-container reveal-item" id="film-player-box">
-          <video class="film-video" id="campaign-video" poster="/perfumes_images1/all_perfume_image.png" playsinline
+          <video class="film-video" id="campaign-video" poster="./perfumes_images1/all_perfume_image.png" playsinline
             loop muted>
-            <source src="/perfumes_images1/all_perfume_video2.mp4" type="video/mp4" />
-            <source src="/perfumes_images1/4four_bottle.mp4" type="video/mp4" />
+            <source src="./perfumes_images1/all_perfume_video2.mp4" type="video/mp4" />
+            <source src="./perfumes_images1/4four_bottle.mp4" type="video/mp4" />
             Your browser does not support HTML5 video.
           </video>
 
@@ -311,19 +309,19 @@
 
 
     <!-- ======================================================================
-         04 — DEDICATED SECTION 1: MISTIQUE (Aqua Oceanic World)
+         04 — DEDICATED SECTION 1: MISTIQUE (Aqua Oceanic World - Bootstrap Grid)
          ====================================================================== -->
     <section class="fragrance-universe-section" id="mistique" data-atmosphere-target="aqua"
       style="background: #0a1d22;">
       <div class="container">
-        <div class="universe-grid">
+        <div class="row align-items-center universe-grid g-4 g-lg-5">
 
-          <div class="universe-visual-col reveal-item">
+          <div class="col-12 col-lg-6 universe-visual-col reveal-item order-1 order-lg-1">
             <div class="universe-visual-frame"
               style="--universe-border: rgba(169, 217, 213, 0.35); --universe-glow: rgba(169, 217, 213, 0.2);"
               tabindex="0" role="region" aria-label="Mistique Visual & Gallery Wall">
               <!-- Main Flacon Image (Exact original image) -->
-              <img src="/perfumes_images1/mistique.png" alt="DeLiora Mistique Flacon" class="universe-flacon-img"
+              <img src="./perfumes_images1/mistique.png" alt="DeLiora Mistique Flacon" class="universe-flacon-img"
                 loading="lazy" />
 
               <div class="gallery-hover-hint">
@@ -348,7 +346,7 @@
                       <span class="frame-wire wire-right"></span>
                     </div>
                     <div class="frame-moulding">
-                      <img src="/perfumes_images1/mistique_frame1.jpeg" alt="Mistique Presentation & Box"
+                      <img src="./perfumes_images1/mistique_frame1.jpeg" alt="Mistique Presentation & Box"
                         class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
@@ -362,7 +360,7 @@
                       <span class="frame-wire wire-right"></span>
                     </div>
                     <div class="frame-moulding">
-                      <img src="/perfumes_images1/mistique_frame2.jpeg" alt="Mistique Solitaire Extrait"
+                      <img src="./perfumes_images1/mistique_frame2.jpeg" alt="Mistique Solitaire Extrait"
                         class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
@@ -376,7 +374,7 @@
                       <span class="frame-wire wire-right"></span>
                     </div>
                     <div class="frame-moulding">
-                      <img src="/perfumes_images1/mistique_frame3.jpeg" alt="Mistique Sun & Shadowplay"
+                      <img src="./perfumes_images1/mistique_frame3.jpeg" alt="Mistique Sun & Shadowplay"
                         class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
@@ -386,7 +384,7 @@
             </div>
           </div>
 
-          <div class="universe-copy-col reveal-item" style="--universe-accent: #a9d9d5;">
+          <div class="col-12 col-lg-6 universe-copy-col reveal-item order-2 order-lg-2" style="--universe-accent: #a9d9d5;">
             <div class="eyebrow" style="color: #a9d9d5;">Expression 01 · Aquatic Woody Floral</div>
             <h2 class="universe-flacon-title">MISTIQUE</h2>
             <div class="universe-flacon-sub">Extrait de Parfum</div>
@@ -452,18 +450,18 @@
 
 
     <!-- ======================================================================
-         05 — DEDICATED SECTION 2: BLANC (Alabaster Ivory World)
+         05 — DEDICATED SECTION 2: BLANC (Alabaster Ivory World - Bootstrap Grid)
          ====================================================================== -->
     <section class="fragrance-universe-section" id="blanc" data-atmosphere-target="ivory" style="background: #171614;">
       <div class="container">
-        <div class="universe-grid reverse">
+        <div class="row align-items-center universe-grid reverse g-4 g-lg-5">
 
-          <div class="universe-visual-col reveal-item">
+          <div class="col-12 col-lg-6 universe-visual-col reveal-item order-1 order-lg-2">
             <div class="universe-visual-frame"
               style="--universe-border: rgba(230, 222, 211, 0.35); --universe-glow: rgba(230, 222, 211, 0.2);"
               tabindex="0" role="region" aria-label="Blanc Visual & Gallery Wall">
               <!-- Main Flacon Image (Exact original image) -->
-              <img src="/perfumes_images1/blanc1.png" alt="DeLiora Blanc Flacon" class="universe-flacon-img"
+              <img src="./perfumes_images1/blanc1.png" alt="DeLiora Blanc Flacon" class="universe-flacon-img"
                 loading="lazy" />
 
               <div class="gallery-hover-hint">
@@ -474,18 +472,18 @@
               <!-- Section 2 Wall Gallery Overlay: Asymmetric / Masonry Composition -->
               <div class="gallery-wall-overlay gallery-wall-blanc">
                 <div class="wall-masonry-tall">
-                  <img src="/perfumes_images1/blanc_frame1.jpeg" alt="Blanc Presentation & Flacon"
+                  <img src="./perfumes_images1/blanc_frame1.jpeg" alt="Blanc Presentation & Flacon"
                     class="wall-gallery-img" loading="lazy" />
                   <div class="wall-item-glare"></div>
                 </div>
                 <div class="wall-masonry-stack">
                   <div class="wall-masonry-item wall-m-top">
-                    <img src="/perfumes_images1/blanc_frame3.jpeg" alt="Blanc Extrait Portrait" class="wall-gallery-img"
+                    <img src="./perfumes_images1/blanc_frame3.jpeg" alt="Blanc Extrait Portrait" class="wall-gallery-img"
                       loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-masonry-item wall-m-bottom">
-                    <img src="/perfumes_images1/blanc_frame2.jpeg" alt="Blanc Saffron Bloom" class="wall-gallery-img"
+                    <img src="./perfumes_images1/blanc_frame2.jpeg" alt="Blanc Saffron Bloom" class="wall-gallery-img"
                       loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
@@ -494,7 +492,7 @@
             </div>
           </div>
 
-          <div class="universe-copy-col reveal-item" style="--universe-accent: #e6ded3;">
+          <div class="col-12 col-lg-6 universe-copy-col reveal-item order-2 order-lg-1" style="--universe-accent: #e6ded3;">
             <div class="eyebrow" style="color: #e6ded3;">Expression 02 · Luminous Oriental Floral</div>
             <h2 class="universe-flacon-title">BLANC</h2>
             <div class="universe-flacon-sub">Extrait de Parfum</div>
@@ -561,21 +559,21 @@
 
 
     <!-- ======================================================================
-         06 — DEDICATED SECTION 3: FLEUR (Blush Pink Floral World with Video)
+         06 — DEDICATED SECTION 3: FLEUR (Blush Pink Floral World - Bootstrap Grid)
          ====================================================================== -->
     <section class="fragrance-universe-section" id="fleur" data-atmosphere-target="blush" style="background: #230b12;">
       <div class="container">
-        <div class="universe-grid">
+        <div class="row align-items-center universe-grid g-4 g-lg-5">
 
-          <div class="universe-visual-col reveal-item">
+          <div class="col-12 col-lg-6 universe-visual-col reveal-item order-1 order-lg-1">
             <div class="universe-visual-frame"
               style="--universe-border: rgba(217, 160, 164, 0.35); --universe-glow: rgba(217, 160, 164, 0.2);"
               tabindex="0" role="region" aria-label="Fleur Visual & Gallery Wall">
               <!-- Main Video (Exact original video) -->
               <video class="universe-flacon-img" autoplay loop muted playsinline
-                poster="/perfumes_images1/all_perfume_image.png">
-                <source src="/perfumes_images1/fleur3.mp4" type="video/mp4" />
-                <source src="/perfumes_images1/fleur2.mp4" type="video/mp4" />
+                poster="./perfumes_images1/all_perfume_image.png">
+                <source src="./perfumes_images1/fleur3.mp4" type="video/mp4" />
+                <source src="./perfumes_images1/fleur2.mp4" type="video/mp4" />
               </video>
 
               <div class="gallery-hover-hint">
@@ -592,7 +590,7 @@
                     <div class="fleur-corner-bracket top-right"></div>
                     <div class="fleur-corner-bracket bottom-left"></div>
                     <div class="fleur-corner-bracket bottom-right"></div>
-                    <img src="/perfumes_images1/fleur_frame1.jpeg" alt="Fleur Exhibition Masterpiece"
+                    <img src="./perfumes_images1/fleur_frame1.jpeg" alt="Fleur Exhibition Masterpiece"
                       class="wall-gallery-img" loading="lazy" decoding="async" />
                     <div class="wall-item-glare"></div>
                   </div>
@@ -609,7 +607,7 @@
                     <!-- Left Conservatory Arch -->
                     <div class="fleur-arch-frame arch-left">
                       <div class="arch-crown-moulding"></div>
-                      <img src="/perfumes_images1/fleur_frame2.jpeg" alt="Fleur Flacon & Box"
+                      <img src="./perfumes_images1/fleur_frame2.jpeg" alt="Fleur Flacon & Box"
                         class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
@@ -617,7 +615,7 @@
                     <!-- Right Conservatory Arch -->
                     <div class="fleur-arch-frame arch-right">
                       <div class="arch-crown-moulding"></div>
-                      <img src="/perfumes_images1/fleur_frame3.jpg" alt="Fleur Solitaire Portrait"
+                      <img src="./perfumes_images1/fleur_frame3.jpg" alt="Fleur Solitaire Portrait"
                         class="wall-gallery-img" loading="lazy" decoding="async" />
                       <div class="wall-item-glare"></div>
                     </div>
@@ -627,7 +625,7 @@
             </div>
           </div>
 
-          <div class="universe-copy-col reveal-item" style="--universe-accent: #d9a0a4;">
+          <div class="col-12 col-lg-6 universe-copy-col reveal-item order-2 order-lg-2" style="--universe-accent: #d9a0a4;">
             <div class="eyebrow" style="color: #d9a0a4;">Expression 03 · Intoxicating White Floral</div>
             <h2 class="universe-flacon-title">FLEUR</h2>
             <div class="universe-flacon-sub">Extrait de Parfum</div>
@@ -693,18 +691,18 @@
 
 
     <!-- ======================================================================
-         07 — DEDICATED SECTION 4: ALPHA (Deep Amber & Smoke World)
+         07 — DEDICATED SECTION 4: ALPHA (Deep Amber & Smoke World - Bootstrap Grid)
          ====================================================================== -->
     <section class="fragrance-universe-section" id="alpha" data-atmosphere-target="amber" style="background: #1e140d;">
       <div class="container">
-        <div class="universe-grid reverse">
+        <div class="row align-items-center universe-grid reverse g-4 g-lg-5">
 
-          <div class="universe-visual-col reveal-item">
+          <div class="col-12 col-lg-6 universe-visual-col reveal-item order-1 order-lg-2">
             <div class="universe-visual-frame"
               style="--universe-border: rgba(212, 140, 70, 0.35); --universe-glow: rgba(212, 140, 70, 0.2);"
               tabindex="0" role="region" aria-label="Alpha Visual & Gallery Wall">
               <!-- Main Flacon Image (Exact original image) -->
-              <img src="/perfumes_images1/alpha_main3.png" alt="DeLiora Alpha Flacon" class="universe-flacon-img"
+              <img src="./perfumes_images1/alpha_main3.png" alt="DeLiora Alpha Flacon" class="universe-flacon-img"
                 loading="lazy" />
 
               <div class="gallery-hover-hint">
@@ -716,17 +714,17 @@
               <div class="gallery-wall-overlay gallery-wall-alpha">
                 <div class="wall-diag-stage">
                   <div class="wall-diag-card card-1">
-                    <img src="/perfumes_images1/alpha_frame1.jpeg" alt="Alpha Flacon & Packaging"
+                    <img src="./perfumes_images1/alpha_frame1.jpeg" alt="Alpha Flacon & Packaging"
                       class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-diag-card card-2">
-                    <img src="/perfumes_images1/alpha_frame2.jpeg" alt="Alpha Solitaire Extrait"
+                    <img src="./perfumes_images1/alpha_frame2.jpeg" alt="Alpha Solitaire Extrait"
                       class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-diag-card card-3">
-                    <img src="/perfumes_images1/alpha_frame3.JPG" alt="Alpha Dark Woods" class="wall-gallery-img"
+                    <img src="./perfumes_images1/alpha_frame3.JPG" alt="Alpha Dark Woods" class="wall-gallery-img"
                       loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
@@ -735,7 +733,7 @@
             </div>
           </div>
 
-          <div class="universe-copy-col reveal-item" style="--universe-accent: #d48c46;">
+          <div class="col-12 col-lg-6 universe-copy-col reveal-item order-2 order-lg-1" style="--universe-accent: #d48c46;">
             <div class="eyebrow" style="color: #d48c46;">Expression 04 · Smoky Woody Spicy</div>
             <h2 class="universe-flacon-title">ALPHA</h2>
             <div class="universe-flacon-sub">Extrait de Parfum</div>
@@ -803,19 +801,19 @@
 
 
     <!-- ======================================================================
-         08 — DEDICATED SECTION 5: VELVET (Emerald Berry World)
+         08 — DEDICATED SECTION 5: VELVET (Emerald Berry World - Bootstrap Grid)
          ====================================================================== -->
     <section class="fragrance-universe-section" id="velvet" data-atmosphere-target="emerald"
       style="background: #0a1d17;">
       <div class="container">
-        <div class="universe-grid">
+        <div class="row align-items-center universe-grid g-4 g-lg-5">
 
-          <div class="universe-visual-col reveal-item">
+          <div class="col-12 col-lg-6 universe-visual-col reveal-item order-1 order-lg-1">
             <div class="universe-visual-frame"
               style="--universe-border: rgba(94, 179, 150, 0.35); --universe-glow: rgba(94, 179, 150, 0.2);"
               tabindex="0" role="region" aria-label="Velvet Visual & Gallery Wall">
               <!-- Main Flacon Image (Exact original image) -->
-              <img src="/perfumes_images1/velvet_2.png" alt="DeLiora Velvet Flacon" class="universe-flacon-img"
+              <img src="./perfumes_images1/velvet_2.png" alt="DeLiora Velvet Flacon" class="universe-flacon-img"
                 loading="lazy" />
 
               <div class="gallery-hover-hint">
@@ -828,19 +826,19 @@
                 <div class="wall-pillars-cluster">
                   <div class="wall-pillar-item pillar-left">
                     <div class="pillar-arch-moulding"></div>
-                    <img src="/perfumes_images1/velvet_frame1.jpeg" alt="Velvet Flacon Presentation"
+                    <img src="./perfumes_images1/velvet_frame1.jpeg" alt="Velvet Flacon Presentation"
                       class="wall-gallery-img" loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-pillar-item pillar-center">
                     <div class="pillar-arch-moulding"></div>
-                    <img src="/perfumes_images1/velvet_4.png" alt="Velvet Solitaire Extrait" class="wall-gallery-img"
+                    <img src="./perfumes_images1/velvet_4.png" alt="Velvet Solitaire Extrait" class="wall-gallery-img"
                       loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
                   <div class="wall-pillar-item pillar-right">
                     <div class="pillar-arch-moulding"></div>
-                    <img src="/perfumes_images1/velvet_frame3.jpeg" alt="Velvet Cashmere Silk" class="wall-gallery-img"
+                    <img src="./perfumes_images1/velvet_frame3.jpeg" alt="Velvet Cashmere Silk" class="wall-gallery-img"
                       loading="lazy" />
                     <div class="wall-item-glare"></div>
                   </div>
@@ -849,7 +847,7 @@
             </div>
           </div>
 
-          <div class="universe-copy-col reveal-item" style="--universe-accent: #5eb396;">
+          <div class="col-12 col-lg-6 universe-copy-col reveal-item order-2 order-lg-2" style="--universe-accent: #5eb396;">
             <div class="eyebrow" style="color: #5eb396;">Expression 05 · Fruity Amber Gourmand</div>
             <h2 class="universe-flacon-title">VELVET</h2>
             <div class="universe-flacon-sub">Extrait de Parfum</div>
@@ -931,30 +929,36 @@
           a contemporary expression of luxury.”
         </p>
 
-        <div class="story-pillars-grid">
+        <div class="row story-pillars-grid g-4 justify-content-center">
 
-          <div class="story-pillar-item reveal-item">
-            <h3 class="pillar-title">Crafted with Intention</h3>
-            <p class="pillar-copy">
-              Every drop is distilled with rare natural essences, aged with patience, and composed by master perfumers
-              to achieve unprecedented skin chemistry and harmonic drydowns.
-            </p>
+          <div class="col-12 col-md-4 story-pillar-col reveal-item">
+            <div class="story-pillar-item h-100">
+              <h3 class="pillar-title">Crafted with Intention</h3>
+              <p class="pillar-copy">
+                Every drop is distilled with rare natural essences, aged with patience, and composed by master perfumers
+                to achieve unprecedented skin chemistry and harmonic drydowns.
+              </p>
+            </div>
           </div>
 
-          <div class="story-pillar-item reveal-item">
-            <h3 class="pillar-title">Designed to be Remembered</h3>
-            <p class="pillar-copy">
-              A fragrance should not shout — it should captivate silently. Our concentrated extraits possess high
-              sillage and longevity, casting a quiet yet unforgettable trail.
-            </p>
+          <div class="col-12 col-md-4 story-pillar-col reveal-item">
+            <div class="story-pillar-item h-100">
+              <h3 class="pillar-title">Designed to be Remembered</h3>
+              <p class="pillar-copy">
+                A fragrance should not shout — it should captivate silently. Our concentrated extraits possess high
+                sillage and longevity, casting a quiet yet unforgettable trail.
+              </p>
+            </div>
           </div>
 
-          <div class="story-pillar-item reveal-item">
-            <h3 class="pillar-title">Made in India</h3>
-            <p class="pillar-copy">
-              Honoring centuries of Indian botanical mastery — from Tamil Nadu jasmine to Kannauj distillation —
-              elevated into international architectural silhouettes.
-            </p>
+          <div class="col-12 col-md-4 story-pillar-col reveal-item">
+            <div class="story-pillar-item h-100">
+              <h3 class="pillar-title">Made in India</h3>
+              <p class="pillar-copy">
+                Honoring centuries of Indian botanical mastery — from Tamil Nadu jasmine to Kannauj distillation —
+                elevated into international architectural silhouettes.
+              </p>
+            </div>
           </div>
 
         </div>
@@ -971,111 +975,68 @@
           <h2 class="section-title" style="color: #FFFFFF;">SHOP DELIORA ESSENCE</h2>
         </div>
 
-        <!-- Online Storefronts: Box 1 (Amazon) & Box 2 (Flipkart) (Temporarily Commented Out) -->
-        <!--
-        <div class="online-storefronts-grid reveal-item">
+        <!-- Offline Store & In-Person Purchase (Bootstrap Responsive Row) -->
+        <div class="offline-boutique-card reveal-item has-bootstrap-row" id="offline-store">
+          <div class="row g-4 align-items-stretch">
+            <div class="col-12 col-lg-7 offline-boutique-col-left">
+              <div class="eyebrow no-flank">Offline Store · In-Person Purchase</div>
+              <h3 class="offline-boutique-name">
+                DeLiora Essence by Patidar
+              </h3>
 
-          <div class="storefront-card storefront-card-amazon">
-            <div class="storefront-card-body">
-              <div class="storefront-badge-row">
-                <span class="storefront-badge-brand amazon-badge">
-                  Official Brand Store
-                </span>
-                <span class="storefront-badge-status">✓ Prime Delivery Available</span>
+              <div class="offline-boutique-address-box">
+                <span class="offline-boutique-label">Store Address (Buy Offline):</span>
+                <p class="offline-boutique-address">
+                  3, Satam Park Colony, Mushakhedi Ring Road Square,<br />
+                  Indore, Madhya Pradesh
+                </p>
               </div>
-              <h3 class="storefront-title">Amazon India</h3>
-              <p class="storefront-desc">
-                Fast, insured delivery across India with 100% authentic batch security and certified manufacturer packaging.
+
+              <div class="offline-boutique-contact-list">
+                <div class="offline-contact-item">
+                  <span class="offline-contact-label">Phone / Call to Buy:</span>
+                  <a href="tel:7771033947" class="offline-contact-value">+91 7771033947</a>
+                </div>
+                <div class="offline-contact-item">
+                  <span class="offline-contact-label">Email:</span>
+                  <a href="mailto:DELIORAESSENCE2026@gmail.com"
+                    class="offline-contact-value">DELIORAESSENCE2026@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="offline-store-btns-group">
+                <a href="https://maps.google.com/?q=3,+satam+park+colony+mushakhedi+ring+road+square+indore"
+                  target="_blank" rel="noopener noreferrer" class="btn btn-primary offline-store-btn">
+                  <span>Get Directions &rarr;</span>
+                </a>
+                <a href="tel:7771033947" class="btn btn-secondary offline-store-btn">
+                  <span>Call Store: 7771033947</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-5 offline-boutique-col-right">
+              <div class="offline-boutique-col-right-title">
+                Buy Offline in Person
+              </div>
+              <p class="offline-boutique-col-right-desc">
+                Prefer to experience the fragrances in person? Visit our store location in Indore to test all 5 signature
+                extraits on your skin, explore the notes in person, and purchase directly with an authentic GST tax
+                invoice.
               </p>
-            </div>
-            <a href="https://www.amazon.in/dp/B0DELIORA" target="_blank" rel="noopener noreferrer"
-              class="btn-marketplace btn-amazon" style="justify-content: center; width: 100%;">
-              <span>Visit Amazon Storefront &rarr;</span>
-            </a>
-          </div>
-
-          <div class="storefront-card storefront-card-flipkart">
-            <div class="storefront-card-body">
-              <div class="storefront-badge-row">
-                <span class="storefront-badge-brand flipkart-badge">
-                  Verified Brand Store
-                </span>
-                <span class="storefront-badge-status">✓ Flipkart Assured</span>
-              </div>
-              <h3 class="storefront-title">Flipkart Brand Store</h3>
-              <p class="storefront-desc">
-                Explore all DeLiora fragrances with exclusive seasonal bundles, regional express logistics, and pan-India service.
-              </p>
-            </div>
-            <a href="https://www.flipkart.com/deliora-essence" target="_blank" rel="noopener noreferrer"
-              class="btn-marketplace btn-flipkart" style="justify-content: center; width: 100%;">
-              <span>Visit Flipkart Store &rarr;</span>
-            </a>
-          </div>
-
-        </div>
-        -->
-
-        <!-- Offline Store & In-Person Purchase (Direct from .env) -->
-        <div class="offline-boutique-card reveal-item" id="offline-store">
-          <div class="offline-boutique-col-left">
-            <div class="eyebrow no-flank">Offline Store · In-Person Purchase</div>
-            <h3 class="offline-boutique-name">
-              DeLiora Essence by Patidar
-            </h3>
-
-            <div class="offline-boutique-address-box">
-              <span class="offline-boutique-label">Store Address (Buy Offline):</span>
-              <p class="offline-boutique-address">
-                3, Satam Park Colony, Mushakhedi Ring Road Square,<br />
-                Indore, Madhya Pradesh
-              </p>
-            </div>
-
-            <div class="offline-boutique-contact-list">
-              <div class="offline-contact-item">
-                <span class="offline-contact-label">Phone / Call to Buy:</span>
-                <a href="tel:7771033947" class="offline-contact-value">+91 7771033947</a>
-              </div>
-              <div class="offline-contact-item">
-                <span class="offline-contact-label">Email:</span>
-                <a href="mailto:DELIORAESSENCE2026@gmail.com"
-                  class="offline-contact-value">DELIORAESSENCE2026@gmail.com</a>
-              </div>
-            </div>
-
-            <div class="offline-store-btns-group">
-              <a href="https://maps.google.com/?q=3,+satam+park+colony+mushakhedi+ring+road+square+indore"
-                target="_blank" rel="noopener noreferrer" class="btn btn-primary offline-store-btn">
-                <span>Get Directions &rarr;</span>
-              </a>
-              <a href="tel:7771033947" class="btn btn-secondary offline-store-btn">
-                <span>Call Store: 7771033947</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="offline-boutique-col-right">
-            <div class="offline-boutique-col-right-title">
-              Buy Offline in Person
-            </div>
-            <p class="offline-boutique-col-right-desc">
-              Prefer to experience the fragrances in person? Visit our store location in Indore to test all 5 signature
-              extraits on your skin, explore the notes in person, and purchase directly with an authentic GST tax
-              invoice.
-            </p>
-            <div class="offline-boutique-perks">
-              <div class="offline-perk-item">
-                <span class="offline-perk-icon">✦</span>
-                <span>Immediate On-Site Bottle Collection</span>
-              </div>
-              <div class="offline-perk-item">
-                <span class="offline-perk-icon">✦</span>
-                <span>Direct Skin Chemistry Olfactory Testing</span>
-              </div>
-              <div class="offline-perk-item">
-                <span class="offline-perk-icon">✦</span>
-                <span>All Payment Modes Accepted (UPI, Cards, Cash)</span>
+              <div class="offline-boutique-perks">
+                <div class="offline-perk-item">
+                  <span class="offline-perk-icon">✦</span>
+                  <span>Immediate On-Site Bottle Collection</span>
+                </div>
+                <div class="offline-perk-item">
+                  <span class="offline-perk-icon">✦</span>
+                  <span>Direct Skin Chemistry Olfactory Testing</span>
+                </div>
+                <div class="offline-perk-item">
+                  <span class="offline-perk-icon">✦</span>
+                  <span>All Payment Modes Accepted (UPI, Cards, Cash)</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1088,15 +1049,15 @@
 
 
   <!-- ======================================================================
-       12 — LUXURY FOOTER (With Exact Links & Brand Logo)
+       12 — LUXURY FOOTER (With Exact Links & Brand Logo - Bootstrap Responsive)
        ====================================================================== -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-compact-inner">
+      <div class="row align-items-center justify-content-between footer-compact-inner g-3">
 
         <!-- Brand Signature with Logo -->
-        <div class="footer-compact-brand">
-          <img src="/perfumes_images1/logo.png" alt="DeLiora Brand Logo" class="footer-compact-logo" />
+        <div class="col-12 col-md-auto footer-compact-brand d-flex align-items-center">
+          <img src="./perfumes_images1/logo.png" alt="DeLiora Brand Logo" class="footer-compact-logo" />
           <div class="footer-compact-brand-text">
             <span class="footer-compact-title">DELIORA</span>
             <span class="footer-compact-sub">essence - by patidar</span>
@@ -1104,9 +1065,9 @@
         </div>
 
         <!-- Connect with us -->
-        <div class="footer-compact-connect">
+        <div class="col-12 col-md-auto footer-compact-connect d-flex align-items-center">
           <span class="footer-compact-label">Connect:</span>
-          <div class="footer-social-links">
+          <div class="footer-social-links d-flex align-items-center">
             <a href="https://www.instagram.com/deliora_essence_bypatidar" target="_blank" rel="noopener noreferrer"
               class="footer-social-link" aria-label="Visit DeLiora on Instagram">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -1140,32 +1101,42 @@
 
       </div>
 
-      <div class="footer-compact-bottom">
+      <div class="footer-compact-bottom text-center">
         <span>Copyright © 2026, DeLiora Essence by Patidar All rights reserved.</span>
       </div>
     </div>
   </footer>
 
 
-  <!-- Live Search Modal -->
-  <div class="search-modal-overlay" id="search-modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="search-modal-inner">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-        <span class="eyebrow no-flank">House Directory</span>
-        <button class="cart-close-btn" id="search-close-btn" aria-label="Close search">&times;</button>
-      </div>
+  <!-- Live Search Modal (Bootstrap Modal) -->
+  <div class="modal fade search-modal-overlay" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg search-modal-inner">
+      <div class="modal-content border-0" style="background: transparent;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <span class="eyebrow no-flank mb-0">House Directory</span>
+          <button type="button" class="cart-close-btn" id="search-close-btn" data-bs-dismiss="modal" aria-label="Close search">&times;</button>
+        </div>
 
-      <div class="search-input-wrapper">
-        <input type="text" id="search-input" class="search-input"
-          placeholder="Search fragrances, notes (Jasmine, Sandalwood, Cypress)..." autocomplete="off" />
-      </div>
+        <div class="search-input-wrapper">
+          <input type="text" id="search-input" class="search-input"
+            placeholder="Search fragrances, notes (Jasmine, Sandalwood, Cypress)..." autocomplete="off" />
+        </div>
 
-      <div class="search-results-list" id="search-results"></div>
+        <div class="search-results-list" id="search-results"></div>
+      </div>
     </div>
   </div>
 
-  <!-- JavaScript Entry -->
-  <script type="module" src="/src/js/main.js"></script>
+  <!-- Bootstrap 5.3.3 Bundle JS (Local Vendor with CDN Fallback) -->
+  <script src="./src/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    if (!window.bootstrap) {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"><\/script>');
+    }
+  </script>
+
+  <!-- JavaScript Application Entry (Classic Script: Works directly via double-clicking index.html) -->
+  <script src="./src/js/app.js"></script>
 </body>
 
 </html>

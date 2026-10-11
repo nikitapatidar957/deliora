@@ -11,18 +11,12 @@
  * - 100% Scrubbable & Reversible Animation Timeline (60fps GPU)
  */
 
-import fleurClip from '../../perfumes_images1/fleur_clip.mp4';
-import mistiqueClip from '../../perfumes_images1/mistique_clip.mp4';
-import blancClip from '../../perfumes_images1/blanc_clip.mp4';
-import velvetClip from '../../perfumes_images1/velvet_clip.mp4';
-import alphaClip from '../../perfumes_images1/alpha_clip.mp4';
-
 const PERFUME_CLIPS = [
-  { index: 1, id: 'fleur', name: 'Fleur', subtitle: 'Blush Floral', src: fleurClip },
-  { index: 2, id: 'mistique', name: 'Mistique', subtitle: 'Aqua Oceanic', src: mistiqueClip },
-  { index: 3, id: 'blanc', name: 'Blanc', subtitle: 'Alabaster White', src: blancClip },
-  { index: 4, id: 'velvet', name: 'Velvet', subtitle: 'Emerald Berries', src: velvetClip },
-  { index: 5, id: 'alpha', name: 'Alpha', subtitle: 'Smoky Amber', src: alphaClip }
+  { index: 1, id: 'fleur', name: 'Fleur', subtitle: 'Blush Floral', src: './perfumes_images1/fleur_clip.mp4' },
+  { index: 2, id: 'mistique', name: 'Mistique', subtitle: 'Aqua Oceanic', src: './perfumes_images1/mistique_clip.mp4' },
+  { index: 3, id: 'blanc', name: 'Blanc', subtitle: 'Alabaster White', src: './perfumes_images1/blanc_clip.mp4' },
+  { index: 4, id: 'velvet', name: 'Velvet', subtitle: 'Emerald Berries', src: './perfumes_images1/velvet_clip.mp4' },
+  { index: 5, id: 'alpha', name: 'Alpha', subtitle: 'Smoky Amber', src: './perfumes_images1/alpha_clip.mp4' }
 ];
 
 export function initCinematicHero() {

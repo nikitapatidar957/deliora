@@ -2,8 +2,7 @@ services:
   - type: web
     name: deliora-essence
     runtime: static
-    buildCommand: npm run build
-    staticPublishPath: ./dist
+    staticPublishPath: .
     routes:
       - type: rewrite
         source: /*
