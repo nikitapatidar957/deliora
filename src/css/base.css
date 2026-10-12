@@ -13,6 +13,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
   background-color: var(--color-burgundy);
   color: var(--color-ivory);
   font-family: var(--font-sans);

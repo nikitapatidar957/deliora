@@ -154,20 +154,25 @@ function setupMobileNav() {
 
   if (!toggleBtn || !drawer) return;
 
+  function unlockBodyScroll() {
+    document.body.style.overflow = '';
+    document.body.style.removeProperty('overflow');
+    document.body.style.removeProperty('padding-right');
+    const backdrops = document.querySelectorAll('.offcanvas-backdrop');
+    backdrops.forEach(b => b.remove());
+  }
+
   function closeDrawer() {
     if (window.bootstrap?.Offcanvas) {
       try {
-        const bsOffcanvas = window.bootstrap.Offcanvas.getInstance(drawer);
+        const bsOffcanvas = window.bootstrap.Offcanvas.getInstance(drawer) || window.bootstrap.Offcanvas.getOrCreateInstance(drawer);
         if (bsOffcanvas) {
           bsOffcanvas.hide();
-          return;
         }
       } catch (e) {}
     }
     drawer.classList.remove('show', 'is-active');
-    document.body.style.overflow = '';
-    const backdrop = document.querySelector('.offcanvas-backdrop');
-    backdrop?.remove();
+    unlockBodyScroll();
   }
 
   function openDrawer() {
@@ -201,15 +206,53 @@ function setupMobileNav() {
   });
 
   closeBtn?.addEventListener('click', (e) => {
-    if (!window.bootstrap?.Offcanvas) {
-      e.preventDefault();
-      closeDrawer();
-    }
+    e.preventDefault();
+    closeDrawer();
   });
 
+  // Guarantee body scroll unlocks when Bootstrap completes dismissal
+  drawer.addEventListener('hidden.bs.offcanvas', unlockBodyScroll);
+
+  // Smooth Section Navigation on Link Click
   links?.forEach(link => {
-    link.addEventListener('click', () => {
-      closeDrawer();
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetEl = document.getElementById(targetId);
+
+        // 1. Close drawer immediately and release scroll lock
+        closeDrawer();
+        unlockBodyScroll();
+
+        if (targetEl) {
+          const scrollToSection = () => {
+            const header = document.querySelector('.site-header');
+            const headerOffset = header ? header.offsetHeight : 70;
+            const elementPosition = targetEl.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: Math.max(0, offsetPosition),
+              behavior: 'smooth'
+            });
+          };
+
+          // Trigger immediate scroll & reinforce after offcanvas animation finishes
+          scrollToSection();
+          setTimeout(scrollToSection, 120);
+          setTimeout(scrollToSection, 350);
+
+          if (history.pushState) {
+            history.pushState(null, null, href);
+          }
+        }
+      } else {
+        closeDrawer();
+      }
     });
   });
 

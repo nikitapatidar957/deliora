@@ -41,8 +41,13 @@ export function initCinematicHero() {
   // --------------------------------------------------------------------------
   let leftIndex = 0; // Starts at Clip 1 (index 0)
   let rightIndex = 4; // Starts at Clip 5 (index 4)
+  let sideReelsInitialized = false;
 
   function setupSideReels() {
+    if (window.innerWidth <= 768) return;
+    if (sideReelsInitialized) return;
+    sideReelsInitialized = true;
+
     if (videoLeft) {
       videoLeft.muted = true;
       videoLeft.defaultMuted = true;
@@ -279,6 +284,7 @@ export function initCinematicHero() {
           if (videoLeft && !videoLeft.paused) videoLeft.pause();
           if (videoRight && !videoRight.paused) videoRight.pause();
         } else {
+          if (!sideReelsInitialized) setupSideReels();
           const riseT = Math.min(Math.max((p - 0.28) / 0.52, 0), 1);
           const easedRise = easeOutCubic(riseT);
           const yOffset = (1 - easedRise) * 110;

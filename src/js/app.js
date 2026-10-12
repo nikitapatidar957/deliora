@@ -850,8 +850,13 @@ function initCinematicHero() {
   // --------------------------------------------------------------------------
   let leftIndex = 0; // Starts at Clip 1 (index 0)
   let rightIndex = 4; // Starts at Clip 5 (index 4)
+  let sideReelsInitialized = false;
 
   function setupSideReels() {
+    if (window.innerWidth <= 768) return;
+    if (sideReelsInitialized) return;
+    sideReelsInitialized = true;
+
     if (videoLeft) {
       videoLeft.muted = true;
       videoLeft.defaultMuted = true;
@@ -1088,6 +1093,7 @@ function initCinematicHero() {
           if (videoLeft && !videoLeft.paused) videoLeft.pause();
           if (videoRight && !videoRight.paused) videoRight.pause();
         } else {
+          if (!sideReelsInitialized) setupSideReels();
           const riseT = Math.min(Math.max((p - 0.28) / 0.52, 0), 1);
           const easedRise = easeOutCubic(riseT);
           const yOffset = (1 - easedRise) * 110;
@@ -1221,6 +1227,12 @@ function initAll() {
 
   // 8. Fragrance Visual Frames Gallery Hover & Touch Toggle
   setupGalleryHoverToggles();
+
+  // 9. Lazy Media & Section Video Loading
+  setupLazyMedia();
+
+  // 10. Smooth Header-Aware Anchor Scrolling
+  setupSmoothAnchorLinks();
 }
 
 if (document.readyState === 'loading') {
@@ -1334,20 +1346,25 @@ function setupMobileNav() {
 
   if (!toggleBtn || !drawer) return;
 
+  function unlockBodyScroll() {
+    document.body.style.overflow = '';
+    document.body.style.removeProperty('overflow');
+    document.body.style.removeProperty('padding-right');
+    const backdrops = document.querySelectorAll('.offcanvas-backdrop');
+    backdrops.forEach(b => b.remove());
+  }
+
   function closeDrawer() {
     if (window.bootstrap?.Offcanvas) {
       try {
-        const bsOffcanvas = window.bootstrap.Offcanvas.getInstance(drawer);
+        const bsOffcanvas = window.bootstrap.Offcanvas.getInstance(drawer) || window.bootstrap.Offcanvas.getOrCreateInstance(drawer);
         if (bsOffcanvas) {
           bsOffcanvas.hide();
-          return;
         }
       } catch (e) {}
     }
     drawer.classList.remove('show', 'is-active');
-    document.body.style.overflow = '';
-    const backdrop = document.querySelector('.offcanvas-backdrop');
-    backdrop?.remove();
+    unlockBodyScroll();
   }
 
   function openDrawer() {
@@ -1370,8 +1387,6 @@ function setupMobileNav() {
   }
 
   toggleBtn.addEventListener('click', (e) => {
-    // If Bootstrap Offcanvas is available, let Bootstrap's data-bs-toggle handle it.
-    // If Bootstrap is not loaded, use vanilla fallback:
     if (!window.bootstrap?.Offcanvas) {
       e.preventDefault();
       if (drawer.classList.contains('show') || drawer.classList.contains('is-active')) {
@@ -1383,15 +1398,53 @@ function setupMobileNav() {
   });
 
   closeBtn?.addEventListener('click', (e) => {
-    if (!window.bootstrap?.Offcanvas) {
-      e.preventDefault();
-      closeDrawer();
-    }
+    e.preventDefault();
+    closeDrawer();
   });
 
+  // Guarantee body scroll unlocks when Bootstrap completes dismissal
+  drawer.addEventListener('hidden.bs.offcanvas', unlockBodyScroll);
+
+  // Smooth Section Navigation on Link Click
   links?.forEach(link => {
-    link.addEventListener('click', () => {
-      closeDrawer();
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetEl = document.getElementById(targetId);
+
+        // 1. Close drawer immediately and release scroll lock
+        closeDrawer();
+        unlockBodyScroll();
+
+        if (targetEl) {
+          const scrollToSection = () => {
+            const header = document.querySelector('.site-header');
+            const headerOffset = header ? header.offsetHeight : 70;
+            const elementPosition = targetEl.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: Math.max(0, offsetPosition),
+              behavior: 'smooth'
+            });
+          };
+
+          // Trigger immediate scroll & reinforce after offcanvas animation finishes
+          scrollToSection();
+          setTimeout(scrollToSection, 120);
+          setTimeout(scrollToSection, 350);
+
+          if (history.pushState) {
+            history.pushState(null, null, href);
+          }
+        }
+      } else {
+        closeDrawer();
+      }
     });
   });
 
@@ -1403,6 +1456,54 @@ function setupMobileNav() {
     if (e.key === 'Escape' && (drawer.classList.contains('show') || drawer.classList.contains('is-active'))) {
       closeDrawer();
     }
+  });
+}
+
+function setupLazyMedia() {
+  const fleurVideo = document.getElementById('fleur-universe-video');
+  if (fleurVideo && 'IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (fleurVideo.preload === 'none') {
+            fleurVideo.preload = 'auto';
+          }
+          fleurVideo.play().catch(() => {});
+        } else {
+          if (!fleurVideo.paused) {
+            fleurVideo.pause();
+          }
+        }
+      });
+    }, { rootMargin: '250px 0px' });
+    videoObserver.observe(fleurVideo);
+  }
+}
+
+function setupSmoothAnchorLinks() {
+  document.querySelectorAll('a[href^="#"]:not(.mobile-nav-link)').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href.length > 1) {
+        const targetEl = document.querySelector(href);
+        if (targetEl) {
+          e.preventDefault();
+          const header = document.querySelector('.site-header');
+          const headerOffset = header ? header.offsetHeight : 70;
+          const elementPosition = targetEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: 'smooth'
+          });
+
+          if (history.pushState) {
+            history.pushState(null, null, href);
+          }
+        }
+      }
+    });
   });
 }
 
